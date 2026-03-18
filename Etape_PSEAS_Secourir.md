@@ -294,4 +294,78 @@ Amadou surveille Fatou, rassure sa voisine et informe les pompiers de tout chang
 
 ---
 
+# Detailler  PSEASS
+
+
+---
+
+## Étape 1 : Protéger – Sécuriser la zone
+
+### Objectif principal
+
+* Éviter tout sur-accident pour la victime et pour le secouriste.
+* Créer un environnement sûr pour intervenir efficacement.
+* Identifier et neutraliser les dangers immédiats.
+
+---
+
+### Actions concrètes (pas à pas)
+
+1. **Observer la scène avant d’intervenir**
+
+   * Vérifiez rapidement s’il y a : feu, fumée, fuite de gaz, fils électriques, liquide glissant, circulation de véhicules.
+   * Ne vous précipitez jamais directement sur la victime si la zone n’est pas sécurisée.
+
+2. **Isoler le danger**
+
+   * Couper l’électricité si la victime est en contact avec un courant ou si des fils tombés représentent un risque.
+   * Couper le gaz ou éteindre les flammes si possible.
+   * Éloigner ou retirer les objets dangereux (produits chimiques, outils coupants, objets instables).
+
+3. **Créer une zone sûre autour de la victime**
+
+   * Délimitez l’espace avec des barrières, cordons, ou personnes pour éviter que d’autres ne s’approchent.
+   * Si vous êtes seul, éloignez simplement tout obstacle ou danger immédiat de quelques mètres autour de la victime.
+
+4. **Préparer votre intervention**
+
+   * Vérifiez que vous avez accès à la victime sans vous mettre en danger.
+   * Évaluez si un déplacement rapide de la victime est nécessaire (uniquement en cas de danger immédiat).
+
+---
+
+### Conseils pratiques
+
+* **Toujours penser à votre sécurité** : un secouriste blessé ne peut pas aider efficacement.
+* **Priorité aux risques graves** : feu, courant électrique, effondrement, circulation.
+* **Communiquer avec l’entourage** : éloigner les spectateurs et demander de l’aide pour sécuriser la zone.
+* **Ne jamais improviser des gestes dangereux** pour “déplacer” la victime si ce n’est pas urgent.
+
+---
+
+### Erreurs fréquentes
+
+* Se précipiter vers la victime sans analyser les dangers → risque de sur-accident.
+* Déplacer la victime sans danger immédiat → aggravation des blessures.
+* Ignorer les risques électriques ou de gaz → électrocution ou explosion.
+
+---
+
+### REX (Retour d’expérience)
+
+* Dans un incendie domestique, un secouriste a tenté de tirer une victime avant d’éteindre le feu. Résultat : brûlures sur le secouriste et aggravation de la panique de la victime. **Conclusion : sécuriser d’abord, intervenir ensuite.**
+* Dans un accident de travail, le secouriste a vérifié l’absence de liquides inflammables et coupé le courant avant d’aider la victime. Intervention réussie sans accident secondaire.
+
+---
+
+### Fil rouge (Amadou)
+
+* Amadou observe que la cuisine est en feu et que des appareils électriques sont en marche.
+* Il coupe le gaz, débranche le grille-pain et ferme la porte pour contenir les flammes.
+* Il crée un espace sécurisé autour de sa voisine Fatou avant de l’approcher.
+* Résultat : il peut intervenir sans risquer sa propre sécurité.
+
+---
+
+
 
