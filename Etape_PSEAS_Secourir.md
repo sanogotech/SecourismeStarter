@@ -706,6 +706,83 @@ Amadou surveille Fatou, rassure sa voisine et informe les pompiers de tout chang
 
 ---
 
+---
+
+## 🔹 Top 20 des Bonnes Pratiques (Sécuriser et secourir efficacement)
+
+1. Vérifier la sécurité de la zone avant toute intervention.
+2. Couper le courant électrique et le gaz si nécessaire.
+3. Identifier rapidement le danger principal (feu, chute, électricité).
+4. Délimiter une zone sécurisée pour éviter les sur-accidents.
+5. Évaluer la conscience de la victime avant tout geste.
+6. Vérifier la respiration et le pouls de la victime.
+7. Appliquer la **PLS** pour une victime inconsciente mais respirante.
+8. Commencer la **RCP immédiatement** si la victime ne respire pas.
+9. Contrôler rapidement les saignements importants.
+10. Appeler les secours sans perdre de temps (18, 15, 17 en Côte d’Ivoire).
+11. Fournir une localisation précise et complète aux secours.
+12. Rester calme et communiquer clairement avec l’opérateur et l’entourage.
+13. Surveiller la victime jusqu’à l’arrivée des secours.
+14. Rassurer la victime pour réduire le stress et stabiliser le rythme cardiaque.
+15. Demander de l’aide si possible pour sécuriser la zone ou accompagner l’alerte.
+16. Maintenir la vigilance sur les dangers secondaires (fumée, chutes).
+17. Préparer un chemin dégagé pour l’arrivée des secours.
+18. Ajuster la position de la victime en fonction de son état (PLS, dos, jambes surélevées).
+19. Répéter les gestes de premiers secours si nécessaire (compression thoracique, pansement).
+20. Se former régulièrement aux gestes de premiers secours et aux risques domestiques/industriels.
+
+---
+
+## 🔹 Top 20 des Mauvaises Pratiques (À éviter absolument)
+
+1. Se précipiter vers la victime sans sécuriser la zone.
+2. Déplacer une victime sans danger immédiat.
+3. Négliger l’électricité ou le gaz dans un incendie.
+4. Ignorer la respiration ou l’état de conscience avant d’agir.
+5. Commencer la RCP sur une victime qui respire.
+6. Ne pas appeler les secours immédiatement.
+7. Fournir des informations incomplètes aux opérateurs.
+8. Parler trop vite ou paniquer au téléphone.
+9. Laisser la victime seule après l’avoir mise en sécurité.
+10. Tenter des gestes complexes sans formation (intubation, manipulation de fractures).
+11. Ne pas surveiller les changements d’état de la victime.
+12. Ignorer les signes de choc ou d’hypothermie.
+13. Retirer un objet coincé dans une plaie de façon inappropriée.
+14. Négliger les risques secondaires (fumée, effondrement, véhicules).
+15. Mal positionner une victime en PLS (tête trop droite ou bras coincé).
+16. Oublier de protéger l’entourage ou les spectateurs.
+17. Ne pas vérifier les signes vitaux régulièrement.
+18. Perdre patience ou paniquer face à l’urgence.
+19. Sous-estimer un saignement ou une difficulté respiratoire.
+20. Ne pas suivre les instructions des secours à distance.
+
+---
+
+## 🔹 Top 20 des Risques Élevés (Situations critiques)
+
+1. Victime en contact avec un courant électrique sous tension.
+2. Incendie ou explosion en cours.
+3. Gaz toxique ou fuite chimique.
+4. Risque d’effondrement (maison, bâtiment, chantier).
+5. Routes ou voies de circulation dangereuses autour de la victime.
+6. Inondation ou cours d’eau proche.
+7. Chute de hauteur ou débris instable.
+8. Victime inconsciente ne respirant pas (arrêt cardiaque imminent).
+9. Hémorragie massive non contrôlée.
+10. Obstruction des voies respiratoires sévère.
+11. Risque de panique collective (foule, public).
+12. Animaux dangereux ou insectes venimeux à proximité.
+13. Risque chimique (produits ménagers ou industriels).
+14. Risque thermique extrême (brûlures, hypothermie).
+15. Traumatisme crânien grave avec risque de coma.
+16. Victime coincée dans un véhicule ou sous débris.
+17. Choc électrique lié à l’eau (eau + électricité).
+18. Malaise ou crise cardiaque sans assistance immédiate.
+19. Explosion ou fuite de gaz dans un milieu fermé.
+20. Absence de secours disponibles dans un délai critique.
+
+---
+
 
 
 
