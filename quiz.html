@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secourisme Côte d’Ivoire · 120 questions PSEAS</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #8B1E1E;      /* rouge secourisme */
+            --secondary: #C62828;
+            --accent: #FFB74D;        /* orange sécurité */
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --light-bg: #f8fafc;
+            --dark-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #8B1E1E 0%, #B71C1C 100%);
+            min-height: 100vh;
+            padding: 1rem;
+            color: #1e293b;
+        }
+
+        .quiz-wrapper {
+            max-width: 1000px;
+            margin: auto;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .quiz-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #B71C1C 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .quiz-header h1 {
+            font-weight: 800;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFB74D 0%, #FFEE58 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .quiz-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge-year {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid white;
+        }
+
+        /* Configuration panel */
+        .config-panel {
+            padding: 2rem;
+            background: white;
+        }
+
+        .theme-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        .theme-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .theme-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Quiz content */
+        .quiz-content {
+            padding: 2rem;
+            background: white;
+        }
+
+        .progress-container {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        #question-counter, #current-score {
+            font-weight: 600;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .progress {
+            height: 12px;
+            border-radius: 10px;
+            background-color: #e2e8f0;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
+            border-radius: 10px;
+        }
+
+        #question-card {
+            border: none;
+            border-radius: 20px;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        #question-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .thematic-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 2px solid;
+        }
+
+        /* Badges par thème */
+        .badge-proteger { background: rgba(239,68,68,0.1); border-color: #ef4444; color: #ef4444; }
+        .badge-examiner { background: rgba(16,185,129,0.1); border-color: #10b981; color: #10b981; }
+        .badge-alerter { background: rgba(245,158,11,0.1); border-color: #f59e0b; color: #f59e0b; }
+        .badge-secourir { background: rgba(59,130,246,0.1); border-color: #3b82f6; color: #3b82f6; }
+        .badge-surveiller { background: rgba(139,92,246,0.1); border-color: #8b5cf6; color: #8b5cf6; }
+        .badge-bonnes { background: rgba(16,185,129,0.1); border-color: #10b981; color: #10b981; }
+        .badge-mauvaises { background: rgba(239,68,68,0.1); border-color: #ef4444; color: #ef4444; }
+        .badge-risques { background: rgba(245,158,11,0.1); border-color: #f59e0b; color: #f59e0b; }
+        .badge-rex { background: rgba(99,102,241,0.1); border-color: #6366f1; color: #6366f1; }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            transition: all 0.2s;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .option-btn:hover:not([disabled]) {
+            border-color: var(--secondary);
+            background: #ffebee;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .option-btn.correct {
+            background: #f0fdf4;
+            border-color: #10b981;
+            color: #065f46;
+            font-weight: 600;
+        }
+
+        .option-btn.incorrect {
+            background: #fef2f2;
+            border-color: #ef4444;
+            color: #7f1d1d;
+            font-weight: 600;
+        }
+
+        #explanation-box {
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            animation: fadeIn 0.5s;
+            border-left: 5px solid;
+        }
+        .explanation-correct { background: #f0fdf4; border-left-color: #10b981; }
+        .explanation-incorrect { background: #fef2f2; border-left-color: #ef4444; }
+
+        .tip-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+            border-left: 4px solid var(--info);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .nav-btn {
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .btn-primary-custom {
+            background: var(--secondary);
+            color: white;
+            border: none;
+        }
+        .btn-primary-custom:hover {
+            background: #a51e1e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+        .modal-header {
+            background: var(--primary);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+        .final-score {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-wrapper">
+        <!-- Header -->
+        <div class="quiz-header">
+            <h1><i class="fas fa-heartbeat me-3"></i>Secourisme Côte d'Ivoire</h1>
+            <p>120 questions pratiques sur la méthode PSEAS (Protéger, Examiner, Alerter, Secourir, Surveiller) – retours d’expérience terrain, bonnes pratiques et gestes qui sauvent.</p>
+            <div class="badge-year"><i class="fas fa-check-circle"></i> 120 cas concrets · REX · Côte d’Ivoire</div>
+        </div>
+
+        <!-- Configuration Panel -->
+        <div id="settings-panel" class="config-panel">
+            <h4 class="text-center mb-4"><i class="fas fa-sliders-h"></i> Configurez votre quiz</h4>
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <label class="form-label">Nombre de questions :</label>
+                    <select id="question-count" class="form-select">
+                        <option value="30">30 questions (rapide)</option>
+                        <option value="60">60 questions (standard)</option>
+                        <option value="90">90 questions (approfondi)</option>
+                        <option value="120" selected>120 questions (expert complet)</option>
+                    </select>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button id="start-quiz-btn" class="btn btn-primary-custom w-100">
+                        <i class="fas fa-rocket"></i> Démarrer
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h5><i class="fas fa-filter"></i> Thématiques à évaluer</h5>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-proteger" checked>
+                            <label class="form-check-label" for="domain-proteger"><i class="fas fa-shield-alt text-danger me-2"></i>Protéger & sécuriser</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-examiner" checked>
+                            <label class="form-check-label" for="domain-examiner"><i class="fas fa-stethoscope text-success me-2"></i>Examiner & évaluer</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-alerter" checked>
+                            <label class="form-check-label" for="domain-alerter"><i class="fas fa-phone-alt text-warning me-2"></i>Alerter & numéros d'urgence</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-secourir" checked>
+                            <label class="form-check-label" for="domain-secourir"><i class="fas fa-hand-holding-heart text-info me-2"></i>Secourir (PLS, RCP, Heimlich)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-surveiller" checked>
+                            <label class="form-check-label" for="domain-surveiller"><i class="fas fa-eye text-purple me-2"></i>Surveiller & rassurer</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-bonnes" checked>
+                            <label class="form-check-label" for="domain-bonnes"><i class="fas fa-check-circle text-success me-2"></i>Bonnes pratiques</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-mauvaises" checked>
+                            <label class="form-check-label" for="domain-mauvaises"><i class="fas fa-times-circle text-danger me-2"></i>Mauvaises pratiques</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-risques" checked>
+                            <label class="form-check-label" for="domain-risques"><i class="fas fa-exclamation-triangle text-warning me-2"></i>Risques élevés</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="domain-rex" checked>
+                            <label class="form-check-label" for="domain-rex"><i class="fas fa-comment-dots text-primary me-2"></i>REX & retours terrain</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aperçu des domaines -->
+            <div class="row mt-4">
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-shield-alt"></i></div><h6>Protéger</h6><small>Couper courant, baliser, dégager</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-stethoscope"></i></div><h6>Examiner</h6><small>Conscience, respiration, saignement</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-phone-alt"></i></div><h6>Alerter</h6><small>15, 17, 18, localisation</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-hand-holding-heart"></i></div><h6>Secourir</h6><small>PLS, RCP, compression, Heimlich</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-eye"></i></div><h6>Surveiller</h6><small>Respiration, pouls, évolution</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-check-double"></i></div><h6>Bonnes pratiques</h6><small>20 règles clés</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-exclamation"></i></div><h6>Mauvaises pratiques</h6><small>Erreurs fréquentes</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-skull-crosswind"></i></div><h6>Risques élevés</h6><small>Situations critiques</small></div></div>
+                <div class="col-md-4 mb-3"><div class="theme-card"><div class="theme-icon"><i class="fas fa-comment-dots"></i></div><h6>REX</h6><small>Retours d'expérience</small></div></div>
+            </div>
+        </div>
+
+        <!-- Quiz Content (hidden at start) -->
+        <div id="quiz-content" class="quiz-content d-none">
+            <div class="progress-container">
+                <div class="d-flex justify-content-between mb-2">
+                    <span id="question-counter">Question 1 / 120</span>
+                    <span id="current-score">Score: 0</span>
+                </div>
+                <div class="progress">
+                    <div id="progress-bar" class="progress-bar" style="width: 0.83%"></div>
+                </div>
+            </div>
+
+            <div id="question-card">
+                <div class="thematic-badge" id="thematic-badge">Protéger</div>
+                <h2 id="question-text">Chargement...</h2>
+                <div id="options-container"></div>
+                <div id="explanation-box" class="d-none">
+                    <h5 id="explanation-title"></h5>
+                    <p id="explanation-text"></p>
+                    <div id="tip-box" class="tip-box d-none">
+                        <h6><i class="fas fa-lightbulb"></i> Conseil / REX</h6>
+                        <p id="tip-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button id="prev-btn" class="btn btn-outline-secondary nav-btn" disabled><i class="fas fa-arrow-left"></i> Précédent</button>
+                <button id="next-btn" class="btn btn-primary-custom nav-btn">Suivant <i class="fas fa-arrow-right"></i></button>
+                <button id="finish-btn" class="btn btn-success nav-btn d-none"><i class="fas fa-trophy"></i> Terminer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Résultats -->
+    <div class="modal fade" id="resultsModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-chart-pie me-2"></i>Résultats du quiz</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <h4 class="score-text">Maîtrise des gestes de secours :</h4>
+                        <p class="final-score" id="final-score-percentage">0%</p>
+                        <p><span id="final-score-correct">0</span> bonnes réponses sur <span id="final-score-total">0</span></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="skill-meter p-3 bg-light rounded">
+                                <h6><i class="fas fa-heartbeat"></i> Techniques de secours</h6>
+                                <div class="progress mt-2" style="height:20px">
+                                    <div id="tech-skills" class="progress-bar bg-success" style="width:0%"></div>
+                                </div>
+                                <p id="tech-skills-text" class="mt-2 small"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="skill-meter p-3 bg-light rounded">
+                                <h6><i class="fas fa-brain"></i> Gestion d'urgence & prévention</h6>
+                                <div class="progress mt-2" style="height:20px">
+                                    <div id="strategic-skills" class="progress-bar bg-info" style="width:0%"></div>
+                                </div>
+                                <p id="strategic-skills-text" class="mt-2 small"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="final-recommendations"></div>
+                    <div class="mt-4">
+                        <h6><i class="fas fa-road"></i> Prochaines étapes</h6>
+                        <div class="row">
+                            <div class="col-md-6"><div class="alert alert-primary" id="short-term"></div></div>
+                            <div class="col-md-6"><div class="alert alert-success" id="long-term"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary-custom" id="restart-quiz-btn">Nouveau quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ======================= 120 QUESTIONS DE SECOURISME (CÔTE D'IVOIRE) =======================
+        const quizData = {
+            questions: [
+                // ========== PROTÉGER (15) ==========
+                {
+                    thematic: "Protéger",
+                    question: "Vous arrivez dans une cuisine enfumée : une personne est allongée près d’une plaque électrique qui crépite. Que faites-vous en premier ?",
+                    options: [
+                        "Je la tire par les pieds hors de la cuisine",
+                        "Je coupe le courant au disjoncteur",
+                        "J'appelle immédiatement les pompiers (18)",
+                        "Je la mets en PLS"
+                    ],
+                    correctAnswer: "Je coupe le courant au disjoncteur",
+                    explanation: "La priorité absolue est de supprimer le danger électrique pour éviter une électrocution (sur-accident). Protéger avant d’agir.",
+                    tip: "À Abidjan, un secouriste a été électrocuté en déplaçant une victime sans couper le courant. Toujours sécuriser la source."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Un accident de la circulation vient d'avoir lieu sur le boulevard de Marseille à Abidjan. La victime est inconsciente sur la chaussée. Quelle action de protection est prioritaire ?",
+                    options: [
+                        "Baliser la zone avec un triangle ou des branches",
+                        "Déplacer la victime sur le trottoir",
+                        "Lui retirer son casque",
+                        "Attendre les secours sans bouger"
+                    ],
+                    correctAnswer: "Baliser la zone avec un triangle ou des branches",
+                    explanation: "Il faut signaler l’accident aux autres usagers pour éviter un sur-accident. Le balisage est la première mesure de protection.",
+                    tip: "Utilisez tout moyen visible : branche, tissu, feux de détresse. Ne vous exposez pas."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Dans un atelier, un collègue est en contact avec une machine en marche. Que devez-vous faire immédiatement ?",
+                    options: [
+                        "Le tirer loin de la machine",
+                        "Appeler le 15",
+                        "Couper l'alimentation électrique de la machine",
+                        "Mettre des gants avant de le toucher"
+                    ],
+                    correctAnswer: "Couper l'alimentation électrique de la machine",
+                    explanation: "Ne touchez jamais une victime encore en contact avec une source électrique. Coupez d’abord le courant.",
+                    tip: "REX : un ouvrier a voulu dégager son collègue sans couper le courant, tous deux ont été électrocutés."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Vous êtes témoin d’un incendie dans un immeuble à Yopougon. Une femme est coincée près des flammes. Comment la dégager sans danger immédiat ?",
+                    options: [
+                        "La tirer par les chevilles si elle est inconsciente",
+                        "La porter sur vos épaules",
+                        "Lui faire une prise de Heimlich",
+                        "L'asperger d'eau"
+                    ],
+                    correctAnswer: "La tirer par les chevilles si elle est inconsciente",
+                    explanation: "En cas de danger immédiat (feu), on dégage la victime en la tirant par les chevilles pour protéger sa tête et son cou.",
+                    tip: "Dans un incendie domestique, un enfant inconscient a été sauvé en le traînant par les pieds."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Quel est le premier réflexe en arrivant sur un lieu d’accident avant même de regarder la victime ?",
+                    options: [
+                        "Analyser les dangers (feu, électricité, circulation)",
+                        "Prendre le pouls",
+                        "Demander son nom",
+                        "Appeler les secours"
+                    ],
+                    correctAnswer: "Analyser les dangers (feu, électricité, circulation)",
+                    explanation: "L’observation de la scène permet d’identifier les risques pour vous et la victime. Ne vous précipitez pas.",
+                    tip: "Les secouristes formés disent : 'Stop, regarde, écoute, sens' avant d’agir."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Une fuite de gaz est suspectée dans une cuisine. Que devez-vous faire en priorité ?",
+                    options: [
+                        "Ouvrir les fenêtres et couper le gaz",
+                        "Allumer la lumière pour voir",
+                        "Déplacer la victime immédiatement",
+                        "Appeler les pompiers depuis la pièce"
+                    ],
+                    correctAnswer: "Ouvrir les fenêtres et couper le gaz",
+                    explanation: "Aérer et couper la source évite une explosion. N’allumez pas de lumière, ne téléphonez pas dans la pièce.",
+                    tip: "REX : à Treichville, une explosion a eu lieu car le témoin a actionné un interrupteur."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Un enfant s'est électrocuté avec une rallonge. Il est inconscient mais le fil est toujours sous tension. Quelle est votre première action ?",
+                    options: [
+                        "Le tirer avec un bâton en bois",
+                        "Débrancher la rallonge",
+                        "Commencer la RCP",
+                        "L'éloigner avec vos mains nues"
+                    ],
+                    correctAnswer: "Débrancher la rallonge",
+                    explanation: "Il faut couper la source électrique au niveau de la prise ou du disjoncteur. N'utilisez jamais vos mains nues.",
+                    tip: "Si vous ne pouvez pas couper, écartez le fil avec un objet isolant (bois sec, plastique)."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Sur une plage à Grand-Bassam, une personne est inconsciente dans l'eau peu profonde. Quel danger immédiat devez-vous écarter ?",
+                    options: [
+                        "La noyade (l'eau)",
+                        "Le soleil",
+                        "Les crabes",
+                        "Les curieux"
+                    ],
+                    correctAnswer: "La noyade (l'eau)",
+                    explanation: "Sortez la victime de l’eau rapidement pour éviter la noyade, mais en protégez sa colonne vertébrale (si possible).",
+                    tip: "Tirez-la par les aisselles ou utilisez une planche de surf."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Dans un accident de voiture, un blessé est conscient mais coincé. Il y a une odeur d'essence. Que faites-vous ?",
+                    options: [
+                        "Vous tentez de le dégager tout de suite",
+                        "Vous coupez le contact du véhicule",
+                        "Vous appelez les secours sans bouger",
+                        "Vous lui donnez à boire"
+                    ],
+                    correctAnswer: "Vous coupez le contact du véhicule",
+                    explanation: "Risque d'incendie : couper le contact réduit les risques d'étincelle. Ensuite, appelez les secours.",
+                    tip: "Ne fumez pas et éloignez les personnes."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Vous êtes dans un embouteillage à Adjamé, une moto a percuté un piéton. Comment protéger la zone ?",
+                    options: [
+                        "Faire un barrage avec votre corps",
+                        "Demander à des motos de faire un périmètre de sécurité",
+                        "Allumer vos warnings et placer un triangle",
+                        "Déplacer la victime sur le trottoir"
+                    ],
+                    correctAnswer: "Allumer vos warnings et placer un triangle",
+                    explanation: "Signaler l’accident est primordial sur une voie circulée. Le triangle doit être placé à 30-50 mètres.",
+                    tip: "En Côte d’Ivoire, les warnings et un geste de la main aident aussi à ralentir."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Un produit chimique a été renversé sur le sol et une personne est tombée dedans. Quelle est la protection immédiate ?",
+                    options: [
+                        "Évacuer la zone et aérer",
+                        "Rincer la victime à grande eau",
+                        "Mettre un masque avant d'approcher",
+                        "Déplacer la victime sans protection"
+                    ],
+                    correctAnswer: "Évacuer la zone et aérer",
+                    explanation: "Avant de toucher la victime, protégez-vous des vapeurs toxiques. Évacuez et aérez.",
+                    tip: "Utilisez des gants si disponibles."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Une personne est en feu (vêtements en flammes). Quelle est la première action de protection ?",
+                    options: [
+                        "La faire rouler par terre",
+                        "L'asperger d'eau",
+                        "Étouffer les flammes avec une couverture",
+                        "Enlever ses vêtements"
+                    ],
+                    correctAnswer: "La faire rouler par terre",
+                    explanation: "La méthode 'Stop, Drop and Roll' (arrêter, se jeter au sol, rouler) est la plus efficace pour éteindre les flammes.",
+                    tip: "Si vous avez une couverture, utilisez-la pour étouffer le feu après l'avoir allongé."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Vous découvrez une victime inconsciente dans un garage fermé, moteur de voiture allumé. Quel danger immédiat devez-vous écarter ?",
+                    options: [
+                        "Le monoxyde de carbone",
+                        "L'électrocution",
+                        "L'explosion",
+                        "La chute d'objets"
+                    ],
+                    correctAnswer: "Le monoxyde de carbone",
+                    explanation: "Le gaz d'échappement contient du monoxyde de carbone mortel. Ouvrez la porte, éteignez le moteur, sortez la victime.",
+                    tip: "REX : plusieurs décès à Abidjan par intoxication au CO dans des garages fermés."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Lors d'une bagarre, un homme s'effondre. La foule s'agite autour. Que devez-vous faire avant d'examiner la victime ?",
+                    options: [
+                        "Demander à la foule de s'éloigner",
+                        "Le dégager rapidement",
+                        "Appeler la police (17)",
+                        "Prendre son pouls"
+                    ],
+                    correctAnswer: "Demander à la foule de s'éloigner",
+                    explanation: "La foule peut gêner l'intervention et causer des sur-accidents. Créez un espace sécurisé.",
+                    tip: "Si possible, demandez à des personnes de faire un cordon."
+                },
+                {
+                    thematic: "Protéger",
+                    question: "Un arbre est tombé sur une voiture avec une personne consciente à l'intérieur. La zone est instable. Que faites-vous ?",
+                    options: [
+                        "Vous tentez d'ouvrir la portière",
+                        "Vous appelez les secours (18 ou 15) sans approcher",
+                        "Vous sortez la personne par la fenêtre",
+                        "Vous dégagez l'arbre à plusieurs"
+                    ],
+                    correctAnswer: "Vous appelez les secours (18 ou 15) sans approcher",
+                    explanation: "Le risque d'effondrement ou de nouveau mouvement est trop grand. Les secours professionnels disposent de matériel.",
+                    tip: "Restez à distance, rassurez la victime en lui parlant."
+                },
+                // ========== EXAMINER (15) ==========
+                {
+                    thematic: "Examiner",
+                    question: "Vous êtes auprès d'une victime inconsciente. Quelle première vérification effectuez-vous ?",
+                    options: [
+                        "Sa respiration",
+                        "Son pouls",
+                        "Sa réaction à la voix ou au toucher",
+                        "Ses pupilles"
+                    ],
+                    correctAnswer: "Sa réaction à la voix ou au toucher",
+                    explanation: "On commence par vérifier si la victime répond (conscience). On lui parle fort, on tapote les épaules.",
+                    tip: "Si elle ne répond pas, elle est inconsciente, on passe à la respiration."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Comment vérifiez-vous efficacement la respiration d'une victime inconsciente ?",
+                    options: [
+                        "Je regarde sa poitrine et j'écoute son souffle 5 secondes",
+                        "Je prends son pouls carotidien",
+                        "Je regarde, écoute et sens pendant 10 secondes",
+                        "Je lui ouvre la bouche et je regarde"
+                    ],
+                    correctAnswer: "Je regarde, écoute et sens pendant 10 secondes",
+                    explanation: "La méthode : regarder le soulèvement de la poitrine, écouter le souffle, sentir l'air sur la joue, pendant 10 secondes.",
+                    tip: "Si la respiration est absente ou anormale (gasps), commencer la RCP."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Vous examinez une victime consciente qui s'est coupée profondément au bras. Que recherchez-vous en priorité ?",
+                    options: [
+                        "La profondeur de la plaie",
+                        "Un saignement abondant",
+                        "La couleur de la peau",
+                        "La présence d'un corps étranger"
+                    ],
+                    correctAnswer: "Un saignement abondant",
+                    explanation: "L'urgence vitale est de contrôler une hémorragie. On vérifie d'abord s'il y a un saignement massif.",
+                    tip: "Si le sang gicle ou s'écoule abondamment, comprimez immédiatement."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Une personne s'étouffe avec un morceau de viande. Elle est consciente et ne peut pas parler. Quel signe est caractéristique ?",
+                    options: [
+                        "Elle tousse fort",
+                        "Elle porte les mains à sa gorge",
+                        "Elle a des difficultés à respirer",
+                        "Elle est rouge"
+                    ],
+                    correctAnswer: "Elle porte les mains à sa gorge",
+                    explanation: "Le signe universel de l'étouffement est les mains croisées autour du cou. Cela indique une obstruction totale.",
+                    tip: "Agissez vite : technique de Heimlich."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Lors de l'examen, vous constatez que la victime ne répond pas mais respire normalement. Quelle est la prochaine étape ?",
+                    options: [
+                        "Commencer la RCP",
+                        "La placer en PLS",
+                        "Lui donner de l'eau",
+                        "Vérifier le pouls"
+                    ],
+                    correctAnswer: "La placer en PLS",
+                    explanation: "Une victime inconsciente qui respire doit être placée en Position Latérale de Sécurité pour éviter l'obstruction des voies respiratoires.",
+                    tip: "La PLS maintient la langue dégagée et permet l'écoulement des liquides."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Que signifie 'respire normalement' dans le cadre de l'examen ?",
+                    options: [
+                        "Respiration régulière, sans bruit anormal, plus de deux fois par minute",
+                        "Respiration ample, sans sifflement, rythme entre 10 et 30 par minute",
+                        "Le cœur bat, donc elle respire",
+                        "Elle tousse"
+                    ],
+                    correctAnswer: "Respiration ample, sans sifflement, rythme entre 10 et 30 par minute",
+                    explanation: "Une respiration normale est régulière, sans bruits obstructifs. Les gasps (respirations agoniques) ne sont pas normaux.",
+                    tip: "Si doute, considérez qu'elle ne respire pas."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Vous examinez un bébé inconscient. Quelle technique pour vérifier la respiration ?",
+                    options: [
+                        "Même technique que pour un adulte",
+                        "Regarder la couleur des lèvres",
+                        "Regarder, écouter, sentir pendant 5 secondes",
+                        "Prendre le pouls fémoral"
+                    ],
+                    correctAnswer: "Même technique que pour un adulte",
+                    explanation: "La méthode regarder/écouter/sentir est valable à tout âge, mais on peut être plus rapide (5-10 secondes).",
+                    tip: "Chez le bébé, la tête est souvent en position neutre."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Après avoir sécurisé la zone, vous trouvez une victime allongée. Vous lui parlez, elle ouvre les yeux mais ne répond pas clairement. Que concluez-vous ?",
+                    options: [
+                        "Elle est consciente",
+                        "Elle est inconsciente",
+                        "Elle est en arrêt cardiaque",
+                        "Elle fait un AVC"
+                    ],
+                    correctAnswer: "Elle est consciente",
+                    explanation: "Une personne qui ouvre les yeux ou fait un geste est considérée comme consciente. Continuez l'examen.",
+                    tip: "Parlez-lui calmement, demandez ce qui s'est passé."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Lors de l'examen, vous remarquez un saignement abondant au niveau de la cuisse. Que faites-vous en priorité ?",
+                    options: [
+                        "Vous continuez l'examen complet",
+                        "Vous appliquez une pression directe sur la plaie",
+                        "Vous mettez la victime en PLS",
+                        "Vous appelez les secours"
+                    ],
+                    correctAnswer: "Vous appliquez une pression directe sur la plaie",
+                    explanation: "L'hémorragie est une urgence immédiate. Il faut arrêter le saignement avant toute autre chose.",
+                    tip: "Utilisez un tissu propre, appuyez fort sans relâcher."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Vous examinez une victime consciente qui a mal à la poitrine. Quel signe peut indiquer un arrêt cardiaque imminent ?",
+                    options: [
+                        "Elle transpire abondamment",
+                        "Elle est pâle",
+                        "Elle a des nausées",
+                        "Tous ces signes"
+                    ],
+                    correctAnswer: "Tous ces signes",
+                    explanation: "Sueurs, pâleur, nausées peuvent précéder un malaise cardiaque. Restez vigilant, appelez le 15.",
+                    tip: "Si elle perd connaissance, vérifiez la respiration immédiatement."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Une victime inconsciente a un objet coincé dans la gorge. Vous voyez sa poitrine se soulever, mais elle ne fait pas de bruit. Que faire ?",
+                    options: [
+                        "Commencer la RCP",
+                        "Tenter de retirer l'objet avec les doigts",
+                        "La mettre en PLS",
+                        "Frapper dans le dos"
+                    ],
+                    correctAnswer: "Frapper dans le dos",
+                    explanation: "Si elle est inconsciente mais respire, les claques dans le dos peuvent déloger l'objet. Sinon, RCP.",
+                    tip: "Chez un inconscient, on alterne 5 claques et 5 compressions abdominales."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Comment vérifier la réaction d'une victime inconsciente suspectée de traumatisme cervical ?",
+                    options: [
+                        "Secouer doucement les épaules",
+                        "Tapoter les épaules sans bouger la tête",
+                        "Lui parler seulement",
+                        "Pincer le lobe de l'oreille"
+                    ],
+                    correctAnswer: "Tapoter les épaules sans bouger la tête",
+                    explanation: "En cas de possible trauma, on évite de mobiliser la tête. On stimule en tapotant les épaules.",
+                    tip: "Mobilisez la tête uniquement si nécessaire pour dégager les voies aériennes."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Vous examinez une victime et constatez qu'elle ne respire pas. Combien de temps avez-vous pour commencer la RCP avant des lésions cérébrales ?",
+                    options: [
+                        "10 minutes",
+                        "5 minutes",
+                        "3 à 4 minutes",
+                        "1 minute"
+                    ],
+                    correctAnswer: "3 à 4 minutes",
+                    explanation: "Le cerveau commence à souffrir au-delà de 3-4 minutes sans oxygène. Chaque minute compte.",
+                    tip: "Commencez la RCP immédiatement, même imparfaite."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Un homme de 50 ans se plaint d'une douleur thoracique intense. Il est conscient. Que vérifiez-vous en premier ?",
+                    options: [
+                        "Sa tension artérielle",
+                        "Son pouls",
+                        "Sa respiration",
+                        "S'il prend des médicaments"
+                    ],
+                    correctAnswer: "Sa respiration",
+                    explanation: "Toujours commencer par conscience/respiration. La respiration peut être rapide ou superficielle.",
+                    tip: "Rassurez-le, appelez le 15."
+                },
+                {
+                    thematic: "Examiner",
+                    question: "Lors de l'examen, vous découvrez une plaie avec un objet planté (couteau). Que faites-vous ?",
+                    options: [
+                        "Vous retirez l'objet délicatement",
+                        "Vous laissez l'objet en place et vous comprimez autour",
+                        "Vous lavez la plaie",
+                        "Vous appliquez un garrot"
+                    ],
+                    correctAnswer: "Vous laissez l'objet en place et vous comprimez autour",
+                    explanation: "Ne jamais retirer un objet planté, cela pourrait aggraver l'hémorragie. Stabilisez l'objet.",
+                    tip: "Comprimez autour de l'objet avec des compresses."
+                },
+                // ========== ALERTER (15) ==========
+                {
+                    thematic: "Alerter",
+                    question: "En Côte d'Ivoire, quel numéro composez-vous pour joindre les pompiers (secours d'urgence) ?",
+                    options: [
+                        "15",
+                        "17",
+                        "18",
+                        "112"
+                    ],
+                    correctAnswer: "18",
+                    explanation: "Le 18 est le numéro des sapeurs-pompiers en Côte d'Ivoire. Ils interviennent pour les accidents, incendies, secours à personnes.",
+                    tip: "Le 15 (SAMU) est pour les urgences médicales, le 17 pour la police."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Vous appelez le 15 (SAMU) pour un malaise. Quelle information N'EST PAS essentielle ?",
+                    options: [
+                        "L'âge de la victime",
+                        "La couleur de ses vêtements",
+                        "L'adresse exacte",
+                        "Ce qui s'est passé"
+                    ],
+                    correctAnswer: "La couleur de ses vêtements",
+                    explanation: "Les secours ont besoin de localisation, de l'état de la victime (consciente, respire), et des circonstances.",
+                    tip: "Ne raccrochez pas avant que l'opérateur vous le demande."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Après avoir placé une victime en PLS, vous appelez le 18. Que devez-vous préciser en premier ?",
+                    options: [
+                        "Son nom",
+                        "L'adresse précise ou des points de repère",
+                        "La cause de l'accident",
+                        "Votre nom"
+                    ],
+                    correctAnswer: "L'adresse précise ou des points de repère",
+                    explanation: "La localisation est cruciale pour que les secours arrivent rapidement. Indiquez quartier, rue, immeuble, étage.",
+                    tip: "À Abidjan, donnez des repères comme 'près du CHU de Treichville'."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Un témoin a appelé les secours mais n'a pas précisé le quartier. Résultat : les ambulances ont mis 20 minutes de plus. Quelle leçon en tirer ?",
+                    options: [
+                        "Toujours préciser la localisation exacte",
+                        "Appeler plusieurs fois",
+                        "Ne pas paniquer",
+                        "Donner son numéro"
+                    ],
+                    correctAnswer: "Toujours préciser la localisation exacte",
+                    explanation: "Un défaut de localisation retarde l'intervention. C'est une erreur fréquente.",
+                    tip: "Si vous êtes perdu, utilisez une application de localisation."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Vous êtes seul avec une victime inconsciente qui ne respire pas. À quel moment appelez-vous les secours ?",
+                    options: [
+                        "Avant de commencer la RCP",
+                        "Après 2 minutes de RCP",
+                        "Après avoir placé en PLS",
+                        "Vous attendez qu'elle reprenne vie"
+                    ],
+                    correctAnswer: "Avant de commencer la RCP",
+                    explanation: "Si vous êtes seul, appelez les secours immédiatement (ou utilisez le haut-parleur) puis commencez la RCP.",
+                    tip: "Avec un téléphone, vous pouvez faire le 18 en même temps que la RCP."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Vous devez alerter pour un accident de la route avec plusieurs blessés. Quelle information est primordiale ?",
+                    options: [
+                        "Le nombre de victimes",
+                        "La marque des voitures",
+                        "La couleur des véhicules",
+                        "Les noms des victimes"
+                    ],
+                    correctAnswer: "Le nombre de victimes",
+                    explanation: "Indiquer le nombre de victimes permet aux secours d'envoyer les moyens adaptés (plusieurs ambulances).",
+                    tip: "Mentionnez aussi les risques (fuite de carburant, etc.)."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Quel numéro d'urgence européen fonctionne aussi en Côte d'Ivoire ?",
+                    options: [
+                        "15",
+                        "18",
+                        "112",
+                        "911"
+                    ],
+                    correctAnswer: "112",
+                    explanation: "Le 112 est le numéro d'urgence européen, mais il est également joignable en Côte d'Ivoire et redirige vers les secours locaux.",
+                    tip: "Il peut être utilisé sur tout le territoire."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Lors de l'appel, l'opérateur vous demande l'état de la victime. Que répondez-vous si elle est inconsciente mais respire ?",
+                    options: [
+                        "Inconsciente, respire",
+                        "Inconsciente, ne respire pas",
+                        "Consciente, respire",
+                        "En arrêt cardiaque"
+                    ],
+                    correctAnswer: "Inconsciente, respire",
+                    explanation: "Soyez précis : inconsciente, respire normalement. Cela indique qu'il faut mettre en PLS.",
+                    tip: "Décrivez aussi les blessures visibles."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Vous êtes témoin d'un incendie dans une maison à Cocody. Outre le 18, quel autre numéro pouvez-vous appeler ?",
+                    options: [
+                        "15 (SAMU) car il y a des brûlés",
+                        "17 (police) pour le trafic",
+                        "Les deux selon la situation",
+                        "Aucun, le 18 suffit"
+                    ],
+                    correctAnswer: "Les deux selon la situation",
+                    explanation: "En cas d'incendie avec blessés, on peut appeler le 18 (pompiers) qui coordonnent. Le SAMU peut être appelé pour les brûlés.",
+                    tip: "Le 18 est le numéro principal pour les incendies."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Un enfant a avalé un produit toxique. Vous appelez le 15. Que devez-vous dire en priorité ?",
+                    options: [
+                        "Le nom du produit",
+                        "L'âge de l'enfant",
+                        "L'adresse",
+                        "Tous les trois"
+                    ],
+                    correctAnswer: "Tous les trois",
+                    explanation: "L'opérateur a besoin de l'adresse pour envoyer les secours, de l'âge pour adapter la prise en charge, et du produit pour conseiller.",
+                    tip: "Gardez le produit avec vous pour le montrer aux secours."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Que faire si vous êtes dans une zone sans réseau et devez alerter ?",
+                    options: [
+                        "Envoyer quelqu'un vers une zone couverte",
+                        "Attendre que le réseau revienne",
+                        "Crier",
+                        "Utiliser une radio"
+                    ],
+                    correctAnswer: "Envoyer quelqu'un vers une zone couverte",
+                    explanation: "Si vous êtes avec d'autres personnes, dépêchez un témoin pour appeler. Sinon, essayez de vous déplacer.",
+                    tip: "Prévoyez des points de rendez-vous."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Vous appelez les secours, mais vous paniquez et parlez trop vite. Que risque-t-il ?",
+                    options: [
+                        "L'opérateur ne comprendra pas l'adresse",
+                        "L'opérateur va raccrocher",
+                        "Rien, il est habitué",
+                        "Votre appel sera redirigé"
+                    ],
+                    correctAnswer: "L'opérateur ne comprendra pas l'adresse",
+                    explanation: "Parler vite et de façon désordonnée peut rendre l'adresse incompréhensible. Prenez une respiration, parlez calmement.",
+                    tip: "Si possible, dictez l'adresse lettre par lettre."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Après avoir appelé le 18, combien de temps devez-vous rester en ligne ?",
+                    options: [
+                        "Jusqu'à ce que l'opérateur ait toutes les infos",
+                        "30 secondes maximum",
+                        "Je raccroche dès que j'ai dit l'adresse",
+                        "Je laisse la ligne ouverte même sans rien dire"
+                    ],
+                    correctAnswer: "Jusqu'à ce que l'opérateur ait toutes les infos",
+                    explanation: "L'opérateur peut avoir besoin de questions complémentaires ou donner des instructions. Ne raccrochez pas sans son accord.",
+                    tip: "Notez bien ce qu'il vous demande."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Vous alertez pour une femme en train d'accoucher. Quel détail est crucial ?",
+                    options: [
+                        "Si c'est son premier enfant",
+                        "Si elle a déjà eu des jumeaux",
+                        "L'adresse",
+                        "Tous ces détails"
+                    ],
+                    correctAnswer: "Tous ces détails",
+                    explanation: "L'adresse d'abord, puis les informations médicales (terme, antécédents) pour préparer l'intervention.",
+                    tip: "Restez calme, suivez les conseils de l'opérateur."
+                },
+                {
+                    thematic: "Alerter",
+                    question: "Un malaise dans un marché bondé à Adjame. Comment faciliter l'arrivée des secours ?",
+                    options: [
+                        "Envoyer quelqu'un au bord de la route pour guider",
+                        "Crier pour écarter la foule",
+                        "Attendre les secours sans bouger",
+                        "Déplacer la victime à l'entrée"
+                    ],
+                    correctAnswer: "Envoyer quelqu'un au bord de la route pour guider",
+                    explanation: "Un guide à l'entrée du marché permet aux secours de trouver plus vite le lieu exact.",
+                    tip: "Demandez à une personne de faire signe aux ambulances."
+                },
+                // ========== SECOURIR (20) ==========
+                {
+                    thematic: "Secourir",
+                    question: "Une victime inconsciente respire normalement. Quel geste de secours appliquez-vous ?",
+                    options: [
+                        "Position Latérale de Sécurité (PLS)",
+                        "Réanimation Cardio-Pulmonaire",
+                        "Compressions abdominales",
+                        "Mise en position assise"
+                    ],
+                    correctAnswer: "Position Latérale de Sécurité (PLS)",
+                    explanation: "La PLS maintient les voies aériennes libres et permet l'écoulement des liquides (salive, vomissements).",
+                    tip: "Placez le bras sous la tête, pliez la jambe, et tournez doucement."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Comment positionnez-vous une victime en PLS ?",
+                    options: [
+                        "Bras le plus proche à angle droit, main sous la joue, jambe pliée",
+                        "Sur le dos, jambes relevées",
+                        "Sur le ventre, tête tournée",
+                        "Assise, penchée en avant"
+                    ],
+                    correctAnswer: "Bras le plus proche à angle droit, main sous la joue, jambe pliée",
+                    explanation: "C'est la technique standard. Le bras du côté où on tourne est placé à angle droit, l'autre main sous la joue, la jambe opposée pliée pour stabiliser.",
+                    tip: "Après installation, vérifiez que la respiration reste libre."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Une victime ne respire pas. Où devez-vous placer vos mains pour les compressions thoraciques ?",
+                    options: [
+                        "Sur la partie gauche de la poitrine",
+                        "Au centre de la poitrine, entre les seins",
+                        "Sous les côtes",
+                        "Sur le sternum, à hauteur des mamelons"
+                    ],
+                    correctAnswer: "Au centre de la poitrine, entre les seins",
+                    explanation: "Chez l'adulte, on place le talon de la main au centre du thorax, l'autre main par-dessus, et on comprime.",
+                    tip: "Appuyez fort (5-6 cm), rapidement (100-120/min)."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Quel rythme de compressions thoraciques est recommandé en RCP ?",
+                    options: [
+                        "50 à 60 par minute",
+                        "80 à 100 par minute",
+                        "100 à 120 par minute",
+                        "Le plus vite possible"
+                    ],
+                    correctAnswer: "100 à 120 par minute",
+                    explanation: "C'est la fréquence standard pour maintenir une circulation sanguine efficace.",
+                    tip: "Pensez au rythme du morceau 'Stayin' Alive' des Bee Gees."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Vous êtes seul face à un adulte en arrêt cardiaque. Quel ratio compressions/insufflations appliquez-vous si vous êtes formé ?",
+                    options: [
+                        "15 compressions / 2 insufflations",
+                        "30 compressions / 2 insufflations",
+                        "5 compressions / 1 insufflation",
+                        "Compressions seules"
+                    ],
+                    correctAnswer: "30 compressions / 2 insufflations",
+                    explanation: "Le ratio standard chez l'adulte est de 30 compressions pour 2 insufflations, quel que soit le nombre de secouristes.",
+                    tip: "Si vous n'êtes pas formé ou ne voulez pas faire le bouche-à-bouche, faites des compressions continues."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Que faire en cas d'étouffement chez un adulte conscient ?",
+                    options: [
+                        "Donner 5 claques dans le dos, puis 5 compressions abdominales (Heimlich)",
+                        "Commencer la RCP",
+                        "Le faire tousser",
+                        "Lui donner à boire"
+                    ],
+                    correctAnswer: "Donner 5 claques dans le dos, puis 5 compressions abdominales (Heimlich)",
+                    explanation: "On alterne 5 claques dans le dos (entre les omoplates) et 5 compressions abdominales (manœuvre de Heimlich) jusqu'à expulsion.",
+                    tip: "Pour les compressions abdominales, placez-vous derrière, poing sous le sternum."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Chez une femme enceinte ou obèse, comment adapter la manœuvre de Heimlich ?",
+                    options: [
+                        "Comprimer la poitrine au lieu de l'abdomen",
+                        "Comprimer plus bas",
+                        "Ne pas faire de Heimlich",
+                        "Utiliser seulement les claques"
+                    ],
+                    correctAnswer: "Comprimer la poitrine au lieu de l'abdomen",
+                    explanation: "On effectue des compressions thoraciques (comme pour la RCP) pour expulser l'objet.",
+                    tip: "Restez derrière, bras sous les aisselles."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Vous devez arrêter un saignement abondant au niveau de la jambe. Quelle est la méthode la plus efficace ?",
+                    options: [
+                        "Appliquer un garrot artisanal",
+                        "Comprimer directement la plaie avec un tissu",
+                        "Surélever la jambe",
+                        "Mettre de la glace"
+                    ],
+                    correctAnswer: "Comprimer directement la plaie avec un tissu",
+                    explanation: "La compression manuelle directe est le premier geste. Maintenez la pression sans relâcher.",
+                    tip: "Si le tissu est imbibé, ajoutez-en un autre par-dessus sans retirer le premier."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Quand peut-on utiliser un garrot ?",
+                    options: [
+                        "En cas de saignement très abondant non contrôlé par compression",
+                        "Pour toute plaie qui saigne",
+                        "Après avoir nettoyé la plaie",
+                        "Jamais, c'est dangereux"
+                    ],
+                    correctAnswer: "En cas de saignement très abondant non contrôlé par compression",
+                    explanation: "Le garrot est réservé aux hémorragies vitales sur un membre, quand la compression directe ne suffit pas.",
+                    tip: "Notez l'heure de pose et ne l'enlevez jamais."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Comment effectuer la RCP sur un nourrisson (moins d'1 an) ?",
+                    options: [
+                        "Deux doigts au centre de la poitrine, compressions sur 4 cm",
+                        "Une main à plat, compressions 5 cm",
+                        "Bouche-à-bouche seulement",
+                        "Même technique que l'adulte"
+                    ],
+                    correctAnswer: "Deux doigts au centre de la poitrine, compressions sur 4 cm",
+                    explanation: "Chez le nourrisson, on utilise deux doigts pour comprimer le sternum d'environ 4 cm, à 100-120/min, avec 2 insufflations toutes les 30 compressions.",
+                    tip: "Pour les insufflations, couvrez bouche et nez."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Que faire si une victime inconsciente respire mais que vous devez la laisser seule pour appeler ?",
+                    options: [
+                        "La mettre en PLS avant de partir",
+                        "La laisser sur le dos, tête tournée",
+                        "Ne pas la quitter",
+                        "La couvrir d'une couverture"
+                    ],
+                    correctAnswer: "La mettre en PLS avant de partir",
+                    explanation: "Si vous devez vous absenter (pour chercher du secours), placez-la en PLS pour sécuriser ses voies aériennes.",
+                    tip: "Revenez le plus vite possible."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Votre collègue s'effondre, ne respire plus. Vous avez un défibrillateur automatisé externe (DAE) à proximité. Quand l'utilisez-vous ?",
+                    options: [
+                        "Après 2 minutes de RCP",
+                        "Dès que possible, en suivant les instructions vocales",
+                        "Seulement après 5 cycles de RCP",
+                        "Après avoir appelé les secours"
+                    ],
+                    correctAnswer: "Dès que possible, en suivant les instructions vocales",
+                    explanation: "Le DAE analyse le rythme et délivre un choc si nécessaire. Allumez-le et suivez ses indications, sans interrompre la RCP plus de quelques secondes.",
+                    tip: "Placez les électrodes comme indiqué sur le schéma."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "En l'absence de DAE, que faire pour une victime en arrêt cardiaque ?",
+                    options: [
+                        "Continuer la RCP jusqu'à épuisement ou arrivée des secours",
+                        "Attendre que ça passe",
+                        "Donner de l'eau",
+                        "Frotter les bras"
+                    ],
+                    correctAnswer: "Continuer la RCP jusqu'à épuisement ou arrivée des secours",
+                    explanation: "La RCP maintient une oxygénation minimale. Il ne faut jamais arrêter tant que les secours n'ont pas pris le relais ou que la victime ne respire pas.",
+                    tip: "Relayez-vous si possible toutes les 2 minutes."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Une personne a une plaie à l'œil. Comment secourir ?",
+                    options: [
+                        "Rincer abondamment",
+                        "Appliquer un pansement occlusif sur les deux yeux",
+                        "Ne pas toucher, couvrir l'œil avec un tissu propre",
+                        "Retirer le corps étranger"
+                    ],
+                    correctAnswer: "Ne pas toucher, couvrir l'œil avec un tissu propre",
+                    explanation: "Ne jamais frotter ou rincer un œil blessé. Couvrez-le d'une compresse stérile et appelez les secours.",
+                    tip: "Si un objet est planté, ne le retirez pas."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Que faire en cas de brûlure grave (peau noircie, cloques) ?",
+                    options: [
+                        "Mettre de la glace",
+                        "Arroser à l'eau tiède pendant 15 à 20 minutes",
+                        "Percer les cloques",
+                        "Appliquer du beurre"
+                    ],
+                    correctAnswer: "Arroser à l'eau tiède pendant 15 à 20 minutes",
+                    explanation: "Refroidir la brûlure limite la profondeur. Utilisez de l'eau du robinet (pas glacée) pendant 15-20 min, puis couvrez d'un linge propre.",
+                    tip: "Retirez les vêtements qui ne collent pas."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Comment soulager une victime consciente qui a un malaise, allongée par terre ?",
+                    options: [
+                        "La relever et la faire marcher",
+                        "La laisser allongée, jambes surélevées si besoin",
+                        "Lui donner à boire",
+                        "La frictionner"
+                    ],
+                    correctAnswer: "La laisser allongée, jambes surélevées si besoin",
+                    explanation: "La position allongée avec jambes surélevées favorise le retour veineux et peut aider en cas de malaise vagal.",
+                    tip: "Si elle a du mal à respirer, asseyez-la."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Vous devez pratiquer la RCP sur une femme visiblement enceinte. Comment positionnez-vous vos mains ?",
+                    options: [
+                        "Un peu plus haut sur le sternum (au-dessus de l'utérus)",
+                        "Comme d'habitude, au centre",
+                        "Sur le côté",
+                        "Plus bas"
+                    ],
+                    correctAnswer: "Un peu plus haut sur le sternum (au-dessus de l'utérus)",
+                    explanation: "Pour éviter de comprimer l'utérus, on place les mains légèrement plus haut sur le sternum, tout en restant efficace.",
+                    tip: "Si possible, inclinez-la sur le côté gauche pour libérer la veine cave."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Un enfant de 3 ans s'étouffe avec un petit jouet. Il est inconscient. Que faire ?",
+                    options: [
+                        "Commencer la RCP",
+                        "Essayer de retirer l'objet avec les doigts",
+                        "Le pendre par les pieds",
+                        "Donner des claques dans le dos"
+                    ],
+                    correctAnswer: "Commencer la RCP",
+                    explanation: "Chez un enfant inconscient qui s'étouffe, on commence la RCP (compressions thoraciques) qui peuvent expulser l'objet. Les claques dans le dos se font uniquement chez l'enfant conscient.",
+                    tip: "Après 30 compressions, regardez dans la bouche si l'objet est visible."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Comment contrôler un saignement sur un membre en attendant les secours ?",
+                    options: [
+                        "Maintenir la pression, surélever le membre",
+                        "Mettre un lien serré autour du membre",
+                        "Nettoyer à l'eau oxygénée",
+                        "Tirer sur la plaie"
+                    ],
+                    correctAnswer: "Maintenir la pression, surélever le membre",
+                    explanation: "La compression directe est prioritaire. Surélever le membre aide à réduire le flux sanguin vers la plaie.",
+                    tip: "Si la victime peut le faire, elle peut maintenir la pression elle-même."
+                },
+                {
+                    thematic: "Secourir",
+                    question: "Quel est le geste à éviter absolument chez une victime inconsciente qui respire ?",
+                    options: [
+                        "Lui donner à boire",
+                        "La couvrir",
+                        "Lui parler",
+                        "Surveiller sa respiration"
+                    ],
+                    correctAnswer: "Lui donner à boire",
+                    explanation: "Une victime inconsciente ne doit jamais boire (risque d'étouffement). On ne donne rien par la bouche.",
+                    tip: "Même consciente, évitez de donner à boire si risque de chirurgie."
+                },
+                // ========== SURVEILLER (10) ==========
+                {
+                    thematic: "Surveiller",
+                    question: "Après avoir mis une victime en PLS, que devez-vous surveiller en priorité ?",
+                    options: [
+                        "Sa respiration toutes les 30 secondes",
+                        "Son pouls toutes les 5 minutes",
+                        "Sa température",
+                        "Ses pupilles"
+                    ],
+                    correctAnswer: "Sa respiration toutes les 30 secondes",
+                    explanation: "La surveillance régulière de la respiration permet de détecter un arrêt respiratoire.",
+                    tip: "Si la respiration s'arrête, basculez-la sur le dos et commencez la RCP."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Que faire si, pendant la surveillance, la victime inconsciente commence à vomir ?",
+                    options: [
+                        "La tourner doucement sur le côté pour évacuer (elle est déjà en PLS)",
+                        "Lui maintenir la tête droite",
+                        "Arrêter de surveiller",
+                        "Lui donner à boire"
+                    ],
+                    correctAnswer: "La tourner doucement sur le côté pour évacuer (elle est déjà en PLS)",
+                    explanation: "La PLS facilite l'écoulement des vomissures. Vérifiez que la bouche est dégagée.",
+                    tip: "Si elle n'est pas en PLS, basculez-la immédiatement."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Lors de la surveillance, vous remarquez que la victime devient bleue (cyanose). Que cela signifie-t-il ?",
+                    options: [
+                        "Elle a froid",
+                        "Un manque d'oxygène grave",
+                        "Une allergie",
+                        "Rien d'inquiétant"
+                    ],
+                    correctAnswer: "Un manque d'oxygène grave",
+                    explanation: "La cyanose (coloration bleutée des lèvres, extrémités) indique une hypoxie sévère. Vérifiez la respiration immédiatement.",
+                    tip: "Si elle ne respire pas, commencez la RCP."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Quel est le rôle de la communication avec une victime consciente pendant la surveillance ?",
+                    options: [
+                        "La rassurer, réduire son stress",
+                        "La distraire",
+                        "L'empêcher de dormir",
+                        "La forcer à parler"
+                    ],
+                    correctAnswer: "La rassurer, réduire son stress",
+                    explanation: "Parler calmement à la victime diminue l'anxiété, stabilise le rythme cardiaque et améliore son état.",
+                    tip: "Dites-lui que les secours arrivent, qu'elle est en sécurité."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Vous surveillez une victime en PLS depuis 10 minutes. Soudain, elle ne respire plus. Que faites-vous ?",
+                    options: [
+                        "Je la remets sur le dos et commence la RCP",
+                        "Je continue la PLS",
+                        "Je lui donne des claques dans le dos",
+                        "J'attends que ça revienne"
+                    ],
+                    correctAnswer: "Je la remets sur le dos et commence la RCP",
+                    explanation: "L'arrêt respiratoire nécessite une RCP immédiate. Remettez-la sur le dos, dégagez les voies aériennes et comprimez.",
+                    tip: "Ne tardez pas, chaque seconde compte."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Pourquoi est-il important de ne jamais quitter la victime des yeux ?",
+                    options: [
+                        "Pour détecter tout changement d'état",
+                        "Pour qu'elle ne s'enfuie pas",
+                        "Pour lui tenir compagnie",
+                        "Pour éviter les voleurs"
+                    ],
+                    correctAnswer: "Pour détecter tout changement d'état",
+                    explanation: "L'état d'une victime peut se dégrader rapidement (arrêt respiratoire, reprise de conscience brutale). La vigilance est cruciale.",
+                    tip: "REX : un témoin a relâché sa surveillance, la victime a fait un arrêt cardiaque non détecté."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Que faire si la victime reprend connaissance pendant la surveillance ?",
+                    options: [
+                        "La rassurer, l'empêcher de se lever brutalement",
+                        "La faire asseoir immédiatement",
+                        "Lui donner à boire",
+                        "Arrêter la surveillance"
+                    ],
+                    correctAnswer: "La rassurer, l'empêcher de se lever brutalement",
+                    explanation: "Une reprise de conscience est bonne, mais il faut éviter un lever trop rapide qui pourrait provoquer un malaise. Continuez à surveiller.",
+                    tip: "Restez avec elle jusqu'à l'arrivée des secours."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Comment vérifier le pouls chez un adulte ?",
+                    options: [
+                        "Au poignet (radial) ou au cou (carotidien)",
+                        "Au niveau du cœur",
+                        "Au niveau du front",
+                        "À la cheville"
+                    ],
+                    correctAnswer: "Au poignet (radial) ou au cou (carotidien)",
+                    explanation: "Le pouls carotidien est le plus accessible en cas d'urgence. On le cherche à côté de la trachée.",
+                    tip: "Ne pas prendre plus de 10 secondes pour ne pas retarder la RCP si besoin."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Pendant la surveillance, vous notez que la respiration devient irrégulière (gasps). Que faire ?",
+                    options: [
+                        "Considérer comme un arrêt cardiaque et commencer la RCP",
+                        "C'est normal, continuer à surveiller",
+                        "Lui donner une tape dans le dos",
+                        "L'asseoir"
+                    ],
+                    correctAnswer: "Considérer comme un arrêt cardiaque et commencer la RCP",
+                    explanation: "Les gasps (respirations agoniques) sont des signes d'arrêt cardiaque. Il faut immédiatement débuter la RCP.",
+                    tip: "Ne pas attendre l'arrêt complet de la respiration."
+                },
+                {
+                    thematic: "Surveiller",
+                    question: "Quelle est la fréquence recommandée pour vérifier la respiration d'une victime inconsciente en PLS ?",
+                    options: [
+                        "Toutes les 30 secondes",
+                        "Toutes les minutes",
+                        "Toutes les 5 minutes",
+                        "Une seule fois suffit"
+                    ],
+                    correctAnswer: "Toutes les 30 secondes",
+                    explanation: "Une surveillance rapprochée permet de réagir immédiatement si la respiration s'arrête.",
+                    tip: "Comptez à haute voix pour vous concentrer."
+                },
+                // ========== BONNES PRATIQUES (15) ==========
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Parmi ces actions, laquelle est une bonne pratique avant toute intervention ?",
+                    options: [
+                        "Vérifier la sécurité de la zone",
+                        "Déplacer la victime",
+                        "Appeler la famille",
+                        "Prendre des photos"
+                    ],
+                    correctAnswer: "Vérifier la sécurité de la zone",
+                    explanation: "La sécurité du secouriste et de la victime est la priorité absolue.",
+                    tip: "Top 20 des bonnes pratiques : n°1 – Vérifier la sécurité."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Comment évaluer la conscience d'une victime ?",
+                    options: [
+                        "Lui parler fort et lui tapoter les épaules",
+                        "La pincer",
+                        "Lui verser de l'eau",
+                        "La secouer violemment"
+                    ],
+                    correctAnswer: "Lui parler fort et lui tapoter les épaules",
+                    explanation: "On commence par la voix, puis un stimulus tactile doux (épaules).",
+                    tip: "Si elle ne répond pas, elle est inconsciente."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Quelle est la bonne pratique pour contrôler un saignement abondant ?",
+                    options: [
+                        "Appuyer directement sur la plaie avec un tissu propre",
+                        "Mettre un garrot systématiquement",
+                        "Nettoyer à l'alcool",
+                        "Surélever sans compression"
+                    ],
+                    correctAnswer: "Appuyer directement sur la plaie avec un tissu propre",
+                    explanation: "La compression directe est le geste le plus efficace et à faire en premier.",
+                    tip: "Maintenez la pression jusqu'à l'arrivée des secours."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Que doit contenir un appel d'urgence efficace ?",
+                    options: [
+                        "Adresse, nature, état de la victime, nombre",
+                        "Le nom de la victime",
+                        "La couleur de ses vêtements",
+                        "Votre numéro de téléphone seulement"
+                    ],
+                    correctAnswer: "Adresse, nature, état de la victime, nombre",
+                    explanation: "Ces informations permettent aux secours d'arriver préparés et rapidement.",
+                    tip: "Ne raccrochez pas sans confirmation."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Quelle est la bonne position pour une victime inconsciente qui respire ?",
+                    options: [
+                        "PLS",
+                        "Sur le dos, tête surélevée",
+                        "Assise",
+                        "À plat ventre"
+                    ],
+                    correctAnswer: "PLS",
+                    explanation: "La Position Latérale de Sécurité protège les voies aériennes.",
+                    tip: "Vérifiez que rien ne bloque la respiration."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Que faire si une victime ne respire pas ?",
+                    options: [
+                        "Commencer la RCP immédiatement",
+                        "Attendre 2 minutes",
+                        "Lui donner de l'eau",
+                        "La mettre en PLS"
+                    ],
+                    correctAnswer: "Commencer la RCP immédiatement",
+                    explanation: "La RCP doit débuter sans délai pour éviter les lésions cérébrales.",
+                    tip: "Si vous n'êtes pas formé, faites des compressions thoraciques en continu."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Pourquoi est-il important de se former régulièrement aux gestes de premiers secours ?",
+                    options: [
+                        "Pour maintenir ses compétences et sa confiance",
+                        "Pour avoir un diplôme",
+                        "Pour gagner du temps",
+                        "Pour pouvoir critiquer les autres"
+                    ],
+                    correctAnswer: "Pour maintenir ses compétences et sa confiance",
+                    explanation: "Les gestes s'oublient, la pratique régulière (formation continue) garantit une intervention efficace.",
+                    tip: "Recyclage recommandé tous les 2 ans."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Quel est le premier geste en cas d'étouffement chez un adulte conscient ?",
+                    options: [
+                        "5 claques dans le dos",
+                        "Commencer la RCP",
+                        "Le faire pencher en avant",
+                        "Lui donner une tape sur le front"
+                    ],
+                    correctAnswer: "5 claques dans le dos",
+                    explanation: "On commence par 5 claques vigoureuses entre les omoplates, puis on alterne avec des compressions abdominales si nécessaire.",
+                    tip: "Penchez la victime en avant pour faciliter l'expulsion."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Que faire si vous êtes témoin d'un accident de circulation avec des blessés ?",
+                    options: [
+                        "Protéger, examiner, alerter, secourir, surveiller",
+                        "Déplacer tout le monde immédiatement",
+                        "Prendre des photos",
+                        "Attendre que quelqu'un d'autre appelle"
+                    ],
+                    correctAnswer: "Protéger, examiner, alerter, secourir, surveiller",
+                    explanation: "Suivez la méthode PSEAS, c'est la trame universelle.",
+                    tip: "N'oubliez pas de vous protéger d'abord."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Comment rassurer une victime consciente ?",
+                    options: [
+                        "Parler calmement, lui tenir la main, expliquer ce qui se passe",
+                        "Lui cacher la vérité",
+                        "L'ignorer",
+                        "Lui mettre un casque"
+                    ],
+                    correctAnswer: "Parler calmement, lui tenir la main, expliquer ce qui se passe",
+                    explanation: "Le soutien psychologique réduit le stress et aide à stabiliser l'état.",
+                    tip: "Dites-lui que les secours arrivent."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Quelle est la bonne pratique pour surveiller une victime en PLS ?",
+                    options: [
+                        "Vérifier la respiration régulièrement et rassurer",
+                        "La laisser seule",
+                        "Lui donner à boire",
+                        "La couvrir entièrement"
+                    ],
+                    correctAnswer: "Vérifier la respiration régulièrement et rassurer",
+                    explanation: "La surveillance active est essentielle, même si la victime semble stable.",
+                    tip: "Parlez-lui même inconsciente."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Que faire si une victime saigne abondamment et que la compression directe ne suffit pas ?",
+                    options: [
+                        "Ajouter un deuxième tissu et maintenir la pression",
+                        "Enlever le premier et recommencer",
+                        "Mettre un garrot très serré",
+                        "Arrêter la compression"
+                    ],
+                    correctAnswer: "Ajouter un deuxième tissu et maintenir la pression",
+                    explanation: "Ne retirez jamais le premier pansement, ajoutez-en un autre par-dessus et continuez d'appuyer.",
+                    tip: "Si possible, surélevez le membre."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Quelle information donner aux secours en priorité ?",
+                    options: [
+                        "L'adresse exacte",
+                        "Le nom de la victime",
+                        "Votre nom",
+                        "L'âge de la victime"
+                    ],
+                    correctAnswer: "L'adresse exacte",
+                    explanation: "Sans adresse, les secours ne peuvent pas intervenir. C'est l'info numéro 1.",
+                    tip: "Donnez des points de repère si l'adresse est difficile à trouver."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Comment protéger la tête et le cou d'une victime que vous devez déplacer ?",
+                    options: [
+                        "La tirer par les épaules en maintenant sa tête",
+                        "La tirer par les cheveux",
+                        "Ne pas toucher à la tête",
+                        "La porter à bout de bras"
+                    ],
+                    correctAnswer: "La tirer par les épaules en maintenant sa tête",
+                    explanation: "Si vous devez la déplacer, essayez de maintenir l'axe tête-cou pour éviter les traumatismes cervicaux.",
+                    tip: "Si elle est inconsciente et sans danger, ne la déplacez pas."
+                },
+                {
+                    thematic: "Bonnes pratiques",
+                    question: "Quelle est la fréquence des compressions thoraciques chez l'adulte ?",
+                    options: [
+                        "100 à 120 par minute",
+                        "60 à 80 par minute",
+                        "80 à 100 par minute",
+                        "Le plus vite possible"
+                    ],
+                    correctAnswer: "100 à 120 par minute",
+                    explanation: "C'est la cadence recommandée pour une circulation sanguine efficace.",
+                    tip: "Pensez au rythme de la chanson 'Stayin' Alive'."
+                },
+                // ========== MAUVAISES PRATIQUES (15) ==========
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Quelle est l'erreur la plus fréquente en arrivant sur un accident ?",
+                    options: [
+                        "Se précipiter vers la victime sans sécuriser",
+                        "Appeler les secours",
+                        "Mettre des gants",
+                        "Parler à la victime"
+                    ],
+                    correctAnswer: "Se précipiter vers la victime sans sécuriser",
+                    explanation: "Cette précipitation peut entraîner un sur-accident (électrocution, brûlure).",
+                    tip: "REX : à Abidjan, un secouriste a été percuté par une voiture en se ruant sur la victime."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Pourquoi ne faut-il pas déplacer une victime sans danger immédiat ?",
+                    options: [
+                        "Risque d'aggraver des blessures (fracture, cervicales)",
+                        "C'est plus long",
+                        "La victime peut s'enfuir",
+                        "On risque de se salir"
+                    ],
+                    correctAnswer: "Risque d'aggraver des blessures (fracture, cervicales)",
+                    explanation: "Un déplacement inutile peut transformer une fracture simple en lésion de la moelle épinière.",
+                    tip: "REX : un témoin a déplacé un blessé de la route, aggravant sa fracture cervicale."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Que risque-t-on si on commence la RCP sur une victime qui respire normalement ?",
+                    options: [
+                        "Lui casser des côtes et gêner sa respiration",
+                        "Rien, c'est prudent",
+                        "La réveiller",
+                        "Améliorer son état"
+                    ],
+                    correctAnswer: "Lui casser des côtes et gêner sa respiration",
+                    explanation: "La RCP n'est indiquée qu'en l'absence de respiration. Sur une victime qui respire, elle est inutile et dangereuse.",
+                    tip: "Vérifiez bien la respiration avant de commencer."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Quelle est la mauvaise pratique concernant les saignements ?",
+                    options: [
+                        "Retirer le premier pansement imbibé pour en mettre un propre",
+                        "Comprimer fort",
+                        "Surélever le membre",
+                        "Allonger la victime"
+                    ],
+                    correctAnswer: "Retirer le premier pansement imbibé pour en mettre un propre",
+                    explanation: "En retirant le pansement, on risque de décoller le caillot et d'aggraver le saignement. On ajoute par-dessus.",
+                    tip: "Gardez le premier pansement et ajoutez-en d'autres."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Lors d'un appel aux secours, quelle erreur peut retarder l'arrivée ?",
+                    options: [
+                        "Ne pas donner l'adresse exacte",
+                        "Donner trop de détails",
+                        "Parler trop fort",
+                        "Donner son nom"
+                    ],
+                    correctAnswer: "Ne pas donner l'adresse exacte",
+                    explanation: "C'est l'erreur critique. Sans localisation précise, les secours tournent en rond.",
+                    tip: "REX : à Marcory, 15 minutes perdues faute de quartier précis."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Que faire si une victime a un objet planté dans l'œil ?",
+                    options: [
+                        "Ne pas retirer l'objet",
+                        "Retirer l'objet délicatement",
+                        "Rincer l'œil",
+                        "Appuyer sur l'objet"
+                    ],
+                    correctAnswer: "Ne pas retirer l'objet",
+                    explanation: "C'est une bonne pratique. La mauvaise serait de le retirer, ce qui peut arracher l'œil.",
+                    tip: "Stabilisez l'objet avec un cône et un pansement."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Quelle est la mauvaise attitude face à une victime inconsciente ?",
+                    options: [
+                        "Lui donner à boire",
+                        "La mettre en PLS",
+                        "Vérifier sa respiration",
+                        "Appeler les secours"
+                    ],
+                    correctAnswer: "Lui donner à boire",
+                    explanation: "Une victime inconsciente ne peut pas avaler ; le liquide va dans les poumons.",
+                    tip: "Ne jamais donner à manger ou à boire à un inconscient."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Pourquoi ne faut-il pas appliquer de glace directement sur une brûlure ?",
+                    options: [
+                        "Cela peut aggraver la lésion cutanée",
+                        "C'est trop froid",
+                        "La glace n'est pas stérile",
+                        "Cela fait fondre la peau"
+                    ],
+                    correctAnswer: "Cela peut aggraver la lésion cutanée",
+                    explanation: "La glace en contact direct avec une brûlure peut provoquer une brûlure par le froid et endommager les tissus. Utilisez de l'eau tiède.",
+                    tip: "Arrosez à l'eau du robinet (pas glacée)."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Que faire si une victime s'étouffe et devient bleue ?",
+                    options: [
+                        "Commencer les claques dans le dos",
+                        "Attendre qu'elle expectore",
+                        "Lui donner une boisson",
+                        "La mettre en PLS"
+                    ],
+                    correctAnswer: "Commencer les claques dans le dos",
+                    explanation: "C'est la bonne pratique. La mauvaise serait d'attendre ou de lui donner à boire.",
+                    tip: "Agissez vite : 5 claques, puis 5 compressions abdominales."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Quelle est une erreur fréquente lors de la RCP ?",
+                    options: [
+                        "Ne pas interrompre les compressions plus de 10 secondes",
+                        "Comprimer trop lentement",
+                        "Comprimer trop fort",
+                        "Faire des pauses longues"
+                    ],
+                    correctAnswer: "Faire des pauses longues",
+                    explanation: "Les pauses prolongées diminuent la perfusion cérébrale. Il faut minimiser les interruptions.",
+                    tip: "Si vous êtes fatigué, alternez avec quelqu'un."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Pourquoi ne faut-il pas pencher la tête en arrière d'une victime qui saigne du nez ?",
+                    options: [
+                        "Le sang coule dans la gorge, risque d'étouffement",
+                        "Cela n'arrête pas le saignement",
+                        "Cela fait mal",
+                        "C'est inesthétique"
+                    ],
+                    correctAnswer: "Le sang coule dans la gorge, risque d'étouffement",
+                    explanation: "Il faut pencher la tête en avant, pincer les narines.",
+                    tip: "Asseyez la victime, tête penchée en avant."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Que risque-t-on en retirant un casque à un motard accidenté sans précaution ?",
+                    options: [
+                        "Aggraver une blessure cervicale",
+                        "Le casque est lourd",
+                        "Rien",
+                        "Le motard peut s'étouffer"
+                    ],
+                    correctAnswer: "Aggraver une blessure cervicale",
+                    explanation: "Le retrait du casque doit être fait avec précaution (deux personnes) pour maintenir l'axe tête-cou.",
+                    tip: "Si la victime respire, attendez les secours pour retirer le casque."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Quelle est une mauvaise pratique en cas de brûlure chimique ?",
+                    options: [
+                        "Rincer abondamment à l'eau",
+                        "Enlever les vêtements imprégnés",
+                        "Appeler un centre antipoison",
+                        "Ne pas rincer, appliquer une crème"
+                    ],
+                    correctAnswer: "Ne pas rincer, appliquer une crème",
+                    explanation: "Il faut rincer abondamment à l'eau pour diluer le produit. Ne pas appliquer de crème.",
+                    tip: "Rincer au moins 15 minutes."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Pourquoi ne faut-il jamais laisser une victime inconsciente seule ?",
+                    options: [
+                        "Parce que son état peut changer brutalement",
+                        "Pour lui tenir compagnie",
+                        "Pour éviter qu'elle parte",
+                        "Pour la surveiller, mais c'est optionnel"
+                    ],
+                    correctAnswer: "Parce que son état peut changer brutalement",
+                    explanation: "Un arrêt respiratoire peut survenir à tout moment. La surveillance constante est indispensable.",
+                    tip: "Restez auprès d'elle jusqu'à l'arrivée des secours."
+                },
+                {
+                    thematic: "Mauvaises pratiques",
+                    question: "Quelle est une erreur dans la gestion de la foule lors d'un accident ?",
+                    options: [
+                        "Éloigner les curieux",
+                        "Laisser la foule s'approcher",
+                        "Demander de l'aide",
+                        "Créer un périmètre"
+                    ],
+                    correctAnswer: "Laisser la foule s'approcher",
+                    explanation: "La foule gêne l'intervention, peut stresser la victime et causer un sur-accident.",
+                    tip: "Demandez fermement de reculer."
+                },
+                // ========== RISQUES & REX (15) ==========
+                {
+                    thematic: "Risques & REX",
+                    question: "Quel est le risque majeur en cas de contact électrique sans protection ?",
+                    options: [
+                        "Électrocution du sauveteur",
+                        "Brûlure légère",
+                        "Panique",
+                        "Rien si on est isolé"
+                    ],
+                    correctAnswer: "Électrocution du sauveteur",
+                    explanation: "Toucher une personne encore sous tension électrique transmet le courant. C'est un risque mortel.",
+                    tip: "REX : à Abidjan, deux personnes sont mortes électrocutées en tentant de secourir une troisième."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Lors d'un incendie, quel est le principal risque pour la victime avant l'arrivée des secours ?",
+                    options: [
+                        "Intoxication par les fumées",
+                        "Brûlures",
+                        "Chute de débris",
+                        "Panique"
+                    ],
+                    correctAnswer: "Intoxication par les fumées",
+                    explanation: "Les fumées toxiques (monoxyde de carbone) tuent plus vite que les flammes.",
+                    tip: "Sortez la victime de la zone enfumée si possible."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Un accident de la route avec plusieurs véhicules : quel danger secondaire est fréquent ?",
+                    options: [
+                        "Sur-accident (autre véhicule)",
+                        "Fuites de carburant",
+                        "Incendie",
+                        "Tous ces risques"
+                    ],
+                    correctAnswer: "Tous ces risques",
+                    explanation: "Les accidents de la route cumulent souvent plusieurs dangers : circulation, incendie, explosion.",
+                    tip: "Protégez la zone et éloignez-vous si odeur d'essence."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Que nous apprend le REX de l'incendie industriel où un secouriste a voulu dégager une victime sans couper le courant ?",
+                    options: [
+                        "Toujours sécuriser avant d'agir",
+                        "Appeler d'abord",
+                        "Porter des gants isolants",
+                        "Dégager rapidement"
+                    ],
+                    correctAnswer: "Toujours sécuriser avant d'agir",
+                    explanation: "Le secouriste a été électrocuté. La leçon : la sécurité du secouriste est primordiale.",
+                    tip: "Couper le courant est la première action."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Dans un centre commercial, une victime semblait inconsciente mais respirait faiblement. Grâce à quoi a-t-elle été sauvée ?",
+                    options: [
+                        "Vérification rapide de la respiration",
+                        "Défibrillateur",
+                        "Massage cardiaque",
+                        "Bouche-à-bouche"
+                    ],
+                    correctAnswer: "Vérification rapide de la respiration",
+                    explanation: "L'examen méthodique a permis de détecter une respiration faible et de la mettre en PLS, évitant l'arrêt.",
+                    tip: "Toujours vérifier la respiration avant d'agir."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Un témoin d'accident a appelé les secours sans préciser la localisation. Quelle a été la conséquence ?",
+                    options: [
+                        "Retard de 15 minutes",
+                        "Les secours sont arrivés quand même",
+                        "Ils ont annulé l'intervention",
+                        "Rien"
+                    ],
+                    correctAnswer: "Retard de 15 minutes",
+                    explanation: "L'absence d'adresse précise a fait perdre un temps précieux.",
+                    tip: "Toujours donner l'adresse ou des points de repère."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Lors d'un arrêt cardiaque dans un supermarché, des témoins ont commencé la RCP immédiatement. Quel a été le résultat ?",
+                    options: [
+                        "La victime a survécu",
+                        "La victime est décédée",
+                        "Rien n'a changé",
+                        "Les secours sont arrivés trop tard"
+                    ],
+                    correctAnswer: "La victime a survécu",
+                    explanation: "La RCP précoce double ou triple les chances de survie.",
+                    tip: "N'hésitez jamais à commencer la RCP."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Un témoin a déplacé un blessé sans danger immédiat, aggravant sa fracture cervicale. Quelle est la règle d'or ?",
+                    options: [
+                        "Ne déplacer qu'en cas de danger immédiat",
+                        "Toujours déplacer pour plus de sécurité",
+                        "Attendre les secours pour tout",
+                        "Déplacer si la victime le demande"
+                    ],
+                    correctAnswer: "Ne déplacer qu'en cas de danger immédiat",
+                    explanation: "Ce REX montre les conséquences graves d'un déplacement inutile.",
+                    tip: "Si aucun danger, laissez la victime en place."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Dans un atelier, un ouvrier a tenté de secourir un collègue sans couper la machine. Quel a été le résultat ?",
+                    options: [
+                        "Double accident",
+                        "Succès",
+                        "La machine s'est arrêtée",
+                        "Rien"
+                    ],
+                    correctAnswer: "Double accident",
+                    explanation: "Le sauveteur a été blessé à son tour. La sécurité doit être la priorité.",
+                    tip: "Ne touchez jamais une victime encore en contact avec une machine en marche."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Quel est le risque d'une mauvaise position en PLS (tête trop droite) ?",
+                    options: [
+                        "Obstruction des voies respiratoires",
+                        "Inconfort",
+                        "Chute",
+                        "Compression des bras"
+                    ],
+                    correctAnswer: "Obstruction des voies respiratoires",
+                    explanation: "Si la tête n'est pas suffisamment inclinée, la langue peut obstruer la gorge.",
+                    tip: "Après installation, vérifiez que la respiration est libre."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Pourquoi les secours recommandent-ils de ne jamais retirer un casque après un accident de moto ?",
+                    options: [
+                        "Risque de lésion cervicale",
+                        "Le casque protège encore",
+                        "Le blessé pourrait avoir froid",
+                        "C'est difficile"
+                    ],
+                    correctAnswer: "Risque de lésion cervicale",
+                    explanation: "Le retrait sans maintien de la tête peut aggraver une fracture du rachis.",
+                    tip: "Laissez le casque, sauf si la victime ne respire pas."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Quel est le risque en cas de négligence d'un saignement abondant ?",
+                    options: [
+                        "Choc hémorragique (perte de sang)",
+                        "Infection",
+                        "Douleur",
+                        "Cicatrice"
+                    ],
+                    correctAnswer: "Choc hémorragique (perte de sang)",
+                    explanation: "Un saignement non contrôlé peut entraîner la mort en quelques minutes.",
+                    tip: "Comprimez immédiatement."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Que peut-il arriver si on oublie de surveiller la respiration d'une victime en PLS ?",
+                    options: [
+                        "Arrêt respiratoire non détecté",
+                        "La victime peut s'endormir",
+                        "Rien",
+                        "Elle peut parler"
+                    ],
+                    correctAnswer: "Arrêt respiratoire non détecté",
+                    explanation: "L'absence de surveillance peut conduire à un décès évitable.",
+                    tip: "Surveillez toutes les 30 secondes."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Un REX montre qu'un secouriste a relâché sa surveillance pensant que la victime allait bien. Que s'est-il passé ?",
+                    options: [
+                        "L'état s'est détérioré en quelques minutes",
+                        "La victime s'est levée",
+                        "Rien",
+                        "Les secours sont arrivés"
+                    ],
+                    correctAnswer: "L'état s'est détérioré en quelques minutes",
+                    explanation: "La vigilance ne doit jamais cesser, même si la victime semble stable.",
+                    tip: "Restez concentré jusqu'à la prise en charge."
+                },
+                {
+                    thematic: "Risques & REX",
+                    question: "Quel est le principal enseignement du REX sur les accidents domestiques avec feu ?",
+                    options: [
+                        "Sécuriser la source (gaz, électricité) avant d'approcher",
+                        "Déplacer rapidement",
+                        "Appeler en premier",
+                        "Couvrir la victime"
+                    ],
+                    correctAnswer: "Sécuriser la source (gaz, électricité) avant d'approcher",
+                    explanation: "Dans plusieurs cas, le sauveteur a été blessé en négligeant le danger.",
+                    tip: "Coupez le gaz ou l'électricité avant d'entrer."
+                }
+            ]
+        };
+
+        // Récupération des éléments DOM (identique au code précédent)
+        const settingsPanel = document.getElementById('settings-panel');
+        const quizContent = document.getElementById('quiz-content');
+        const questionCountSelect = document.getElementById('question-count');
+        const startBtn = document.getElementById('start-quiz-btn');
+        const questionCounter = document.getElementById('question-counter');
+        const currentScoreSpan = document.getElementById('current-score');
+        const progressBar = document.getElementById('progress-bar');
+        const questionText = document.getElementById('question-text');
+        const thematicBadge = document.getElementById('thematic-badge');
+        const optionsContainer = document.getElementById('options-container');
+        const explanationBox = document.getElementById('explanation-box');
+        const explanationTitle = document.getElementById('explanation-title');
+        const explanationText = document.getElementById('explanation-text');
+        const tipBox = document.getElementById('tip-box');
+        const tipText = document.getElementById('tip-text');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const finishBtn = document.getElementById('finish-btn');
+        const resultsModal = new bootstrap.Modal(document.getElementById('resultsModal'));
+        const finalScoreCorrect = document.getElementById('final-score-correct');
+        const finalScoreTotal = document.getElementById('final-score-total');
+        const finalScorePercentage = document.getElementById('final-score-percentage');
+        const techSkills = document.getElementById('tech-skills');
+        const techSkillsText = document.getElementById('tech-skills-text');
+        const strategicSkills = document.getElementById('strategic-skills');
+        const strategicSkillsText = document.getElementById('strategic-skills-text');
+        const finalRecommendations = document.getElementById('final-recommendations');
+        const shortTerm = document.getElementById('short-term');
+        const longTerm = document.getElementById('long-term');
+        const restartQuizBtn = document.getElementById('restart-quiz-btn');
+
+        // Mapping des badges
+        const badgeMap = {
+            "Protéger": "badge-proteger",
+            "Examiner": "badge-examiner",
+            "Alerter": "badge-alerter",
+            "Secourir": "badge-secourir",
+            "Surveiller": "badge-surveiller",
+            "Bonnes pratiques": "badge-bonnes",
+            "Mauvaises pratiques": "badge-mauvaises",
+            "Risques & REX": "badge-risques"
+        };
+
+        // État du quiz
+        let questions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        // Fonctions utilitaires (shuffle, filter, etc.) identiques
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function filterQuestions() {
+            const domains = {
+                'domain-proteger': "Protéger",
+                'domain-examiner': "Examiner",
+                'domain-alerter': "Alerter",
+                'domain-secourir': "Secourir",
+                'domain-surveiller': "Surveiller",
+                'domain-bonnes': "Bonnes pratiques",
+                'domain-mauvaises': "Mauvaises pratiques",
+                'domain-risques': "Risques & REX",
+                'domain-rex': "Risques & REX" // pour compatibilité
+            };
+            const selected = [];
+            for (const [id, thematic] of Object.entries(domains)) {
+                const el = document.getElementById(id);
+                if (el && el.checked) selected.push(thematic);
+            }
+            if (selected.length === 0) return quizData.questions;
+            return quizData.questions.filter(q => selected.includes(q.thematic));
+        }
+
+        function shuffleOptions(question) {
+            const options = question.options.map(opt => ({ text: opt, correct: opt === question.correctAnswer }));
+            for (let i = options.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [options[i], options[j]] = [options[j], options[i]];
+            }
+            question.options = options.map(o => o.text);
+            question.correctAnswer = options.find(o => o.correct).text;
+        }
+
+        function startQuiz() {
+            let filtered = filterQuestions();
+            if (filtered.length === 0) {
+                alert("Sélectionnez au moins un domaine.");
+                return;
+            }
+            let count = parseInt(questionCountSelect.value);
+            if (filtered.length < count) {
+                alert(`Seulement ${filtered.length} questions disponibles.`);
+                count = filtered.length;
+            }
+            questions = shuffleArray(filtered.slice(0, count));
+            questions.forEach(q => shuffleOptions(q));
+            currentIndex = 0;
+            score = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            settingsPanel.classList.add('d-none');
+            quizContent.classList.remove('d-none');
+            displayQuestion();
+            updateScoreDisplay();
+        }
+
+        function displayQuestion() {
+            explanationBox.classList.add('d-none');
+            tipBox.classList.add('d-none');
+            const q = questions[currentIndex];
+            questionText.textContent = q.question;
+            thematicBadge.textContent = q.thematic;
+            thematicBadge.className = `thematic-badge ${badgeMap[q.thematic] || 'badge-proteger'}`;
+            optionsContainer.innerHTML = '';
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+                btn.onclick = () => selectAnswer(btn, opt);
+                optionsContainer.appendChild(btn);
+            });
+            updateNavigation();
+            updateProgressBar();
+            if (userAnswers[currentIndex]) {
+                showFeedback();
+            }
+        }
+
+        function selectAnswer(btn, selected) {
+            if (userAnswers[currentIndex]) return;
+            const q = questions[currentIndex];
+            const isCorrect = selected === q.correctAnswer;
+            userAnswers[currentIndex] = {
+                selected: selected,
+                correct: q.correctAnswer,
+                isCorrect: isCorrect
+            };
+            if (isCorrect) score++;
+            updateScoreDisplay();
+            showFeedback();
+        }
+
+        function showFeedback() {
+            const ua = userAnswers[currentIndex];
+            if (!ua) return;
+            const btns = optionsContainer.querySelectorAll('.option-btn');
+            btns.forEach(btn => {
+                btn.disabled = true;
+                if (btn.textContent === ua.correct) btn.classList.add('correct');
+                else if (btn.textContent === ua.selected) btn.classList.add('incorrect');
+            });
+            explanationText.textContent = questions[currentIndex].explanation;
+            if (ua.isCorrect) {
+                explanationTitle.innerHTML = "✅ Correct !";
+                explanationBox.className = "explanation-correct";
+            } else {
+                explanationTitle.innerHTML = "💡 À retenir";
+                explanationBox.className = "explanation-incorrect";
+            }
+            explanationBox.classList.remove('d-none');
+            if (questions[currentIndex].tip) {
+                tipText.textContent = questions[currentIndex].tip;
+                tipBox.classList.remove('d-none');
+            }
+        }
+
+        function updateNavigation() {
+            prevBtn.disabled = currentIndex === 0;
+            if (currentIndex === questions.length - 1) {
+                nextBtn.classList.add('d-none');
+                finishBtn.classList.remove('d-none');
+            } else {
+                nextBtn.classList.remove('d-none');
+                finishBtn.classList.add('d-none');
+            }
+        }
+
+        function updateProgressBar() {
+            const percent = ((currentIndex + 1) / questions.length) * 100;
+            progressBar.style.width = `${percent}%`;
+            questionCounter.textContent = `Question ${currentIndex + 1} / ${questions.length}`;
+        }
+
+        function updateScoreDisplay() {
+            currentScoreSpan.textContent = `Score: ${score}/${questions.length}`;
+        }
+
+        function handleNext() {
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
+                displayQuestion();
+            }
+        }
+
+        function handlePrev() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayQuestion();
+            }
+        }
+
+        function showFinalResults() {
+            const total = questions.length;
+            const correct = score;
+            const percent = (correct / total) * 100;
+            finalScoreCorrect.textContent = correct;
+            finalScoreTotal.textContent = total;
+            finalScorePercentage.textContent = `${percent.toFixed(0)}%`;
+
+            // Estimation des compétences (simplifiée)
+            const techThemes = ["Protéger", "Secourir", "Examiner"];
+            const strategicThemes = ["Alerter", "Surveiller", "Bonnes pratiques", "Mauvaises pratiques", "Risques & REX"];
+            let techScore = 0, techCount = 0, stratScore = 0, stratCount = 0;
+            userAnswers.forEach((ans, idx) => {
+                if (ans) {
+                    const theme = questions[idx].thematic;
+                    if (techThemes.includes(theme)) {
+                        techCount++;
+                        if (ans.isCorrect) techScore++;
+                    } else {
+                        stratCount++;
+                        if (ans.isCorrect) stratScore++;
+                    }
+                }
+            });
+            const techPct = techCount ? (techScore / techCount) * 100 : 0;
+            const stratPct = stratCount ? (stratScore / stratCount) * 100 : 0;
+            techSkills.style.width = techPct + '%';
+            techSkillsText.textContent = `Techniques: ${techPct.toFixed(0)}%`;
+            strategicSkills.style.width = stratPct + '%';
+            strategicSkillsText.textContent = `Gestion: ${stratPct.toFixed(0)}%`;
+
+            // Recommandations
+            let level = "";
+            if (percent >= 90) level = "Expert secouriste";
+            else if (percent >= 75) level = "Avancé";
+            else if (percent >= 60) level = "Intermédiaire";
+            else if (percent >= 40) level = "Débutant";
+            else level = "À consolider";
+
+            finalRecommendations.innerHTML = `<h5>Niveau: ${level}</h5><p>Continuez à vous former et à pratiquer les gestes qui sauvent.</p>`;
+            shortTerm.textContent = "Pratiquez sur des mannequins, suivez une formation PSC1.";
+            longTerm.textContent = "Participez à des formations de secourisme, devenez formateur.";
+
+            resultsModal.show();
+        }
+
+        function restartQuiz() {
+            settingsPanel.classList.remove('d-none');
+            quizContent.classList.add('d-none');
+            resultsModal.hide();
+        }
+
+        startBtn.addEventListener('click', startQuiz);
+        nextBtn.addEventListener('click', handleNext);
+        prevBtn.addEventListener('click', handlePrev);
+        finishBtn.addEventListener('click', showFinalResults);
+        restartQuizBtn.addEventListener('click', restartQuiz);
+
+        // Initial state
+        settingsPanel.classList.remove('d-none');
+        quizContent.classList.add('d-none');
+    </script>
+</body>
+</html>
