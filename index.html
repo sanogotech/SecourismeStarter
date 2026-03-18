@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSEAS · Guide complet de secourisme (Côte d'Ivoire)</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #B71C1C;
+            --secondary: #8B1E1E;
+            --accent: #FFB74D;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #10b981;
+            --info: #3b82f6;
+            --warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            scroll-behavior: smooth;
+            padding-top: 70px;
+        }
+        .navbar {
+            background-color: var(--primary) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+        .header-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 5px solid var(--accent);
+        }
+        .header-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .header-section p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        .badge-flag {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .section-title {
+            font-weight: 700;
+            color: var(--primary);
+            border-left: 8px solid var(--accent);
+            padding-left: 1rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .card-step {
+            border: none;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        .card-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .card-step .card-header {
+            background: transparent;
+            border-bottom: 2px solid var(--accent);
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 1.2rem 1.5rem 0.5rem;
+        }
+        .card-step .card-body {
+            padding: 1.5rem;
+        }
+        .icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            font-size: 1.8rem;
+            margin-right: 1rem;
+        }
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+        .list-check li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+        .list-cross {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-cross li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+        .list-cross li::before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+        .rex-box {
+            background: #fff7e6;
+            border-left: 5px solid var(--accent);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        .numero-box {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            margin: 0.5rem 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .btn-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 18px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 1000;
+        }
+        .btn-top:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-heartbeat me-2"></i>Secourisme PSEAS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#intro">Intro</a></li>
+                <li class="nav-item"><a class="nav-link" href="#proteger">Protéger</a></li>
+                <li class="nav-item"><a class="nav-link" href="#examiner">Examiner</a></li>
+                <li class="nav-item"><a class="nav-link" href="#alerter">Alerter</a></li>
+                <li class="nav-item"><a class="nav-link" href="#secourir">Secourir</a></li>
+                <li class="nav-item"><a class="nav-link" href="#surveiller">Surveiller</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bonnespratiques">Bonnes Pratiques</a></li>
+                <li class="nav-item"><a class="nav-link" href="#risques">Risques & Éviter</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="header-section text-center">
+    <div class="container">
+        <h1><i class="fas fa-hand-holding-heart me-3"></i>Méthode PSEAS</h1>
+        <p class="lead">Protéger – Examiner – Alerter – Secourir – Surveiller</p>
+        <p>Guide complet adapté à la Côte d'Ivoire, avec retours d'expérience (REX) et gestes qui sauvent.</p>
+        <div class="badge-flag"><i class="fas fa-map-marker-alt me-2"></i>Abidjan · Yopougon · Bouaké · San-Pédro</div>
+    </div>
+</header>
+
+<!-- Fil rouge : Amadou & Fatou (affiché en surbrillance) -->
+<div class="container mb-4">
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <i class="fas fa-user-friends fa-2x me-3 text-primary"></i>
+        <div><strong>📌 Fil rouge :</strong> Suivez Amadou, qui porte secours à sa voisine Fatou après un incendie dans sa cuisine à Marcory. Chaque étape est illustrée par son action.</div>
+    </div>
+</div>
+
+<!-- 8 SECTIONS PRINCIPALES -->
+<div class="container">
+    <!-- Introduction -->
+    <section id="intro">
+        <h2 class="section-title"><i class="fas fa-info-circle me-2"></i>Introduction : Les 5 étapes fondamentales</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card-step p-3">
+                    <p>Secourir une victime en situation d'urgence requiert rapidité, méthode et sécurité. L'approche <strong>PSEAS</strong> structure vos actions :</p>
+                    <ul class="list-check">
+                        <li><strong>Protéger</strong> – Sécuriser la zone</li>
+                        <li><strong>Examiner</strong> – Évaluer l'état de la victime</li>
+                        <li><strong>Alerter</strong> – Appeler les secours</li>
+                        <li><strong>Secourir</strong> – Appliquer les gestes adaptés</li>
+                        <li><strong>Surveiller</strong> – Rester attentif à l'évolution</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card-step p-3">
+                    <div class="rex-box">
+                        <i class="fas fa-quote-left me-2"></i> Dans un atelier industriel, un secouriste a tenté de déplacer un collègue sans couper l’électricité. Résultat : double accident. <strong>Toujours sécuriser avant d’agir.</strong>
+                    </div>
+                    <p class="mt-3"><i class="fas fa-check-circle text-success me-2"></i> La méthode PSEAS a fait ses preuves sur le terrain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 1 : Protéger -->
+    <section id="proteger">
+        <h2 class="section-title"><i class="fas fa-shield-alt me-2"></i>1. Protéger – Sécuriser la zone</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header"><span class="icon-circle"><i class="fas fa-bolt"></i></span>Actions clés</div>
+                    <div class="card-body">
+                        <ul class="list-check">
+                            <li>Couper l’électricité (disjoncteur) si risque électrique.</li>
+                            <li>Couper le gaz, éloigner les sources de feu.</li>
+                            <li>Baliser / signaler la zone (triangle, warnings).</li>
+                            <li>Ne jamais toucher la victime avant sécurisation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header"><span class="icon-circle"><i class="fas fa-user-check"></i></span>Fil rouge – Amadou</div>
+                    <div class="card-body">
+                        <p>Amadou coupe le gaz, débranche les appareils et ferme la porte de la cuisine pour contenir le feu. Il écarte Fatou du danger immédiat en la tirant par les épaules (consciente) loin des flammes.</p>
+                        <div class="rex-box mt-2"><strong>REX :</strong> Ne jamais déplacer sans danger immédiat – ici le feu justifie le déplacement.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 2 : Examiner -->
+    <section id="examiner">
+        <h2 class="section-title"><i class="fas fa-stethoscope me-2"></i>2. Examiner – Évaluer l'état</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header"><span class="icon-circle"><i class="fas fa-heartbeat"></i></span>Vérifications</div>
+                    <div class="card-body">
+                        <ol>
+                            <li><strong>Conscience</strong> – Parler, tapoter les épaules.</li>
+                            <li><strong>Respiration</strong> – Regarder, écouter, sentir (10s).</li>
+                            <li><strong>Saignements</strong> – Repérer les hémorragies.</li>
+                            <li><strong>Obstruction</strong> – Étouffement ?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header"><span class="icon-circle"><i class="fas fa-user-md"></i></span>Fil rouge</div>
+                    <div class="card-body">
+                        <p>Fatou est inconsciente mais respire normalement, pas de saignement. Amadou décide de la placer en PLS.</p>
+                        <div class="rex-box"><i class="fas fa-lightbulb"></i> Dans un centre commercial, une victime semblait inconsciente mais respirait faiblement : vérification rapide → PLS → survie.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 3 : Alerter -->
+    <section id="alerter">
+        <h2 class="section-title"><i class="fas fa-phone-alt me-2"></i>3. Alerter – Appeler les secours</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header"><span class="icon-circle"><i class="fas fa-phone"></i></span>Numéros Côte d'Ivoire</div>
+                    <div class="card-body">
+                        <p><span class="numero-box"><i class="fas fa-fire-extinguisher me-1"></i> 18 (Pompiers)</span></p>
+                        <p><span class="numero-box"><i class="fas fa-ambulance me-1"></i> 15 (SAMU)</span></p>
+                        <p><span class="numero-box"><i class="fas fa-shield-alt me-1"></i> 17 (Police)</span></p>
+                        <p><span class="numero-box"><i class="fas fa-globe me-1"></i> 112 (Europe, fonctionne aussi)</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header"><span class="icon-circle"><i class="fas fa-info-circle"></i></span>Infos à donner</div>
+                    <div class="card-body">
+                        <ul class="list-check">
+                            <li>Adresse précise + points de repère</li>
+                            <li>Nature de l'urgence (incendie, malaise...)</li>
+                            <li>État de la victime (consciente, respire)</li>
+                            <li>Nombre de victimes</li>
+                        </ul>
+                        <div class="rex-box"><strong>REX :</strong> À Abidjan, un appel sans quartier a retardé les secours de 15 minutes.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 4 : Secourir -->
+    <section id="secourir">
+        <h2 class="section-title"><i class="fas fa-hand-holding-heart me-2"></i>4. Secourir – Gestes adaptés</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header">PLS & RCP</div>
+                    <div class="card-body">
+                        <p><strong>Inconscient qui respire :</strong> PLS (Position Latérale de Sécurité).</p>
+                        <p><strong>Inconscient qui ne respire pas :</strong> RCP (30 compressions / 2 insufflations, 100-120/min).</p>
+                        <p><strong>Saignement :</strong> compression directe.</p>
+                        <p><strong>Étouffement :</strong> 5 claques dos + 5 Heimlich.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header">Fil rouge</div>
+                    <div class="card-body">
+                        <p>Amadou place Fatou en PLS dans le couloir, tête inclinée, bras sous la joue, jambe pliée. Il surveille sa respiration.</p>
+                        <div class="rex-box">REX : RCP immédiate dans un supermarché à Abidjan a sauvé une victime.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Étape 5 : Surveiller -->
+    <section id="surveiller">
+        <h2 class="section-title"><i class="fas fa-eye me-2"></i>5. Surveiller – Vigilance constante</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header">Actions</div>
+                    <div class="card-body">
+                        <ul class="list-check">
+                            <li>Vérifier respiration toutes les 30 secondes.</li>
+                            <li>Observer couleur peau, pouls.</li>
+                            <li>Rassurer la victime.</li>
+                            <li>Ajuster la PLS si besoin.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-step">
+                    <div class="card-header">Attention !</div>
+                    <div class="card-body">
+                        <div class="rex-box">Un témoin a relâché sa surveillance, l'état de la victime s'est détérioré en quelques minutes. <strong>Surveiller jusqu'à l'arrivée des secours.</strong></div>
+                        <p class="mt-2">Amadou reste auprès de Fatou et prévient les pompiers de tout changement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonnes pratiques -->
+    <section id="bonnespratiques">
+        <h2 class="section-title"><i class="fas fa-check-circle me-2"></i>Top 20 des bonnes pratiques</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-check">
+                    <li>Vérifier la sécurité avant toute action.</li>
+                    <li>Couper courant/gaz si nécessaire.</li>
+                    <li>Baliser la zone.</li>
+                    <li>Évaluer conscience et respiration.</li>
+                    <li>PLS pour inconscient qui respire.</li>
+                    <li>RCP immédiate si pas de respiration.</li>
+                    <li>Comprimer les saignements.</li>
+                    <li>Appeler au bon numéro (18,15,17).</li>
+                    <li>Donner adresse précise.</li>
+                    <li>Surveiller toutes les 30 secondes.</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-check">
+                    <li>Rassurer la victime.</li>
+                    <li>Demander de l’aide pour sécuriser.</li>
+                    <li>Préparer l’arrivée des secours.</li>
+                    <li>Ne pas déplacer sans danger.</li>
+                    <li>Ne pas donner à boire à un inconscient.</li>
+                    <li>Ne pas retirer un objet planté.</li>
+                    <li>Se former régulièrement.</li>
+                    <li>Utiliser un DAE si disponible.</li>
+                    <li>Alterner les sauveteurs en RCP.</li>
+                    <li>Documenter les incidents (post-mortem).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risques & Mauvaises pratiques -->
+    <section id="risques">
+        <h2 class="section-title"><i class="fas fa-exclamation-triangle me-2"></i>Risques élevés & erreurs à éviter</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <h5><span class="badge bg-danger">Risques critiques</span></h5>
+                <ul class="list-cross">
+                    <li>Victime sous tension électrique.</li>
+                    <li>Incendie / explosion imminent.</li>
+                    <li>Gaz toxique, fuite chimique.</li>
+                    <li>Effondrement, circulation dense.</li>
+                    <li>Hémorragie massive non contrôlée.</li>
+                    <li>Arrêt cardiaque sans RCP.</li>
+                    <li>Obstruction sévère des voies respiratoires.</li>
+                    <li>Choc électrique + eau.</li>
+                    <li>Absence de secours à proximité.</li>
+                    <li>Foule paniquée.</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <h5><span class="badge bg-warning text-dark">Mauvaises pratiques</span></h5>
+                <ul class="list-cross">
+                    <li>Se précipiter sans sécuriser.</li>
+                    <li>Déplacer une victime sans danger immédiat.</li>
+                    <li>Négliger la respiration avant RCP.</li>
+                    <li>RCP sur une victime qui respire.</li>
+                    <li>Ne pas appeler ou mal localiser.</li>
+                    <li>Laisser la victime seule.</li>
+                    <li>Retirer un objet planté.</li>
+                    <li>Mauvaise position PLS (tête trop droite).</li>
+                    <li>Oublier de surveiller.</li>
+                    <li>Donner à boire à un inconscient.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="rex-box mt-3">
+            <i class="fas fa-skull-crosswalk me-2"></i> <strong>REX :</strong> À Yopougon, un témoin a déplacé un blessé sans raison, aggravant une fracture cervicale. <strong>Ne déplacer qu'en cas de danger immédiat !</strong>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="footer text-center">
+    <div class="container">
+        <p><i class="fas fa-heart text-danger me-2"></i> Guide PSEAS – Secourisme Côte d'Ivoire · Inspiré des formations PSC1 et des REX terrain</p>
+        <p class="small">Numéros d'urgence : 18 (Pompiers) · 15 (SAMU) · 17 (Police) · 112 (européen)</p>
+        <p class="small"><a href="#" class="text-white">Haut de page</a></p>
+    </div>
+</footer>
+
+<!-- Bouton retour haut -->
+<button class="btn-top" id="btnTop" onclick="window.scrollTo({top:0,behavior:'smooth'});"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script pour le bouton retour haut -->
+<script>
+    window.onscroll = function() {
+        const btn = document.getElementById('btnTop');
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    };
+</script>
+
+</body>
+</html>
