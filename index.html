@@ -1,19 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSEAS · Guide complet de secourisme (Côte d'Ivoire)</title>
-
-    <!-- Bootstrap 5.3 CSS -->
+    <title>Guide ultime PSEAS · Secourisme en Côte d'Ivoire</title>
+    <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --primary: #B71C1C;
@@ -24,97 +21,111 @@
             --success: #10b981;
             --info: #3b82f6;
             --warning: #f59e0b;
+            --danger: #ef4444;
         }
         body {
             font-family: 'Inter', sans-serif;
-            background: #f0f2f5;
+            background: #f4f7fc;
             scroll-behavior: smooth;
-            padding-top: 70px;
+            padding-top: 80px;
+            line-height: 1.7;
+            color: #2d3e50;
         }
         .navbar {
             background-color: var(--primary) !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 0.8rem 0;
         }
         .navbar-brand, .nav-link {
             color: white !important;
             font-weight: 600;
+            font-size: 1.1rem;
         }
         .nav-link:hover {
             color: var(--accent) !important;
         }
         .header-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%);
+            background: linear-gradient(145deg, var(--primary) 0%, #c62828 100%);
             color: white;
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-            border-bottom: 5px solid var(--accent);
+            padding: 4rem 0 3.5rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 6px solid var(--accent);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         .header-section h1 {
-            font-size: 3rem;
+            font-size: 3.8rem;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
         .header-section p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             opacity: 0.95;
         }
         .badge-flag {
             background: var(--accent);
             color: var(--primary);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
             font-weight: 700;
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            border: 2px solid white;
         }
         .section-title {
             font-weight: 700;
             color: var(--primary);
-            border-left: 8px solid var(--accent);
-            padding-left: 1rem;
-            margin: 2rem 0 1.5rem;
+            border-left: 10px solid var(--accent);
+            padding-left: 1.2rem;
+            margin: 3rem 0 2rem;
+            font-size: 2.4rem;
         }
         .card-step {
             border: none;
-            border-radius: 20px;
+            border-radius: 28px;
             background: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            transition: transform 0.25s, box-shadow 0.25s;
             height: 100%;
+            overflow: hidden;
+            border-bottom: 4px solid var(--accent);
         }
         .card-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.12);
         }
         .card-step .card-header {
-            background: transparent;
-            border-bottom: 2px solid var(--accent);
+            background: white;
+            border-bottom: 3px solid var(--accent);
             font-weight: 700;
-            font-size: 1.5rem;
-            padding: 1.2rem 1.5rem 0.5rem;
+            font-size: 1.9rem;
+            padding: 1.3rem 1.8rem 0.7rem;
+            color: var(--primary);
         }
         .card-step .card-body {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
         .icon-circle {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 65px;
+            height: 65px;
             background: var(--accent);
             color: var(--primary);
             border-radius: 50%;
-            font-size: 1.8rem;
-            margin-right: 1rem;
+            font-size: 2.2rem;
+            margin-right: 1.2rem;
         }
-        .list-check {
+        .list-check, .list-cross {
             list-style: none;
             padding-left: 0;
         }
-        .list-check li {
-            padding-left: 2rem;
+        .list-check li, .list-cross li {
+            padding-left: 2.5rem;
             position: relative;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
         .list-check li::before {
             content: "✅";
@@ -122,82 +133,97 @@
             left: 0;
             color: var(--success);
             font-weight: bold;
-        }
-        .list-cross {
-            list-style: none;
-            padding-left: 0;
-        }
-        .list-cross li {
-            padding-left: 2rem;
-            position: relative;
-            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
         }
         .list-cross li::before {
             content: "❌";
             position: absolute;
             left: 0;
+            font-size: 1.3rem;
         }
         .rex-box {
-            background: #fff7e6;
-            border-left: 5px solid var(--accent);
-            padding: 1.2rem;
-            border-radius: 12px;
-            margin: 1rem 0;
-            font-style: italic;
+            background: #fff3e0;
+            border-left: 8px solid var(--accent);
+            padding: 1.5rem 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            font-style: normal;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
         }
         .numero-box {
             background: var(--primary);
             color: white;
-            padding: 0.8rem;
-            border-radius: 50px;
+            padding: 1rem 2rem;
+            border-radius: 60px;
             display: inline-block;
             font-weight: 700;
-            margin: 0.5rem 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 0.5rem 1rem 0.5rem 0;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            font-size: 1.3rem;
         }
-        .footer {
-            background: var(--dark);
+        .table-dangers {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .table-dangers th {
+            background: var(--primary);
             color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            font-weight: 600;
         }
         .btn-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             background: var(--primary);
             color: white;
-            border-radius: 50px;
-            padding: 10px 18px;
+            border-radius: 60px;
+            padding: 14px 22px;
             border: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
             display: none;
             z-index: 1000;
+            font-size: 1.2rem;
         }
         .btn-top:hover {
             background: var(--secondary);
         }
+        .fil-rouge {
+            background: #ffecb3;
+            border-radius: 40px;
+            padding: 1.2rem 2rem;
+            margin: 2rem 0;
+            border: 2px dashed var(--primary);
+            font-weight: 600;
+        }
+        .step-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+        }
     </style>
 </head>
 <body>
-
-<!-- Navbar -->
+<!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#"><i class="fas fa-heartbeat me-2"></i>Secourisme PSEAS</a>
+        <a class="navbar-brand" href="#"><i class="fas fa-heartbeat me-2"></i>PSEAS · Côte d'Ivoire</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#intro">Intro</a></li>
-                <li class="nav-item"><a class="nav-link" href="#proteger">Protéger</a></li>
-                <li class="nav-item"><a class="nav-link" href="#examiner">Examiner</a></li>
-                <li class="nav-item"><a class="nav-link" href="#alerter">Alerter</a></li>
-                <li class="nav-item"><a class="nav-link" href="#secourir">Secourir</a></li>
-                <li class="nav-item"><a class="nav-link" href="#surveiller">Surveiller</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bonnespratiques">Bonnes Pratiques</a></li>
-                <li class="nav-item"><a class="nav-link" href="#risques">Risques & Éviter</a></li>
+                <li class="nav-item"><a class="nav-link" href="#proteger">1.Protéger</a></li>
+                <li class="nav-item"><a class="nav-link" href="#examiner">2.Examiner</a></li>
+                <li class="nav-item"><a class="nav-link" href="#alerter">3.Alerter</a></li>
+                <li class="nav-item"><a class="nav-link" href="#secourir">4.Secourir</a></li>
+                <li class="nav-item"><a class="nav-link" href="#surveiller">5.Surveiller</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bonnespratiques">Bonnes pratiques</a></li>
+                <li class="nav-item"><a class="nav-link" href="#risques">Risques & erreurs</a></li>
             </ul>
         </div>
     </div>
@@ -206,278 +232,2208 @@
 <!-- Header -->
 <header class="header-section text-center">
     <div class="container">
-        <h1><i class="fas fa-hand-holding-heart me-3"></i>Méthode PSEAS</h1>
+        <h1><i class="fas fa-hand-holding-heart me-3"></i>Guide PSEAS</h1>
         <p class="lead">Protéger – Examiner – Alerter – Secourir – Surveiller</p>
-        <p>Guide complet adapté à la Côte d'Ivoire, avec retours d'expérience (REX) et gestes qui sauvent.</p>
-        <div class="badge-flag"><i class="fas fa-map-marker-alt me-2"></i>Abidjan · Yopougon · Bouaké · San-Pédro</div>
+        <p class="fs-4">Le manuel complet du secouriste en Côte d'Ivoire</p>
+        <div class="badge-flag"><i class="fas fa-map-marker-alt me-2"></i>Abidjan · Bouaké · Yamoussoukro · San-Pédro · Korhogo</div>
     </div>
 </header>
 
-<!-- Fil rouge : Amadou & Fatou (affiché en surbrillance) -->
-<div class="container mb-4">
-    <div class="alert alert-warning d-flex align-items-center" role="alert">
-        <i class="fas fa-user-friends fa-2x me-3 text-primary"></i>
-        <div><strong>📌 Fil rouge :</strong> Suivez Amadou, qui porte secours à sa voisine Fatou après un incendie dans sa cuisine à Marcory. Chaque étape est illustrée par son action.</div>
+<!-- Fil rouge Amadou & Fatou -->
+<div class="container fil-rouge">
+    <div class="d-flex align-items-center">
+        <i class="fas fa-user-friends fa-3x me-4 text-primary"></i>
+        <div><span class="fw-bold fs-3">📌 Fil rouge :</span> <span class="fs-5">Amadou, un habitant de Marcory, vient en aide à sa voisine Fatou après un incendie dans sa cuisine. Suivez ses actions à chaque étape pour comprendre concrètement la méthode PSEAS.</span></div>
     </div>
 </div>
 
-<!-- 8 SECTIONS PRINCIPALES -->
 <div class="container">
-    <!-- Introduction -->
-    <section id="intro">
-        <h2 class="section-title"><i class="fas fa-info-circle me-2"></i>Introduction : Les 5 étapes fondamentales</h2>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card-step p-3">
-                    <p>Secourir une victime en situation d'urgence requiert rapidité, méthode et sécurité. L'approche <strong>PSEAS</strong> structure vos actions :</p>
-                    <ul class="list-check">
-                        <li><strong>Protéger</strong> – Sécuriser la zone</li>
-                        <li><strong>Examiner</strong> – Évaluer l'état de la victime</li>
-                        <li><strong>Alerter</strong> – Appeler les secours</li>
-                        <li><strong>Secourir</strong> – Appliquer les gestes adaptés</li>
-                        <li><strong>Surveiller</strong> – Rester attentif à l'évolution</li>
+    <!-- ========== INTRODUCTION ========== -->
+<section id="intro">
+    <h2 class="section-title"><i class="fas fa-info-circle me-2"></i>Introduction : les 5 étapes qui sauvent</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    Chaque année, des milliers de vies pourraient être épargnées si les témoins osaient agir avec méthode. En Côte d’Ivoire, les accidents domestiques, de la route et les malaises cardiaques sont fréquents, mais trop souvent les premiers témoins hésitent par manque de connaissance ou par peur de mal faire. La méthode <strong>PSEAS</strong> (Protéger, Examiner, Alerter, Secourir, Surveiller) a été développée par la Fédération internationale des sociétés de la Croix‑Rouge et adaptée aux réalités ivoiriennes. Elle constitue la trame universelle de tout sauveteur, qu’il soit professionnel ou simple citoyen.
+                </p>
+
+                <!-- Sous-titre : Chaîne de survie -->
+                <div class="step-subtitle">⏱️ La chaîne de survie</div>
+                <p>
+                    La survie d’une personne en arrêt cardiaque repose sur quatre maillons essentiels, représentés par le « cube des urgences » :
+                </p>
+                <ol class="fw-semibold">
+                    <li><strong>Alerte précoce</strong> – Appeler les secours (15, 18) immédiatement.</li>
+                    <li><strong>RCP précoce</strong> – Commencer les compressions thoraciques sans attendre.</li>
+                    <li><strong>Défibrillation rapide</strong> – Utiliser un DAE dans les 3‑5 minutes.</li>
+                    <li><strong>Soins spécialisés</strong> – Prise en charge par les équipes médicales.</li>
+                </ol>
+                <p>
+                    Le premier maillon, c’est vous, témoin. Votre action dans les premières minutes peut multiplier par trois les chances de survie.
+                </p>
+
+                <!-- Sous-titre : Aspects légaux en Côte d'Ivoire -->
+                <div class="step-subtitle">🧑‍⚖️ Aspects légaux en Côte d’Ivoire</div>
+                <p>
+                    L’<strong>article 77 du code pénal ivoirien</strong> sanctionne la non‑assistance à personne en danger. Toute personne qui s’abstient volontairement de porter secours à une personne en péril, alors qu’elle peut le faire sans risque pour elle ou pour autrui, est passible de peines d’emprisonnement et d’amende.
+                </p>
+                <p>
+                    À l’inverse, le principe du <strong>« bon Samaritain »</strong> protège celui qui intervient : vous pouvez agir sans craindre d’être poursuivi si vous intervenez de bonne foi, de manière désintéressée et sans négligence grave. La loi encourage ainsi les gestes de secours.
+                </p>
+
+                <!-- Premier retour d'expérience (REX) -->
+                <div class="rex-box">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Abidjan 2023 :</strong> Un conducteur de gbaka a fait un malaise au volant en pleine circulation à Adjamé. Des passagers ont immédiatement appliqué la méthode PSEAS : protection (allumer les warnings, placer un triangle), examen (constat d’inconscience mais respiration présente), alerte (appel au 15), mise en Position Latérale de Sécurité (PLS) dans le véhicule. À l’arrivée des secours, la victime était stable. Les urgentistes ont confirmé que cette intervention avait évité un arrêt cardiaque.
+                </div>
+
+                <!-- Autre REX pour renforcer -->
+                <div class="rex-box mt-3">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Bouaké 2024 :</strong> Dans un atelier de menuiserie, un ouvrier s’est électrocuté avec une scie. Un collègue a coupé le courant au disjoncteur avant de toucher la victime, puis a commencé la RCP car elle ne respirait plus. Grâce à cette rapidité, l’ouvrier a survécu. La coupure du courant a été décisive.
+                </div>
+
+                <!-- Pourquoi PSEAS est essentiel -->
+                <div class="step-subtitle">🎯 Pourquoi PSEAS est‑il essentiel ?</div>
+                <p>
+                    Face à une urgence, le stress peut faire perdre tous ses moyens. La méthode PSEAS agit comme une <strong>check‑list mentale</strong> qui guide vos actions dans l’ordre. Elle évite de passer à côté d’une étape cruciale (par exemple, oublier de se protéger soi‑même). Elle est enseignée dans toutes les formations de premiers secours (PSC1, SST) et recommandée par l’Organisation mondiale de la santé.
+                </p>
+
+                <!-- Statistiques (chiffres parlants) -->
+                <div class="step-subtitle">📊 Quelques chiffres</div>
+                <ul>
+                    <li>En Côte d’Ivoire, on estime à plus de 5 000 le nombre de décès annuels par arrêt cardiaque extra‑hospitalier.</li>
+                    <li>Moins de 10 % des témoins pratiquent la RCP faute de formation.</li>
+                    <li>Une RCP immédiate double ou triple les chances de survie.</li>
+                    <li>Chaque minute sans RCP diminue les chances de 7 à 10 %.</li>
+                </ul>
+
+                <!-- Témoignage court -->
+                <div class="step-subtitle">💬 Témoignage d’un secouriste formé</div>
+                <p>
+                    <em>« J’ai suivi une formation PSC1 à la Croix‑Rouge de Yopougon. Quelques mois plus tard, mon voisin a fait un malaise. Grâce à PSEAS, j’ai su garder mon calme : j’ai protégé, examiné, alerté, mis en PLS et surveillé. Les pompiers m’ont dit que j’avais fait exactement ce qu’il fallait. Cette méthode devrait être enseignée à tous les Ivoiriens. »</em> – Kouamé, habitant d’Abidjan.
+                </p>
+            </div>
+        </div>
+
+        <!-- Colonne de droite : récapitulatif PSEAS + détails -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-book-open"></i></span>
+                    <span class="fs-3 fw-bold">PSEAS</span>
+                </div>
+                <p class="text-muted small">Les cinq étapes clés à mémoriser</p>
+                <ul class="list-check">
+                    <li>
+                        <strong>Protéger</strong><br>
+                        <span class="small">Sécuriser la zone, couper les sources de danger, baliser. Ne jamais toucher une victime avant d’être en sécurité.</span>
+                    </li>
+                    <li>
+                        <strong>Examiner</strong><br>
+                        <span class="small">Vérifier conscience, respiration, saignements, signes d’étouffement. Suivre l’ordre AVPU.</span>
+                    </li>
+                    <li>
+                        <strong>Alerter</strong><br>
+                        <span class="small">Composer le 18, 15 ou 112. Donner adresse précise, nature, état, nombre de victimes. Ne pas raccrocher.</span>
+                    </li>
+                    <li>
+                        <strong>Secourir</strong><br>
+                        <span class="small">PLS si inconscient qui respire, RCP si absence de respiration, compression en cas d’hémorragie, Heimlich si étouffement.</span>
+                    </li>
+                    <li>
+                        <strong>Surveiller</strong><br>
+                        <span class="small">Vérifier respiration toutes les 30 secondes, rassurer, noter tout changement jusqu’à l’arrivée des secours.</span>
+                    </li>
+                </ul>
+
+                <!-- Ajout d'un encart "À retenir" -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-primary"><i class="fas fa-lightbulb me-2"></i>À retenir</h5>
+                    <p class="small mb-0">
+                        <i class="fas fa-arrow-right text-danger me-1"></i> L’ordre des étapes est immuable : on ne peut pas secourir sans avoir protégé.<br>
+                        <i class="fas fa-arrow-right text-danger me-1"></i> Une victime inconsciente qui respire est placée en PLS.<br>
+                        <i class="fas fa-arrow-right text-danger me-1"></i> Une victime qui ne respire pas nécessite une RCP immédiate.
+                    </p>
+                </div>
+
+                <!-- Liens utiles (simulés) -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> Pour se former : Croix‑Rouge de Côte d’Ivoire, Protection civile, formations PSC1.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deuxième rangée : ressources supplémentaires, formation, etc. -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-graduation-cap text-primary me-2"></i>Où se former en Côte d’Ivoire ?</h5>
+                <ul class="mb-0">
+                    <li>Croix‑Rouge ivoirienne (Abidjan, Bouaké, Yamoussoukro, San‑Pédro) – formations PSC1 gratuites ou à coût réduit.</li>
+                    <li>Groupement des Sapeurs‑Pompiers Militaires (GSPM) – initiations dans les casernes.</li>
+                    <li>Protection civile – stages dans les entreprises et les écoles.</li>
+                    <li>Formations en ligne (Croix‑Rouge française, FICR) accessibles depuis la Côte d’Ivoire.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-question-circle text-warning me-2"></i>Foire aux questions (FAQ)</h5>
+                <div class="accordion" id="faqIntro">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Et si je me trompe ?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqIntro">
+                            <div class="accordion-body small">
+                                Mieux vaut agir imparfaitement que ne pas agir du tout. La loi protège le sauveteur. En cas de doute, suivez les instructions du médecin régulateur (15/18) au téléphone.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Puis-je attraper une maladie en faisant du bouche‑à‑bouche ?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqIntro">
+                            <div class="accordion-body small">
+                                Le risque est très faible. Utilisez un masque de poche si disponible. Sinon, privilégiez les compressions thoraciques seules (efficaces aussi).
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Que faire si la victime est un bébé ?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqIntro">
+                            <div class="accordion-body small">
+                                Les principes sont les mêmes, mais les gestes diffèrent : pour la RCP, deux doigts ; pour l’étouffement, claques dans le dos et compressions thoraciques (pas abdominales).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troisième rangée : citations / conclusion -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-success">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-success me-2"></i>
+                    Le secourisme n’est pas réservé aux médecins. Chaque citoyen peut, avec une méthode simple, devenir le premier maillon de la chaîne de survie.
+                </p>
+                <p class="text-end text-muted small mt-2">— Principe fondamental de la Croix‑Rouge</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ========== PROTÉGER ========== -->
+
+<section id="proteger">
+    <h2 class="section-title"><i class="fas fa-shield-alt me-2"></i>1. Protéger – Sécuriser la zone</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    La première étape, <strong>Protéger</strong>, est souvent la plus négligée car l'instinct pousse à se précipiter vers la victime. Pourtant, elle est la clé de voûte de toute intervention efficace : un sauveteur blessé ou tué ne peut plus aider personne. Protéger, c’est d’abord <strong>assurer sa propre sécurité</strong>, puis celle de la victime et des témoins, en supprimant ou en contournant les dangers environnants.
+                </p>
+
+                <!-- Sous-titre : Identifier les dangers -->
+                <div class="step-subtitle">🔍 Identifier les dangers (analyse de la scène)</div>
+                <p>
+                    Avant tout contact avec la victime, prenez au moins 10 secondes pour observer l’environnement. La méthode <strong>« V.E.R. » (Voir, Écouter, Renifler)</strong> peut vous aider :
+                </p>
+                <ul>
+                    <li><strong>Voir</strong> – Présence de feu, fumée, fils électriques, véhicules en mouvement, objets instables, flaques (eau + électricité), produits chimiques.</li>
+                    <li><strong>Écouter</strong> – Bruits suspects (grésillement électrique, sifflement de gaz, moteur qui tourne, cris).</li>
+                    <li><strong>Renifler</strong> – Odeur de gaz, de brûlé, d’essence, de produits chimiques.</li>
+                </ul>
+                <p>Les dangers peuvent être classés en plusieurs catégories :</p>
+                <table class="table table-dangers table-bordered">
+                    <thead class="table-danger">
+                        <tr>
+                            <th>Type de danger</th>
+                            <th>Exemples concrets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Électrique</td>
+                            <td>Fils dénudés, appareils sous tension, eau + électricité, foudre, lignes haute tension tombées</td>
+                        </tr>
+                        <tr>
+                            <td>Incendie / explosion</td>
+                            <td>Flamme nue, fumée dense, fuite de gaz, bonbonne de gaz, produits inflammables (essence, alcool)</td>
+                        </tr>
+                        <tr>
+                            <td>Chimique / toxique</td>
+                            <td>Produits ménagers, pesticides, gaz d’échappement, monoxyde de carbone (moteur allumé), chlore</td>
+                        </tr>
+                        <tr>
+                            <td>Circulation</td>
+                            <td>Route fréquentée, voie ferrée, parking, véhicules en mouvement, virage sans visibilité</td>
+                        </tr>
+                        <tr>
+                            <td>Structurel</td>
+                            <td>Bâtiment instable (après séisme ou explosion), éboulement, chute d’objets, arbre menaçant</td>
+                        </tr>
+                        <tr>
+                            <td>Humain / animal</td>
+                            <td>Foule hostile, bagarre, agresseur, chien errant agressif, insectes venimeux</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Sous-titre : Actions de protection concrètes -->
+                <div class="step-subtitle">🛡️ Actions de protection : supprimer ou contourner</div>
+                <p>
+                    Une fois le ou les dangers identifiés, vous devez agir pour les neutraliser ou vous en protéger. Voici les actions types :
+                </p>
+                <ul class="list-check">
+                    <li><strong>Couper l’énergie</strong> – Disjoncteur général, débrancher l’appareil, couper le contact du véhicule. Ne jamais toucher une personne encore en contact avec une source électrique.</li>
+                    <li><strong>Couper le gaz</strong> – Fermer le robinet d’arrivée de gaz (généralement à côté du compteur). Ne pas actionner d’interrupteur électrique (risque d’étincelle).</li>
+                    <li><strong>Éloigner le danger</strong> – Si possible sans risque, retirer un objet dangereux (ex : déplacer un réchaud à gaz, fermer une bouteille de produit chimique).</li>
+                    <li><strong>Baliser / signaler</strong> – Sur route : triangle de pré‑signalisation (à 30‑50 m), feux de détresse, warning. Dans une foule : demander à des témoins de faire barrage, créer un périmètre de sécurité.</li>
+                    <li><strong>Évacuer</strong> – Si le danger est immédiat et qu’il est impossible de le supprimer, déplacer la victime (voir techniques de dégagement d’urgence).</li>
+                </ul>
+
+                <!-- Sous-titre : Techniques de dégagement d'urgence -->
+                <div class="step-subtitle">🚨 Techniques de dégagement d’urgence</div>
+                <p>
+                    Ne déplacez une victime <strong>qu’en cas de danger vital immédiat</strong> (incendie, explosion imminente, asphyxie, effondrement). Un déplacement inutile peut aggraver des blessures, notamment au niveau du cou et de la colonne vertébrale.
+                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Si la victime est consciente :</strong></p>
+                        <ul>
+                            <li>Placez‑vous derrière elle, passez vos mains sous ses aisselles et tirez‑la en arrière (marche arrière) en soutenant sa tête contre votre poitrine.</li>
+                            <li>Si elle peut marcher, aidez‑la à se lever et à s’éloigner en la soutenant.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Si la victime est inconsciente :</strong></p>
+                        <ul>
+                            <li><strong>Traction par les chevilles</strong> – Saisissez les deux chevilles et tirez en ligne droite, en maintenant le corps aligné. Idéal sur surface plane.</li>
+                            <li><strong>Traction par les vêtements</strong> – Saisissez les vêtements au niveau des épaules (col, manches) et tirez, en protégeant la tête avec vos avant‑bras.</li>
+                            <li><strong>Méthode du pont</strong> – Si deux sauveteurs, l’un maintient la tête et le cou, l’autre tire par les pieds.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert alert-warning mt-2">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Important :</strong> Pendant tout déplacement, essayez de maintenir l’axe tête‑cou (alignement). Ne jamais tirer la tête seule.
+                </div>
+
+                <!-- REX principal -->
+                <div class="rex-box">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Atelier industriel – Abidjan 2022 :</strong> Un ouvrier s’est électrocuté en touchant une machine. Un collègue a voulu le dégager sans couper le courant ; tous deux ont été électrocutés. Le premier est décédé, le second a été grièvement brûlé. <strong>Toujours couper la source avant de toucher la victime.</strong>
+                </div>
+
+                <!-- Autre REX incendie -->
+                <div class="rex-box mt-3">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Incendie domestique – Marcory 2023 :</strong> Une mère a découvert un début d’incendie dans sa cuisine, son enfant inconscient près des flammes. Elle a d’abord éteint la plaque de cuisson (gaz coupé) avant de tirer l’enfant par les épaules. L’enfant a survécu sans brûlure. La priorité donnée à la sécurisation a évité un double drame.
+                </div>
+
+                <!-- Sous-titre : Cas particuliers -->
+                <div class="step-subtitle">⚠️ Cas particuliers : risques spécifiques</div>
+                <ul>
+                    <li><strong>Électrisation / électrocution :</strong> Ne touchez jamais la victime tant que le courant n’est pas coupé. Utilisez un objet isolant (bois sec, plastique, tissu sec) pour écarter le fil si vous ne pouvez pas couper. Appelez immédiatement le 18.</li>
+                    <li><strong>Gaz toxique (CO, chlore) :</strong> Évacuez la zone, ne respirez pas les vapeurs. Si possible, ouvrez les portes et fenêtres avant d’entrer. Portez un masque si disponible.</li>
+                    <li><strong>Route à grande circulation :</strong> Placez le triangle de présignalisation à au moins 30 mètres, portez un gilet rétroréfléchissant si vous en avez un. Faites ralentir les véhicules en faisant des signes.</li>
+                    <li><strong>Produits chimiques :</strong> Ne vous approchez pas sans protection adaptée. Éloignez les curieux, aérez, appelez les secours spécialisés (18).</li>
+                </ul>
+
+                <!-- Pourquoi protéger est la base -->
+                <div class="step-subtitle">🧠 Pourquoi la protection est‑elle si cruciale ?</div>
+                <p>
+                    En psychologie d’urgence, on parle de « sursaut » : le témoin se précipite souvent vers la victime sans réfléchir. Cela conduit à des <strong>sur‑accidents</strong> (deux victimes au lieu d’une). La protection est donc le premier rempart contre l’aggravation de la situation. Elle permet également de garder une zone dégagée pour l’intervention des secours professionnels.
+                </p>
+                <p>
+                    En Côte d’Ivoire, les accidents de la route et domestiques sont les premières causes d’intervention. Savoir baliser, couper le courant ou le gaz peut faire la différence entre une simple intervention et une tragédie collective.
+                </p>
+            </div>
+        </div>
+
+        <!-- Colonne de droite : récapitulatif et outils -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-shield-alt"></i></span>
+                    <span class="fs-3 fw-bold">Protéger</span>
+                </div>
+                <p class="text-muted small">Les actions clés à retenir</p>
+                <ul class="list-check">
+                    <li><strong>Observer</strong> – 3 secondes pour analyser les dangers.</li>
+                    <li><strong>Neutraliser</strong> – Couper courant/gaz, éloigner la source.</li>
+                    <li><strong>Baliser</strong> – Triangle, warning, faire barrage.</li>
+                    <li><strong>Dégager (en dernier recours)</strong> – Par les épaules ou chevilles.</li>
+                    <li><strong>Ne jamais se précipiter</strong> – Votre sécurité d’abord.</li>
+                </ul>
+
+                <!-- Encart triangle de signalisation -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-primary"><i class="fas fa-triangle-exclamation me-2"></i>Triangle de pré‑signalisation</h5>
+                    <p class="small mb-0">
+                        Distance : 30 à 50 mètres avant l’accident (sur route sèche). Par temps de pluie ou de nuit, augmentez la distance. Placez‑le de façon visible, après un virage si nécessaire.
+                    </p>
+                </div>
+
+                <!-- Encart équipement minimal -->
+                <div class="bg-light p-3 rounded-3 mt-3">
+                    <h5 class="text-success"><i class="fas fa-kit-medical me-2"></i>Équipement conseillé dans tout véhicule</h5>
+                    <ul class="small mb-0">
+                        <li>Gilet rétroréfléchissant</li>
+                        <li>Triangle de signalisation</li>
+                        <li>Extincteur (à contrôler régulièrement)</li>
+                        <li>Trousse de premiers secours</li>
+                        <li>Lampe torche</li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card-step p-3">
-                    <div class="rex-box">
-                        <i class="fas fa-quote-left me-2"></i> Dans un atelier industriel, un secouriste a tenté de déplacer un collègue sans couper l’électricité. Résultat : double accident. <strong>Toujours sécuriser avant d’agir.</strong>
+
+                <!-- FAQ Protection -->
+                <div class="mt-4">
+                    <h5 class="mb-2"><i class="fas fa-question-circle text-warning"></i> Questions fréquentes</h5>
+                    <div class="accordion" id="faqProtect">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqP1">
+                                    Que faire si je ne peux pas couper le courant ?
+                                </button>
+                            </h2>
+                            <div id="faqP1" class="accordion-collapse collapse" data-bs-parent="#faqProtect">
+                                <div class="accordion-body small">
+                                    Utilisez un objet non conducteur (balai en bois, chaise en plastique, ceinture en cuir, tissu sec) pour écarter le fil de la victime. Ne touchez JAMAIS la personne avec vos mains nues. Appelez immédiatement le 18.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqP2">
+                                    Dois‑je déplacer un blessé de la route ?
+                                </button>
+                            </h2>
+                            <div id="faqP2" class="accordion-collapse collapse" data-bs-parent="#faqProtect">
+                                <div class="accordion-body small">
+                                    Uniquement s’il y a danger immédiat (incendie, risque d’explosion, véhicule instable). Sinon, attendez les secours. Un déplacement peut aggraver une fracture du rachis.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqP3">
+                                    Comment protéger sans triangle ?
+                                </button>
+                            </h2>
+                            <div id="faqP3" class="accordion-collapse collapse" data-bs-parent="#faqProtect">
+                                <div class="accordion-body small">
+                                    Utilisez tout moyen visible : branches d’arbre, vêtements clairs, feux de détresse, ou demandez à des personnes de faire des signes aux automobilistes. Restez hors de la chaussée.
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="mt-3"><i class="fas fa-check-circle text-success me-2"></i> La méthode PSEAS a fait ses preuves sur le terrain.</p>
+                </div>
+
+                <!-- Lien utile -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> Formation PSC1 : apprenez à protéger efficacement.
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Étape 1 : Protéger -->
-    <section id="proteger">
-        <h2 class="section-title"><i class="fas fa-shield-alt me-2"></i>1. Protéger – Sécuriser la zone</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header"><span class="icon-circle"><i class="fas fa-bolt"></i></span>Actions clés</div>
-                    <div class="card-body">
-                        <ul class="list-check">
-                            <li>Couper l’électricité (disjoncteur) si risque électrique.</li>
-                            <li>Couper le gaz, éloigner les sources de feu.</li>
-                            <li>Baliser / signaler la zone (triangle, warnings).</li>
-                            <li>Ne jamais toucher la victime avant sécurisation.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header"><span class="icon-circle"><i class="fas fa-user-check"></i></span>Fil rouge – Amadou</div>
-                    <div class="card-body">
-                        <p>Amadou coupe le gaz, débranche les appareils et ferme la porte de la cuisine pour contenir le feu. Il écarte Fatou du danger immédiat en la tirant par les épaules (consciente) loin des flammes.</p>
-                        <div class="rex-box mt-2"><strong>REX :</strong> Ne jamais déplacer sans danger immédiat – ici le feu justifie le déplacement.</div>
-                    </div>
+    <!-- Deuxième rangée : risques spécifiques et témoignages -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-fire-extinguisher text-danger me-2"></i>Cas concret : Fuite de gaz</h5>
+                <p>Une odeur de gaz dans un immeuble. Plusieurs personnes sont inconscientes. Que faire ?</p>
+                <ol>
+                    <li>Ne pas allumer la lumière, ne pas téléphoner sur place (risque d’étincelle).</li>
+                    <li>Ouvrir portes et fenêtres si possible sans danger.</li>
+                    <li>Couper le gaz au compteur général (généralement à l’extérieur).</li>
+                    <li>Évacuer les victimes en les tirant à l’extérieur (par les épaules).</li>
+                    <li>Appeler le 18 depuis un lieu sûr.</li>
+                </ol>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX Treichville 2024 :</strong> Un locataire a senti une forte odeur de gaz et a immédiatement ouvert les fenêtres avant d’appeler. Il a évité une explosion qui aurait pu détruire l’immeuble.
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Étape 2 : Examiner -->
-    <section id="examiner">
-        <h2 class="section-title"><i class="fas fa-stethoscope me-2"></i>2. Examiner – Évaluer l'état</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header"><span class="icon-circle"><i class="fas fa-heartbeat"></i></span>Vérifications</div>
-                    <div class="card-body">
-                        <ol>
-                            <li><strong>Conscience</strong> – Parler, tapoter les épaules.</li>
-                            <li><strong>Respiration</strong> – Regarder, écouter, sentir (10s).</li>
-                            <li><strong>Saignements</strong> – Repérer les hémorragies.</li>
-                            <li><strong>Obstruction</strong> – Étouffement ?</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header"><span class="icon-circle"><i class="fas fa-user-md"></i></span>Fil rouge</div>
-                    <div class="card-body">
-                        <p>Fatou est inconsciente mais respire normalement, pas de saignement. Amadou décide de la placer en PLS.</p>
-                        <div class="rex-box"><i class="fas fa-lightbulb"></i> Dans un centre commercial, une victime semblait inconsciente mais respirait faiblement : vérification rapide → PLS → survie.</div>
-                    </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-car-crash text-warning me-2"></i>Accident sur autoroute</h5>
+                <p>Vous êtes témoin d’un accident sur le pont Félix Houphouët‑Boigny. Circulation dense. Actions :</p>
+                <ul>
+                    <li>Allumer vos warnings.</li>
+                    <li>Placer le triangle à 50 m.</li>
+                    <li>Enfiler un gilet (si disponible) avant de descendre.</li>
+                    <li>Faire ralentir les véhicules en agitant les bras.</li>
+                    <li>Ne jamais traverser la voie pour secourir sans protection.</li>
+                </ul>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> En 2021, un bon Samaritain a été percuté en voulant aider sur le pont. Il est décédé. Protéger, c’est aussi se protéger soi‑même.
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Étape 3 : Alerter -->
-    <section id="alerter">
-        <h2 class="section-title"><i class="fas fa-phone-alt me-2"></i>3. Alerter – Appeler les secours</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header"><span class="icon-circle"><i class="fas fa-phone"></i></span>Numéros Côte d'Ivoire</div>
-                    <div class="card-body">
-                        <p><span class="numero-box"><i class="fas fa-fire-extinguisher me-1"></i> 18 (Pompiers)</span></p>
-                        <p><span class="numero-box"><i class="fas fa-ambulance me-1"></i> 15 (SAMU)</span></p>
-                        <p><span class="numero-box"><i class="fas fa-shield-alt me-1"></i> 17 (Police)</span></p>
-                        <p><span class="numero-box"><i class="fas fa-globe me-1"></i> 112 (Europe, fonctionne aussi)</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header"><span class="icon-circle"><i class="fas fa-info-circle"></i></span>Infos à donner</div>
-                    <div class="card-body">
-                        <ul class="list-check">
-                            <li>Adresse précise + points de repère</li>
-                            <li>Nature de l'urgence (incendie, malaise...)</li>
-                            <li>État de la victime (consciente, respire)</li>
-                            <li>Nombre de victimes</li>
-                        </ul>
-                        <div class="rex-box"><strong>REX :</strong> À Abidjan, un appel sans quartier a retardé les secours de 15 minutes.</div>
-                    </div>
-                </div>
+    <!-- Troisième rangée : citation finale -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-danger">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-danger me-2"></i>
+                    Protéger, c’est faire en sorte que l’intervenant d’aujourd’hui ne devienne pas la victime de demain.
+                </p>
+                <p class="text-end text-muted small mt-2">— Adage des sapeurs‑pompiers ivoiriens</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Étape 4 : Secourir -->
-    <section id="secourir">
-        <h2 class="section-title"><i class="fas fa-hand-holding-heart me-2"></i>4. Secourir – Gestes adaptés</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header">PLS & RCP</div>
-                    <div class="card-body">
-                        <p><strong>Inconscient qui respire :</strong> PLS (Position Latérale de Sécurité).</p>
-                        <p><strong>Inconscient qui ne respire pas :</strong> RCP (30 compressions / 2 insufflations, 100-120/min).</p>
-                        <p><strong>Saignement :</strong> compression directe.</p>
-                        <p><strong>Étouffement :</strong> 5 claques dos + 5 Heimlich.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header">Fil rouge</div>
-                    <div class="card-body">
-                        <p>Amadou place Fatou en PLS dans le couloir, tête inclinée, bras sous la joue, jambe pliée. Il surveille sa respiration.</p>
-                        <div class="rex-box">REX : RCP immédiate dans un supermarché à Abidjan a sauvé une victime.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Étape 5 : Surveiller -->
-    <section id="surveiller">
-        <h2 class="section-title"><i class="fas fa-eye me-2"></i>5. Surveiller – Vigilance constante</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header">Actions</div>
-                    <div class="card-body">
-                        <ul class="list-check">
-                            <li>Vérifier respiration toutes les 30 secondes.</li>
-                            <li>Observer couleur peau, pouls.</li>
-                            <li>Rassurer la victime.</li>
-                            <li>Ajuster la PLS si besoin.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card-step">
-                    <div class="card-header">Attention !</div>
-                    <div class="card-body">
-                        <div class="rex-box">Un témoin a relâché sa surveillance, l'état de la victime s'est détérioré en quelques minutes. <strong>Surveiller jusqu'à l'arrivée des secours.</strong></div>
-                        <p class="mt-2">Amadou reste auprès de Fatou et prévient les pompiers de tout changement.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ========== EXAMINER ========== -->
 
-    <!-- Bonnes pratiques -->
-    <section id="bonnespratiques">
-        <h2 class="section-title"><i class="fas fa-check-circle me-2"></i>Top 20 des bonnes pratiques</h2>
-        <div class="row">
-            <div class="col-md-6">
+<section id="examiner">
+    <h2 class="section-title"><i class="fas fa-stethoscope me-2"></i>2. Examiner – Évaluer l'état de la victime</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    Une fois la zone sécurisée, l'étape <strong>Examiner</strong> consiste à évaluer rapidement et méthodiquement l'état de la victime pour déterminer les gestes de secours appropriés. Elle doit être menée avec calme mais sans perdre de temps. L'examen suit un ordre logique : <strong>conscience → respiration → saignements → autres signes</strong>. Il ne doit pas dépasser 30 secondes pour les urgences vitales.
+                </p>
+
+                <!-- Sous-titre : Évaluation de la conscience -->
+                <div class="step-subtitle">🧠 Évaluation de la conscience (AVPU)</div>
+                <p>Approchez-vous de la victime, parlez-lui fort : <em>« Bonjour, vous m’entendez ? Ouvrez les yeux ! »</em>. Si elle ne répond pas, stimulez-la doucement en tapotant les épaules (sans secouer). Pour un bébé, tapotez la plante des pieds. Utilisez l'échelle <strong>AVPU</strong> :</p>
+                <table class="table table-dangers table-bordered">
+                    <thead class="table-primary">
+                        <tr><th>Sigle</th><th>Signification</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>A</strong></td><td>Alerte</td><td>La victime est consciente, répond spontanément, parle ou ouvre les yeux.</td></tr>
+                        <tr><td><strong>V</strong></td><td>Verbale</td><td>Elle ne répond qu'après stimulation verbale (on lui parle).</td></tr>
+                        <tr><td><strong>P</strong></td><td>Douleur</td><td>Elle ne réagit qu'à un stimulus douloureux (pincement de l'épaule, pression sur l'ongle).</td></tr>
+                        <tr><td><strong>U</strong></td><td>Inconsciente</td><td>Aucune réponse, même à la douleur.</td></tr>
+                    </tbody>
+                </table>
+                <p>Si la victime est <strong>consciente (A ou V)</strong>, interrogez-la sur ce qui s'est passé, ses douleurs, ses antécédents (diabète, allergie, traitement). Si elle est <strong>inconsciente (P ou U)</strong>, poursuivez immédiatement par la vérification de la respiration.</p>
+
+                <!-- Sous-titre : Vérification de la respiration -->
+                <div class="step-subtitle">🫁 Vérification de la respiration</div>
+                <p>Chez une victime inconsciente, il faut <strong>ouvrir les voies aériennes</strong> en basculant prudemment la tête en arrière et en élevant le menton (sauf suspicion de traumatisme cervical). Placez votre joue près de sa bouche et regardez sa poitrine. Pendant <strong>10 secondes</strong> :</p>
                 <ul class="list-check">
-                    <li>Vérifier la sécurité avant toute action.</li>
-                    <li>Couper courant/gaz si nécessaire.</li>
-                    <li>Baliser la zone.</li>
-                    <li>Évaluer conscience et respiration.</li>
-                    <li>PLS pour inconscient qui respire.</li>
-                    <li>RCP immédiate si pas de respiration.</li>
-                    <li>Comprimer les saignements.</li>
-                    <li>Appeler au bon numéro (18,15,17).</li>
-                    <li>Donner adresse précise.</li>
-                    <li>Surveiller toutes les 30 secondes.</li>
+                    <li><strong>Regardez</strong> si la poitrine se soulève.</li>
+                    <li><strong>Écoutez</strong> les bruits de respiration.</li>
+                    <li><strong>Sentez</strong> l'air expiré sur votre joue.</li>
                 </ul>
-            </div>
-            <div class="col-md-6">
-                <ul class="list-check">
-                    <li>Rassurer la victime.</li>
-                    <li>Demander de l’aide pour sécuriser.</li>
-                    <li>Préparer l’arrivée des secours.</li>
-                    <li>Ne pas déplacer sans danger.</li>
-                    <li>Ne pas donner à boire à un inconscient.</li>
-                    <li>Ne pas retirer un objet planté.</li>
-                    <li>Se former régulièrement.</li>
-                    <li>Utiliser un DAE si disponible.</li>
-                    <li>Alterner les sauveteurs en RCP.</li>
-                    <li>Documenter les incidents (post-mortem).</li>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> Une respiration <strong>normale</strong> est régulière, ample, silencieuse, entre 10 et 30 mouvements par minute chez l'adulte. Les <strong>gasps</strong> (respirations agoniques) – lentes, bruyantes, superficielles – ne sont pas une respiration efficace. En présence de gasps, considérez que la victime <strong>ne respire pas</strong>.
+                </div>
+                <p>Résultat de l'examen respiratoire :</p>
+                <ul>
+                    <li><strong>Victime respire normalement</strong> → placez‑la en PLS (Position Latérale de Sécurité).</li>
+                    <li><strong>Victime ne respire pas ou gasps</strong> → début immédiat de la RCP (Réanimation Cardio‑Pulmonaire).</li>
                 </ul>
-            </div>
-        </div>
-    </section>
 
-    <!-- Risques & Mauvaises pratiques -->
-    <section id="risques">
-        <h2 class="section-title"><i class="fas fa-exclamation-triangle me-2"></i>Risques élevés & erreurs à éviter</h2>
-        <div class="row">
-            <div class="col-lg-6">
-                <h5><span class="badge bg-danger">Risques critiques</span></h5>
-                <ul class="list-cross">
-                    <li>Victime sous tension électrique.</li>
-                    <li>Incendie / explosion imminent.</li>
-                    <li>Gaz toxique, fuite chimique.</li>
-                    <li>Effondrement, circulation dense.</li>
-                    <li>Hémorragie massive non contrôlée.</li>
-                    <li>Arrêt cardiaque sans RCP.</li>
-                    <li>Obstruction sévère des voies respiratoires.</li>
-                    <li>Choc électrique + eau.</li>
-                    <li>Absence de secours à proximité.</li>
-                    <li>Foule paniquée.</li>
+                <!-- Sous-titre : Recherche de saignements abondants -->
+                <div class="step-subtitle">💉 Recherche de saignements abondants</div>
+                <p>Inspectez rapidement le corps de la victime : tête, tronc, membres. Un saignement <strong>abondant</strong> se reconnaît par un écoulement de sang qui gicle ou s'écoule rapidement, imbibant les vêtements. Si vous en trouvez un :</p>
+                <ul class="list-check">
+                    <li>Comprimez immédiatement avec un tissu propre (gants si disponibles).</li>
+                    <li>Maintenez la pression sans relâcher (demandez à quelqu'un de prendre le relais si nécessaire).</li>
+                    <li>Ne retirez jamais le premier pansement imbibé, ajoutez-en un autre par‑dessus.</li>
+                    <li>Si le saignement persiste et qu'il s'agit d'un membre, surélevez‑le (sauf suspicion de fracture).</li>
                 </ul>
-            </div>
-            <div class="col-lg-6">
-                <h5><span class="badge bg-warning text-dark">Mauvaises pratiques</span></h5>
+                <div class="rex-box small">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> À Yopougon, un homme s'est coupé l'artère fémorale avec une tôle. La compression directe maintenue par un voisin a stoppé l'hémorragie en attendant les secours. Il a survécu. L'arrêt du saignement est une priorité absolue.
+                </div>
+
+                <!-- Sous-titre : Signes d'obstruction des voies aériennes -->
+                <div class="step-subtitle">🫁 Signes d'obstruction des voies aériennes (étouffement)</div>
+                <p>Chez une victime <strong>consciente</strong>, l'étouffement se manifeste par :</p>
+                <ul>
+                    <li>Incapacité de parler ou de crier.</li>
+                    <li>Mains croisées autour du cou (signe universel).</li>
+                    <li>Toux faible ou absente, respiration bruyante.</li>
+                    <li>Cyanose (visage qui bleuit).</li>
+                </ul>
+                <p>Si elle est <strong>inconsciente</strong>, l'obstruction peut être suspectée si vous ne parvenez pas à ventiler lors de l'insufflation (RCP). Dans ce cas, alternez 5 claques dans le dos et 5 compressions abdominales (même allongée).</p>
+
+                <!-- Sous-titre : Examen secondaire (si temps et conscience) -->
+                <div class="step-subtitle">🔎 Examen secondaire (victime consciente)</div>
+                <p>Si la victime est consciente et qu'aucune urgence vitale immédiate n'est détectée, vous pouvez mener un examen plus complet en attendant les secours :</p>
+                <ul>
+                    <li><strong>Interrogatoire (SAMPLE)</strong> : Symptômes, Allergies, Médicaments, Passé médical, Dernier repas, Événement déclencheur.</li>
+                    <li><strong>Inspection</strong> : Recherche de blessures (plaies, fractures, brûlures) sans mobiliser inutilement.</li>
+                    <li><strong>Palpation</strong> : Déformations, douleurs, œdèmes.</li>
+                </ul>
+                <p>Attention : cet examen ne doit pas retarder l'alerte ni les gestes d'urgence.</p>
+
+                <!-- REX principal -->
+                <div class="rex-box">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Centre commercial – Abidjan 2023 :</strong> Une dame s'est effondrée dans une allée. Un agent de sécurité a vérifié sa conscience (aucune réponse), puis sa respiration (normale). Il l'a mise en PLS. Quand le SAMU est arrivé, elle avait repris connaissance. La vérification rapide a évité une RCP inutile et stressante.
+                </div>
+
+                <!-- Autre REX arrêt respiratoire -->
+                <div class="rex-box mt-3">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Bouaké 2024 :</strong> Un homme en arrêt cardiaque a été découvert par un voisin. Celui‑ci a vérifié la respiration : gasps (respiration agonique). Il a compris qu'il fallait commencer la RCP immédiatement. La victime a survécu grâce à cette reconnaissance rapide des gasps.
+                </div>
+
+                <!-- Sous-titre : Particularités selon l'âge -->
+                <div class="step-subtitle">👶 Particularités chez l'enfant et le nourrisson</div>
+                <ul>
+                    <li><strong>Conscience :</strong> Pour un bébé, stimulez la plante des pieds (pas de secousses).</li>
+                    <li><strong>Respiration :</strong> La fréquence normale est plus élevée (30‑40/min). Les gasps sont aussi anormaux.</li>
+                    <li><strong>Saignement :</strong> Les enfants ont un volume sanguin plus faible ; une perte de sang même modérée peut être grave.</li>
+                </ul>
+
+                <!-- Sous-titre : Erreurs fréquentes lors de l'examen -->
+                <div class="step-subtitle">🚫 Erreurs fréquentes à éviter</div>
                 <ul class="list-cross">
-                    <li>Se précipiter sans sécuriser.</li>
-                    <li>Déplacer une victime sans danger immédiat.</li>
-                    <li>Négliger la respiration avant RCP.</li>
-                    <li>RCP sur une victime qui respire.</li>
-                    <li>Ne pas appeler ou mal localiser.</li>
-                    <li>Laisser la victime seule.</li>
-                    <li>Retirer un objet planté.</li>
-                    <li>Mauvaise position PLS (tête trop droite).</li>
-                    <li>Oublier de surveiller.</li>
-                    <li>Donner à boire à un inconscient.</li>
+                    <li>Oublier de vérifier la respiration après avoir constaté l'inconscience.</li>
+                    <li>Prendre le pouls avant la respiration (perte de temps).</li>
+                    <li>Confondre des gasps avec une respiration normale.</li>
+                    <li>Ne pas ouvrir les voies aériennes (tête basculée) avant de vérifier la respiration.</li>
+                    <li>Commencer la RCP sur une victime qui respire normalement.</li>
+                    <li>Mobiliser la tête en cas de suspicion de traumatisme cervical.</li>
+                    <li>Négliger un saignement abondant parce qu'on se concentre sur la RCP.</li>
                 </ul>
             </div>
         </div>
-        <div class="rex-box mt-3">
-            <i class="fas fa-skull-crosswalk me-2"></i> <strong>REX :</strong> À Yopougon, un témoin a déplacé un blessé sans raison, aggravant une fracture cervicale. <strong>Ne déplacer qu'en cas de danger immédiat !</strong>
+
+        <!-- Colonne de droite : récapitulatif et outils -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-stethoscope"></i></span>
+                    <span class="fs-3 fw-bold">Examiner</span>
+                </div>
+                <p class="text-muted small">Les 4 points essentiels</p>
+                <ul class="list-check">
+                    <li><strong>1. Conscience</strong> – Parler, tapoter (échelle AVPU).</li>
+                    <li><strong>2. Respiration</strong> – Regarder, écouter, sentir (10s).</li>
+                    <li><strong>3. Saignements</strong> – Compresser immédiatement si abondant.</li>
+                    <li><strong>4. Obstruction</strong> – Signes d'étouffement.</li>
+                </ul>
+
+                <!-- Encart AVPU détaillé -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-primary"><i class="fas fa-brain me-2"></i>Échelle AVPU</h5>
+                    <p class="small mb-1"><strong>A</strong>lert (conscient) → Rassurer, interroger.</p>
+                    <p class="small mb-1"><strong>V</strong>erbal (répond à la voix) → Surveiller.</p>
+                    <p class="small mb-1"><strong>P</strong>ain (répond à la douleur) → Inconscient, vérifier respiration.</p>
+                    <p class="small mb-0"><strong>U</strong>nresponsive (aucune réponse) → Inconscient, urgence absolue.</p>
+                </div>
+
+                <!-- Encart valeurs normales respiration -->
+                <div class="bg-light p-3 rounded-3 mt-3">
+                    <h5 class="text-success"><i class="fas fa-lungs me-2"></i>Fréquence respiratoire</h5>
+                    <p class="small mb-1">Adulte : 12‑20/min<br>Enfant (1‑8 ans) : 20‑30/min<br>Nourrisson : 30‑40/min</p>
+                    <p class="small mb-0">Au‑delà ou en‑dessous = anomalie.</p>
+                </div>
+
+                <!-- FAQ Examen -->
+                <div class="mt-4">
+                    <h5 class="mb-2"><i class="fas fa-question-circle text-warning"></i> Questions fréquentes</h5>
+                    <div class="accordion" id="faqExam">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqE1">
+                                    Combien de temps pour vérifier la respiration ?
+                                </button>
+                            </h2>
+                            <div id="faqE1" class="accordion-collapse collapse" data-bs-parent="#faqExam">
+                                <div class="accordion-body small">
+                                    10 secondes maximum. Si vous ne détectez pas de respiration normale dans ce délai, considérez qu'elle ne respire pas et commencez la RCP.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqE2">
+                                    Que faire si la victime a un traumatisme crânien ?
+                                </button>
+                            </h2>
+                            <div id="faqE2" class="accordion-collapse collapse" data-bs-parent="#faqExam">
+                                <div class="accordion-body small">
+                                    Mobilisez le moins possible la tête. Pour ouvrir les voies aériennes, utilisez la manœuvre de subluxation de la mâchoire (sans basculer la tête). Surveillez les vomissements.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqE3">
+                                    Comment examiner un bébé ?
+                                </button>
+                            </h2>
+                            <div id="faqE3" class="accordion-collapse collapse" data-bs-parent="#faqExam">
+                                <div class="accordion-body small">
+                                    Pour la conscience, tapotez la plante des pieds. Pour la respiration, regardez le ventre (les bébés respirent avec le diaphragme). La fréquence est plus rapide.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lien utile -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> Formation PSC1 : apprendre à examiner sans stress.
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Deuxième rangée : Fil rouge Amadou & autres cas -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-user-check text-primary me-2"></i>Fil rouge – Amadou</h5>
+                <p>Après avoir dégagé Fatou de la cuisine enfumée, Amadou l'examine :</p>
+                <ul>
+                    <li><strong>Conscience :</strong> Il lui parle, tapote l'épaule → pas de réponse. Elle est <strong>inconsciente</strong>.</li>
+                    <li><strong>Respiration :</strong> Il bascule doucement la tête, regarde, écoute, sent pendant 10 secondes → la poitrine se soulève, il sent l'air sur sa joue. Elle <strong>respire normalement</strong>.</li>
+                    <li><strong>Saignements :</strong> Aucun saignement visible.</li>
+                    <li><strong>Obstruction :</strong> Pas de signe d'étouffement.</li>
+                </ul>
+                <p><strong>Conclusion :</strong> Fatou est inconsciente mais respire. Amadou va la placer en PLS (étape Secourir).</p>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> Si elle avait eu des gasps, Amadou aurait commencé la RCP immédiatement.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-ambulance text-danger me-2"></i>Cas concret : Malaise dans une mosquée</h5>
+                <p>Un fidèle s'effondre pendant la prière. Les témoins le retournent (sur le dos). L'examen montre : inconscient, respiration absente (pas de mouvement, pas de bruit). Que faire ?</p>
+                <ul>
+                    <li><strong>RCP immédiate</strong> (30 compressions / 2 insufflations).</li>
+                    <li><strong>Alerte</strong> en parallèle (quelqu'un appelle le 18).</li>
+                    <li>Si DAE disponible, l'utiliser.</li>
+                </ul>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> En 2022, une RCP précoce dans une mosquée à Abidjan a sauvé un homme de 60 ans.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troisième rangée : tableau récapitulatif des signes vitaux -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card-step p-4">
+                <h5 class="mb-3"><i class="fas fa-table me-2"></i>Tableau récapitulatif des signes vitaux</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th>Signe</th>
+                                <th>Normal</th>
+                                <th>Anormal (urgent)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Conscience</td>
+                                <td>Répond aux questions, yeux ouverts spontanément</td>
+                                <td>Ne répond pas, yeux fermés, ne réagit qu'à la douleur ou pas du tout</td>
+                            </tr>
+                            <tr>
+                                <td>Respiration (adulte)</td>
+                                <td>12‑20/min, régulière, silencieuse</td>
+                                <td>Absente, <10 ou >30/min, gasps, bruyante, cyanose</td>
+                            </tr>
+                            <tr>
+                                <td>Pouls (carotidien)</td>
+                                <td>Présent, régulier, 60‑100/min</td>
+                                <td>Absent, irrégulier, <50 ou >120</td>
+                            </tr>
+                            <tr>
+                                <td>Couleur de la peau</td>
+                                <td>Normale (selon carnation)</td>
+                                <td>Pâleur extrême, cyanose (bleue), rougeur anormale</td>
+                            </tr>
+                            <tr>
+                                <td>Saignement</td>
+                                <td>Absent ou minime</td>
+                                <td>Abondant, en jet, qui imbibe rapidement</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quatrième rangée : citation finale -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-info">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-info me-2"></i>
+                    Examiner, ce n'est pas poser un diagnostic médical, c'est repérer les urgences qui tuent en quelques minutes.
+                </p>
+                <p class="text-end text-muted small mt-2">— Formation PSC1, Croix‑Rouge</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ========== ALERTER ========== -->
+   <section id="alerter">
+    <h2 class="section-title"><i class="fas fa-phone-alt me-2"></i>3. Alerter – Appeler les secours</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    L'étape <strong>Alerter</strong> consiste à prévenir les secours professionnels le plus rapidement possible, avec des informations claires et précises. En Côte d'Ivoire, les numéros d'urgence sont le <strong>18 (Pompiers)</strong>, le <strong>15 (SAMU)</strong>, le <strong>17 (Police)</strong> et le <strong>112 (numéro unique)</strong>. Une alerte efficace permet aux secours d'arriver préparés et de gagner un temps précieux. C'est un maillon essentiel de la chaîne de survie.
+                </p>
+
+                <!-- Sous-titre : Pourquoi alerter rapidement ? -->
+                <div class="step-subtitle">⏱️ Pourquoi alerter rapidement ?</div>
+                <p>
+                    Chaque minute perdue diminue les chances de survie de la victime. Par exemple, en cas d'arrêt cardiaque, les chances baissent de 7 à 10 % par minute sans RCP. L'alerte précoce permet de déclencher l'envoi des secours et, si possible, de recevoir des instructions pour guider vos gestes (RCP, PLS, etc.). Le régulateur du SAMU ou des pompiers peut vous aider par téléphone.
+                </p>
+
+                <!-- Sous-titre : Numéros d'urgence en Côte d'Ivoire -->
+                <div class="step-subtitle">📞 Numéros d'urgence (Côte d'Ivoire)</div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-dangers table-bordered">
+                            <thead class="table-danger">
+                                <tr><th>Numéro</th><th>Service</th><th>Quand appeler ?</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>18</strong></td><td>Pompiers (GSPM)</td><td>Incendie, accident de la route, secours à personne, noyade, explosion, etc.</td></tr>
+                                <tr><td><strong>15</strong></td><td>SAMU (urgence médicale)</td><td>Malaise, douleur thoracique, difficulté à respirer, AVC, accouchement, intoxication, etc.</td></tr>
+                                <tr><td><strong>17</strong></td><td>Police / Gendarmerie</td><td>Violence, agression, trouble à l'ordre public, cambriolage, attroupement dangereux.</td></tr>
+                                <tr><td><strong>112</strong></td><td>Numéro unique</td><td>Fonctionne avec tous les opérateurs, même sans crédit. Redirige vers le bon service.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="bg-light p-3 rounded-3">
+                            <p class="mb-1"><i class="fas fa-mobile-alt text-primary me-2"></i> Tous ces numéros sont gratuits depuis un téléphone fixe ou mobile. Vous pouvez les composer même si vous n'avez pas de crédit ou si votre forfait est bloqué.</p>
+                            <p class="mb-0 mt-2"><i class="fas fa-clock text-warning me-2"></i> Le 112 fonctionne 24h/24 et vous met en relation avec le service compétent selon votre localisation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-titre : Que dire ? (message type) -->
+                <div class="step-subtitle">🎤 Que dire ? (message type)</div>
+                <p>Lors de l'appel, restez calme, parlez distinctement. Suivez l'ordre <strong>L.N.E.N.</strong> (Lieu, Nature, État, Nombre) :</p>
+                <ul class="list-check">
+                    <li><strong>Lieu</strong> – Adresse précise : quartier, rue, numéro, étage, code d'accès, points de repère (mosquée, école, station-service, immeuble connu).</li>
+                    <li><strong>Nature de l'urgence</strong> – Incendie, accident de voiture, malaise, électrocution, noyade, etc.</li>
+                    <li><strong>État de la victime</strong> – Consciente ? Respire ? Saigne ? (ex: « inconsciente mais respire », « ne respire plus », « saigne abondamment de la jambe »).</li>
+                    <li><strong>Nombre de victimes</strong> – Une seule, plusieurs, enfants/adultes.</li>
+                </ul>
+                <p>Ajoutez si nécessaire : risques associés (fuite de gaz, incendie, circulation dangereuse), et répondez aux questions de l'opérateur.</p>
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> <strong>Exemple type :</strong> « Bonjour, j'appelle pour un accident de la circulation sur le boulevard de Marseille, à hauteur du lycée technique. Deux blessés, l'un inconscient qui respire, l'autre conscient qui saigne à la tête. Il y a une fuite d'essence. Merci. »
+                </div>
+
+                <!-- Sous-titre : Ne pas raccrocher ! -->
+                <div class="step-subtitle">📞 Ne raccrochez jamais le premier</div>
+                <p>
+                    L'opérateur (régulateur) peut avoir besoin de détails supplémentaires ou vous donner des instructions immédiates : comment pratiquer une RCP, mettre en PLS, comprimer un saignement, etc. Laissez-le raccrocher en dernier. Si vous êtes seul avec la victime, mettez le téléphone en mode haut‑parleur pour continuer à agir.
+                </p>
+
+                <!-- Sous-titre : Erreurs fréquentes lors de l'alerte -->
+                <div class="step-subtitle">🚫 Erreurs fréquentes à éviter</div>
+                <ul class="list-cross">
+                    <li>Ne pas donner l'adresse exacte (« à Yopougon » sans précision).</li>
+                    <li>Parler trop vite, paniquer, crier → l'opérateur ne comprend pas.</li>
+                    <li>Raccrocher dès que l'information est donnée.</li>
+                    <li>Donner son nom et son numéro en premier (l'opérateur les voit sur l'écran).</li>
+                    <li>Ne pas mentionner les risques associés (gaz, incendie).</li>
+                    <li>Appeler depuis le lieu du danger (par exemple, depuis une pièce enfumée) sans s'être mis en sécurité.</li>
+                </ul>
+
+                <!-- REX principal -->
+                <div class="rex-box">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Marcory 2022 :</strong> Un témoin a appelé les pompiers pour un incendie mais n'a donné que le nom du quartier. Les secours ont mis 15 minutes à trouver la bonne rue. L'appartement a été entièrement détruit. <strong>Toujours préciser la rue et un point de repère.</strong>
+                </div>
+
+                <!-- Autre REX : alerte et instructions -->
+                <div class="rex-box mt-3">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Abidjan 2023 :</strong> Un homme a trouvé son voisin inconscient, ne respirant plus. Il a appelé le 15, et le régulateur lui a donné les instructions pour pratiquer la RCP en attendant l'arrivée des secours. La victime a survécu. <strong>L'opérateur peut vous guider pas à pas.</strong>
+                </div>
+
+                <!-- Sous-titre : Cas particuliers -->
+                <div class="step-subtitle">⚠️ Cas particuliers</div>
+                <ul>
+                    <li><strong>Enfant qui appelle :</strong> Si un enfant doit alerter, donnez-lui une consigne simple : « Va chez le voisin et dis qu'il faut appeler les pompiers au 18 ». Si possible, dictez-lui l'adresse.</li>
+                    <li><strong>Personne non-voyante ou malentendante :</strong> Pour les malentendants, il existe des applications et services de SMS d'urgence (vérifiez avec votre opérateur). Sinon, demandez à un passant d'appeler.</li>
+                    <li><strong>Zone sans réseau :</strong> Envoyez quelqu'un vers une zone couverte. Ne quittez pas la victime seul si elle est en danger immédiat.</li>
+                </ul>
+
+                <!-- Sous-titre : L'importance de la transmission -->
+                <div class="step-subtitle">🔄 À l'arrivée des secours</div>
+                <p>
+                    Quand les secours arrivent, transmettez-leur rapidement les informations que vous avez recueillies : ce qui s'est passé, l'état initial de la victime, les gestes déjà effectués, l'heure de l'appel. Cela permet une prise en charge sans perte de temps.
+                </p>
+            </div>
+        </div>
+
+        <!-- Colonne de droite : récapitulatif et outils -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-phone-alt"></i></span>
+                    <span class="fs-3 fw-bold">Alerter</span>
+                </div>
+                <p class="text-muted small">Les points clés</p>
+                <ul class="list-check">
+                    <li><strong>18</strong> – Pompiers (urgences générales)</li>
+                    <li><strong>15</strong> – SAMU (médical)</li>
+                    <li><strong>112</strong> – Numéro unique</li>
+                    <li><strong>L.N.E.N.</strong> – Lieu, Nature, État, Nombre</li>
+                    <li><strong>Ne pas raccrocher</strong></li>
+                </ul>
+
+                <!-- Encart : informations à donner -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-primary"><i class="fas fa-list me-2"></i>Check‑list avant l'appel</h5>
+                    <ul class="small mb-0">
+                        <li>✓ Adresse précise (rue, numéro, quartier, repères)</li>
+                        <li>✓ Ce qui s'est passé (incendie, malaise, accident...)</li>
+                        <li>✓ État de la victime (consciente, respire, saigne)</li>
+                        <li>✓ Nombre de victimes</li>
+                        <li>✓ Risques associés (gaz, feu, circulation)</li>
+                    </ul>
+                </div>
+
+                <!-- Encart : exemple de dialogue -->
+                <div class="bg-light p-3 rounded-3 mt-3">
+                    <h5 class="text-success"><i class="fas fa-comment-dots me-2"></i>Dialogue type</h5>
+                    <p class="small mb-1"><strong>Vous :</strong> « 18, j'ai un accident à Marcory, Rue des Acacias, près du lycée. Deux blessés. »</p>
+                    <p class="small mb-1"><strong>Opérateur :</strong> « La victime est consciente ? »</p>
+                    <p class="small mb-1"><strong>Vous :</strong> « L'un est inconscient mais respire, l'autre saigne à la tête. »</p>
+                    <p class="small mb-0"><strong>Opérateur :</strong> « OK, les secours arrivent. Mettez l'inconscient en PLS et comprimez la plaie de l'autre. Je reste en ligne. »</p>
+                </div>
+
+                <!-- FAQ Alerte -->
+                <div class="mt-4">
+                    <h5 class="mb-2"><i class="fas fa-question-circle text-warning"></i> Questions fréquentes</h5>
+                    <div class="accordion" id="faqAlert">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA1">
+                                    Que faire si je ne connais pas l'adresse ?
+                                </button>
+                            </h2>
+                            <div id="faqA1" class="accordion-collapse collapse" data-bs-parent="#faqAlert">
+                                <div class="accordion-body small">
+                                    Donnez des points de repère visibles (grande mosquée, station-service, école, magasin connu). Décrivez les environs. L'opérateur peut vous localiser par triangulation si vous êtes sur un mobile, mais ce n'est pas toujours précis.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA2">
+                                    Puis-je appeler les pompiers pour un malaise ?
+                                </button>
+                            </h2>
+                            <div id="faqA2" class="accordion-collapse collapse" data-bs-parent="#faqAlert">
+                                <div class="accordion-body small">
+                                    Oui, le 18 est compétent pour toutes les urgences (secours à personne). Ils enverront une ambulance et/ou contacteront le SAMU si nécessaire. Vous pouvez aussi appeler le 15 directement.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA3">
+                                    Que faire si je suis seul avec la victime ?
+                                </button>
+                            </h2>
+                            <div id="faqA3" class="accordion-collapse collapse" data-bs-parent="#faqAlert">
+                                <div class="accordion-body small">
+                                    Passez l'appel en mode haut‑parleur tout en continuant les gestes (RCP, compression). L'opérateur vous guidera.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lien utile -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> Téléchargez l'application « GSPM Secours » (si existante) pour géolocalisation rapide.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deuxième rangée : Fil rouge Amadou & cas concret -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-user-check text-primary me-2"></i>Fil rouge – Amadou</h5>
+                <p>Après avoir placé Fatou en PLS, Amadou compose le <strong>18</strong> depuis son portable :</p>
+                <ul>
+                    <li><strong>Lieu :</strong> « Marcory, Rue des Acacias, numéro 12, à côté du lycée moderne. »</li>
+                    <li><strong>Nature :</strong> « Incendie dans une cuisine, maintenant éteint mais beaucoup de fumée. »</li>
+                    <li><strong>État :</strong> « Une victime, ma voisine Fatou, inconsciente mais elle respire normalement. »</li>
+                    <li><strong>Risques :</strong> « Il n'y a plus de feu, mais l'électricité est coupée. »</li>
+                </ul>
+                <p>L'opérateur lui demande de rester en ligne et de surveiller la respiration toutes les 30 secondes. Amadou suit les instructions en mode haut‑parleur.</p>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> Grâce à cet appel précis, les pompiers arrivent 7 minutes plus tard avec le matériel adapté.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-ambulance text-danger me-2"></i>Cas concret : Appel pour un accident de gbaka</h5>
+                <p>Un minibus a percuté un piéton à Yopougon. Plusieurs blessés. Un témoin appelle le 15 :</p>
+                <ul>
+                    <li>Il donne l'adresse : « Carrefour Sable, non loin de la pharmacie Sainte‑Anne. »</li>
+                    <li>Nature : « Accident de la circulation, gbaka contre piéton. »</li>
+                    <li>État : « Le piéton est inconscient, ne bouge pas, respire ? (il vérifie) Oui, il respire. Le conducteur saigne du bras. »</li>
+                    <li>Nombre : « Deux victimes. »</li>
+                </ul>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> Le SAMU a envoyé deux ambulances et a conseillé de ne pas déplacer le piéton. L'appel a été rapide et efficace.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troisième rangée : Tableau récapitulatif des numéros et situations -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card-step p-4">
+                <h5 class="mb-3"><i class="fas fa-table me-2"></i>Quel numéro appeler selon la situation ?</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-secondary">
+                            <tr><th>Situation</th><th>Numéro prioritaire</th><th>Remarques</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Incendie, explosion, accident de la route, secours à personne</td><td><strong>18</strong> (Pompiers)</td><td>Ils sont les premiers intervenants polyvalents.</td></tr>
+                            <tr><td>Malaise cardiaque, AVC, difficulté respiratoire, intoxication</td><td><strong>15</strong> (SAMU)</td><td>Régulation médicale, envoi d'un médecin si nécessaire.</td></tr>
+                            <tr><td>Agression, violences, cambriolage, attroupement</td><td><strong>17</strong> (Police)</td><td>Pour rétablir l'ordre et protéger.</td></tr>
+                            <tr><td>Noyade, électrocution, accident domestique grave</td><td><strong>18 ou 15</strong></td><td>Les deux peuvent être contactés ; le 18 est souvent plus rapide.</td></tr>
+                            <tr><td>Enfant qui a avalé un produit toxique</td><td><strong>15</strong></td><td>Le SAMU vous conseillera sur la marche à suivre.</td></tr>
+                            <tr><td>Doute sur le numéro</td><td><strong>112</strong></td><td>Le 112 vous redirigera vers le bon service.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quatrième rangée : conseils supplémentaires -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-microphone-alt text-info me-2"></i>Bien communiquer avec l'opérateur</h5>
+                <ul>
+                    <li>Parlez calmement, même si vous êtes stressé. Respirez avant de parler.</li>
+                    <li>Répondez aux questions, même si elles semblent répétitives.</li>
+                    <li>Si vous ne pouvez pas parler (danger, présence de l'agresseur), laissez la ligne ouverte : l'opérateur pourra localiser l'appel.</li>
+                    <li>Notez les instructions : si l'opérateur vous demande de faire quelque chose, répétez pour confirmer.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-smile text-success me-2"></i>Après l'appel</h5>
+                <ul>
+                    <li>Restez auprès de la victime.</li>
+                    <li>Suivez les instructions données.</li>
+                    <li>Préparez l'arrivée des secours : guidez‑les depuis l'entrée, écartez la foule, dégagez l'accès.</li>
+                    <li>Si la situation change (arrêt respiratoire, aggravation), rappelez immédiatement.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cinquième rangée : citation finale -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-warning">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-warning me-2"></i>
+                    Un appel bien passé, c'est la moitié des secours déjà arrivés.
+                </p>
+                <p class="text-end text-muted small mt-2">— Dicton des sapeurs‑pompiers ivoiriens</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ========== SECOURIR ========== -->
+<section id="secourir">
+    <h2 class="section-title"><i class="fas fa-hand-holding-heart me-2"></i>4. Secourir – Appliquer les gestes adaptés</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    Une fois les secours alertés, l'étape <strong>Secourir</strong> consiste à prodiguer les premiers gestes qui stabilisent la victime et évitent l'aggravation de son état. Ces gestes sont simples mais cruciaux : ils maintiennent les fonctions vitales (respiration, circulation) en attendant l'arrivée des professionnels. Ils doivent être exécutés avec méthode, sans précipitation, en suivant les protocoles internationaux adaptés au contexte ivoirien.
+                </p>
+
+                <!-- Sous-titre : Position Latérale de Sécurité (PLS) -->
+                <div class="step-subtitle">🛌 Position Latérale de Sécurité (PLS)</div>
+                <p><strong>Indication :</strong> Victime <strong>inconsciente qui respire normalement</strong>.</p>
+                <p><strong>Objectif :</strong> Maintenir les voies aériennes libres, permettre l'écoulement des liquides (salive, vomissements), éviter la chute de la langue.</p>
+                <p><strong>Technique (adulte) :</strong></p>
+                <ol>
+                    <li>Placer le bras de la victime le plus proche de vous à angle droit (paume vers le haut).</li>
+                    <li>Placer l'autre main sous la joue de la victime (celle qui sera contre le sol).</li>
+                    <li>Plier la jambe la plus éloignée (genou relevé).</li>
+                    <li>D'une main sur l'épaule et l'autre sur la hanche, faire rouler doucement la victime vers vous en maintenant la tête (la main sous la joue empêche la tête de tourner).</li>
+                    <li>Ajuster la main sous la joue pour que la tête soit légèrement inclinée en arrière, bouche vers le bas.</li>
+                    <li>Vérifier que la respiration reste libre et régulière.</li>
+                </ol>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> <strong>Pour un enfant ou un bébé :</strong> Même principe, mais on peut utiliser ses mains pour maintenir la tête en position neutre. Chez le bébé, on peut le tenir dans ses bras en position latérale (tête sur l'avant-bras).
+                </div>
+                <div class="rex-box small">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> À Yamoussoukro, une femme inconsciente après un malaise a été mise en PLS par un passant. Elle a vomi sans s'étouffer. Les secours ont confirmé que la PLS avait évité une inhalation.
+                </div>
+
+                <!-- Sous-titre : Réanimation Cardio-Pulmonaire (RCP) -->
+                <div class="step-subtitle">🫀 Réanimation Cardio-Pulmonaire (RCP)</div>
+                <p><strong>Indication :</strong> Victime <strong>inconsciente qui ne respire pas ou qui présente des gasps</strong> (respirations agoniques).</p>
+                <p><strong>Objectif :</strong> Maintenir une circulation sanguine artificielle et oxygéner le cerveau.</p>
+                <p><strong>Technique pour adulte :</strong></p>
+                <ul>
+                    <li><strong>Position des mains :</strong> Talon d'une main au centre de la poitrine (sternum), l'autre main par‑dessus, doigts entrelacés. Bras tendus, épaules à l'aplomb.</li>
+                    <li><strong>Compressions :</strong> Enfoncer la poitrine de 5 à 6 cm, à une fréquence de <strong>100‑120 par minute</strong>. Laissez la poitrine se réexpandre complètement entre chaque compression.</li>
+                    <li><strong>Ratio :</strong> 30 compressions / 2 insufflations (si vous êtes formé et prêt à faire le bouche‑à‑bouche). Sinon, faites des compressions continues (massage cardiaque seul).</li>
+                    <li><strong>Insufflations :</strong> Pincez le nez, basculez la tête, faites une inspiration normale, et insufflez doucement (1 seconde) en regardant si la poitrine se soulève. Deux insufflations de suite.</li>
+                    <li><strong>Cycles :</strong> Alternez sans interruption. Si vous êtes fatigué, demandez à quelqu'un de prendre le relais toutes les 2 minutes.</li>
+                </ul>
+                <p><strong>Enfant (1‑8 ans) :</strong> Utiliser une seule main, compressions de 4‑5 cm, même rythme (100‑120/min). Ratio 30/2 (ou 15/2 si deux sauveteurs).</p>
+                <p><strong>Nourrisson (moins d'1 an) :</strong> Deux doigts (index + majeur) au centre de la poitrine (légèrement en dessous de la ligne intermamelonnaire). Compressions de 4 cm, 100‑120/min. Ratio 30/2.</p>
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Important :</strong> La RCP doit commencer <strong>sans délai</strong>. Chaque minute perdue diminue les chances de survie. Ne pas attendre le DAE pour débuter.
+                </div>
+                <div class="rex-box small">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> Au marché de Treichville, un homme s'est effondré. Un commerçant a commencé la RCP immédiatement, un autre a apporté le DAE du centre commercial. Après deux chocs, la victime a repris connaissance. La RCP précoce a été décisive.
+                </div>
+
+                <!-- Sous-titre : Hémorragie -->
+                <div class="step-subtitle">💉 Hémorragie (saignement abondant)</div>
+                <p><strong>Indication :</strong> Saignement qui gicle ou s'écoule rapidement, qui imbibe les vêtements.</p>
+                <p><strong>Conduite :</strong></p>
+                <ol>
+                    <li><strong>Compression directe :</strong> Appliquez un tissu propre (ou la main si rien d'autre) directement sur la plaie, appuyez fort. Si possible, portez des gants.</li>
+                    <li><strong>Maintenez la pression</strong> sans relâcher (si le saignement ne s'arrête pas, vous n'appuyez pas assez fort).</li>
+                    <li><strong>Si le premier pansement est imbibé :</strong> N'enlevez jamais le premier, ajoutez un deuxième tissu par‑dessus et continuez à comprimer.</li>
+                    <li><strong>Surélevez le membre</strong> (sauf suspicion de fracture) pour diminuer l'afflux sanguin.</li>
+                    <li><strong>Garrot en dernier recours :</strong> Uniquement si compression inefficace et que la vie est en danger. Posez‑le à 5‑7 cm au‑dessus de la plaie (jamais sur une articulation), notez l'heure de pose, et ne le desserrez jamais. Les secours le prendront en charge.</li>
+                </ol>
+                <div class="rex-box small">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> À Abidjan, un ouvrier s'est sectionné l'artère radiale avec une meuleuse. Son collègue a comprimé directement avec un chiffon propre et a maintenu la pression 15 minutes. Le garrot n'a pas été nécessaire, le saignement a été contrôlé.
+                </div>
+
+                <!-- Sous-titre : Étouffement (obstruction des voies aériennes) -->
+                <div class="step-subtitle">🫁 Étouffement (obstruction des voies aériennes)</div>
+                <p><strong>Victime consciente :</strong></p>
+                <ol>
+                    <li><strong>5 claques dans le dos :</strong> Penchez la victime en avant, soutenez sa poitrine, et donnez 5 claques vigoureuses entre les omoplates.</li>
+                    <li><strong>5 compressions abdominales (Heimlich) :</strong> Placez‑vous derrière elle, passez vos bras sous ses aisselles. Fermez un poing et placez‑le juste au‑dessus du nombril. Saisissez votre poing avec l'autre main et tirez brusquement vers vous et vers le haut.</li>
+                    <li>Alternez les 2 techniques jusqu'à expulsion de l'objet ou inconscience.</li>
+                </ol>
+                <p><strong>Victime inconsciente :</strong> Commencez la RCP (les compressions thoraciques peuvent expulser l'objet). Après 30 compressions, regardez dans la bouche si l'objet est visible et retirez‑le avec précaution (sans pousser).</p>
+                <p><strong>Adaptations :</strong></p>
+                <ul>
+                    <li><strong>Femme enceinte ou obèse :</strong> Remplacez les compressions abdominales par des compressions thoraciques (poing au milieu du sternum).</li>
+                    <li><strong>Enfant :</strong> Idem adulte, mais avec moins de force.</li>
+                    <li><strong>Nourrisson :</strong> Placez le bébé à plat ventre sur votre avant‑bras, tête basse, donnez 5 claques dans le dos. Retournez‑le et donnez 5 compressions thoraciques (deux doigts, sur le sternum). Alternez.</li>
+                </ul>
+
+                <!-- Sous-titre : Brûlures -->
+                <div class="step-subtitle">🔥 Brûlures</div>
+                <p><strong>Conduite :</strong></p>
+                <ul>
+                    <li><strong>Refroidir immédiatement :</strong> Arrosez la brûlure à l'eau tiède (pas glacée) pendant <strong>15 à 20 minutes</strong> pour limiter la profondeur. Retirez les vêtements qui ne collent pas.</li>
+                    <li><strong>Couvrir :</strong> Après refroidissement, couvrez la brûlure d'un linge propre, sec, non fibreux (pas de coton qui colle).</li>
+                    <li><strong>Ne pas :</strong> percer les cloques, appliquer de la glace, mettre du beurre ou de la pâte dentifrice.</li>
+                </ul>
+                <p><strong>Brûlure chimique :</strong> Rincer abondamment à l'eau (attention aux projections).</p>
+
+                <!-- Sous-titre : Autres positions d'attente -->
+                <div class="step-subtitle">🧍 Autres positions selon l'état</div>
+                <ul>
+                    <li><strong>Difficultés respiratoires (asthme, insuffisance cardiaque) :</strong> Position <strong>demi‑assise</strong> (dos relevé, jambes pendantes si possible) pour faciliter la respiration.</li>
+                    <li><strong>Malaise vagal (faiblesse, pâleur, sueurs) :</strong> Allongez la victime, <strong>jambes surélevées</strong> (30 cm) pour favoriser le retour veineux.</li>
+                    <li><strong>Traumatisme (fracture, plaie) :</strong> Laissez la victime dans la position où vous l'avez trouvée, sauf danger immédiat. Immobilisez la zone blessée si possible.</li>
+                </ul>
+
+                <!-- Sous-titre : Utilisation du Défibrillateur Automatisé Externe (DAE) -->
+                <div class="step-subtitle">⚡ Défibrillateur Automatisé Externe (DAE)</div>
+                <p>Si un DAE est disponible, utilisez‑le dès que possible :</p>
+                <ol>
+                    <li>Allumez l'appareil (suivez les instructions vocales).</li>
+                    <li>Dénudez le torse de la victime, placez les électrodes comme indiqué (une sous la clavicule droite, l'autre sous l'aisselle gauche).</li>
+                    <li>L'appareil analyse le rythme. <strong>Ne touchez pas la victime</strong> pendant l'analyse.</li>
+                    <li>Si un choc est conseillé, annoncez « Écartez‑vous » et vérifiez que personne ne touche la victime, puis appuyez sur le bouton de choc.</li>
+                    <li>Reprenez immédiatement la RCP (30/2) après le choc. Le DAE vous guidera.</li>
+                    <li>Continuez jusqu'à l'arrivée des secours ou la reprise de conscience.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Colonne de droite : récapitulatif et outils -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-hand-holding-heart"></i></span>
+                    <span class="fs-3 fw-bold">Secourir</span>
+                </div>
+                <p class="text-muted small">Gestes essentiels</p>
+                <ul class="list-check">
+                    <li><strong>PLS</strong> – Inconscient qui respire</li>
+                    <li><strong>RCP</strong> – Inconscient qui ne respire pas</li>
+                    <li><strong>Compression</strong> – Hémorragie</li>
+                    <li><strong>Heimlich / claques</strong> – Étouffement</li>
+                    <li><strong>Arrosage 15 min</strong> – Brûlure</li>
+                </ul>
+
+                <!-- Encart : tableau récapitulatif gestes -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-primary"><i class="fas fa-table me-2"></i>Tableau récapitulatif</h5>
+                    <table class="table table-sm small">
+                        <thead><tr><th>Geste</th><th>Quand ?</th></tr></thead>
+                        <tbody>
+                            <tr><td>PLS</td><td>Inconscient + respiration normale</td></tr>
+                            <tr><td>RCP (30/2)</td><td>Inconscient + pas de respiration / gasps</td></tr>
+                            <tr><td>Compression directe</td><td>Saignement abondant</td></tr>
+                            <tr><td>Heimlich</td><td>Étouffement (conscient)</td></tr>
+                            <tr><td>Arrosage eau tiède</td><td>Brûlure (15‑20 min)</td></tr>
+                            <tr><td>Jambes surélevées</td><td>Malaise vagal</td></tr>
+                            <tr><td>Demi‑assise</td><td>Difficulté respiratoire</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Encart : erreurs fréquentes -->
+                <div class="bg-light p-3 rounded-3 mt-3">
+                    <h5 class="text-danger"><i class="fas fa-exclamation-circle me-2"></i>Erreurs à éviter</h5>
+                    <ul class="list-cross small mb-0">
+                        <li>Mettre en PLS une victime qui ne respire pas.</li>
+                        <li>RCP sur une victime qui respire normalement.</li>
+                        <li>Retirer un objet planté.</li>
+                        <li>Relâcher la compression sur un saignement.</li>
+                        <li>Percer les cloques de brûlure.</li>
+                        <li>Arrêter la RCP trop tôt.</li>
+                        <li>Mettre de la glace sur une brûlure.</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ Secourir -->
+                <div class="mt-4">
+                    <h5 class="mb-2"><i class="fas fa-question-circle text-warning"></i> Questions fréquentes</h5>
+                    <div class="accordion" id="faqSecourir">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqS1">
+                                    Combien de temps faire la RCP ?
+                                </button>
+                            </h2>
+                            <div id="faqS1" class="accordion-collapse collapse" data-bs-parent="#faqSecourir">
+                                <div class="accordion-body small">
+                                    Jusqu'à l'arrivée des secours, ou jusqu'à ce que la victime reprenne une respiration normale. Vous pouvez vous relayer toutes les 2 minutes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqS2">
+                                    Faut‑il enlever le casque d'un motard ?
+                                </button>
+                            </h2>
+                            <div id="faqS2" class="accordion-collapse collapse" data-bs-parent="#faqSecourir">
+                                <div class="accordion-body small">
+                                    Si la victime respire, ne retirez pas le casque. Attendez les secours. Si elle ne respire pas, il faut le retirer pour pratiquer la RCP (en maintenant la tête).
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqS3">
+                                    Que faire si je ne connais pas la RCP ?
+                                </button>
+                            </h2>
+                            <div id="faqS3" class="accordion-collapse collapse" data-bs-parent="#faqSecourir">
+                                <div class="accordion-body small">
+                                    Faites des compressions thoraciques en continu (100‑120/min) sans vous arrêter. C'est mieux que rien. L'opérateur du 15/18 peut vous guider.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lien utile -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> Formation PSC1 : apprenez ces gestes en pratique.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deuxième rangée : Fil rouge Amadou & cas concrets -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-user-check text-primary me-2"></i>Fil rouge – Amadou</h5>
+                <p>Après avoir examiné Fatou (inconsciente, respiration normale), Amadou applique la <strong>PLS</strong> :</p>
+                <ul>
+                    <li>Il place le bras droit de Fatou à angle droit.</li>
+                    <li>Il met la main gauche de Fatou sous sa joue droite.</li>
+                    <li>Il plie la jambe gauche de Fatou et la fait rouler doucement vers lui.</li>
+                    <li>Il ajuste la tête pour que la bouche soit orientée vers le bas et vérifie que la respiration est toujours audible.</li>
+                </ul>
+                <p>Fatou est stable. Amadou reste à côté, la surveille et rassure les voisins. Il n'a pas eu besoin de RCP ni de compression.</p>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> Si Fatou avait cessé de respirer, Amadou aurait immédiatement commencé la RCP (30 compressions / 2 insufflations).
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-ambulance text-danger me-2"></i>Cas concret : Arrêt cardiaque à la maison</h5>
+                <p>Un homme de 60 ans s'effondre dans son salon. Sa femme appelle le 18. Pendant l'appel, elle vérifie la respiration : absente. Le régulateur lui demande de commencer la RCP. Elle place ses mains au centre de la poitrine et comprime fort (5‑6 cm) à 100/min, sans s'arrêter. 8 minutes plus tard, les pompiers arrivent et prennent le relais. La victime survit sans séquelles graves.</p>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> <strong>Leçon :</strong> La RCP immédiate, même imparfaite, a sauvé une vie.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troisième rangée : Tableau détaillé des gestes -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card-step p-4">
+                <h5 class="mb-3"><i class="fas fa-table me-2"></i>Guide complet des gestes de secourisme</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-success">
+                            <tr><th>Situation</th><th>Gestes à effectuer</th><th>Pièges à éviter</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Inconscient + respiration normale</td><td>PLS, surveiller respiration</td><td>Oublier de vérifier la respiration régulièrement</td></tr>
+                            <tr><td>Inconscient + pas de respiration</td><td>RCP (30/2) + DAE si disponible</td><td>Arrêter la RCP, attendre le DAE avant de commencer</td></tr>
+                            <tr><td>Saignement abondant</td><td>Compression directe, surélévation, garrot si nécessaire</td><td>Retirer le premier pansement, desserrer le garrot</td></tr>
+                            <tr><td>Étouffement (conscient)</td><td>5 claques dos + 5 Heimlich en alternance</td><td>Donner à boire, taper dans le dos trop faiblement</td></tr>
+                            <tr><td>Brûlure</td><td>Arroser 15‑20 min, couvrir propre</td><td>Percer cloques, mettre glace, appliquer beurre</td></tr>
+                            <tr><td>Malaise vagal</td><td>Allonger, jambes surélevées</td><td>Asseoir ou lever brutalement</td></tr>
+                            <tr><td>Difficultés respiratoires</td><td>Position demi‑assise, desserrer vêtements</td><td>Allonger à plat (gêne la respiration)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quatrième rangée : conseils pratiques -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-lightbulb text-warning me-2"></i>Conseils pour bien secourir</h5>
+                <ul>
+                    <li>Restez calme, respirez profondément.</li>
+                    <li>Parlez à la victime (même inconsciente) : « Ça va aller, les secours arrivent. »</li>
+                    <li>Utilisez des gants si disponibles pour éviter le contact avec le sang.</li>
+                    <li>Si vous êtes fatigué en RCP, demandez à quelqu'un de prendre le relais.</li>
+                    <li>Notez l'heure de début de la RCP et de la pose éventuelle d'un garrot.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-heartbeat text-danger me-2"></i>Mémorisez les nombres clés</h5>
+                <ul>
+                    <li><strong>RCP :</strong> 100‑120 compressions/minute, 5‑6 cm de profondeur.</li>
+                    <li><strong>Ratio :</strong> 30 compressions / 2 insufflations.</li>
+                    <li><strong>Brûlure :</strong> 15‑20 minutes d'arrosage.</li>
+                    <li><strong>PLS :</strong> tête inclinée, bouche vers le bas.</li>
+                    <li><strong>Garrot :</strong> noter l'heure, ne pas desserrer.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cinquième rangée : citation finale -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-success">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-success me-2"></i>
+                    Secourir, ce n'est pas remplacer le médecin, c'est gagner du temps pour qu'il puisse agir.
+                </p>
+                <p class="text-end text-muted small mt-2">— Proverbe de la Croix‑Rouge</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ========== SURVEILLER ========== -->
+
+<section id="surveiller">
+    <h2 class="section-title"><i class="fas fa-eye me-2"></i>5. Surveiller – Vigilance constante</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    L'étape <strong>Surveiller</strong> consiste à observer attentivement et en continu l'évolution de l'état de la victime jusqu'à l'arrivée des secours. Elle est trop souvent négligée, alors qu'elle peut être vitale : l'état d'une personne peut se détériorer en quelques instants (arrêt respiratoire, aggravation d'un saignement, reprise de conscience brutale). Surveiller permet de détecter ces changements et d'agir immédiatement.
+                </p>
+
+                <!-- Sous-titre : Pourquoi surveiller ? -->
+                <div class="step-subtitle">🎯 Pourquoi la surveillance est‑elle cruciale ?</div>
+                <ul>
+                    <li><strong>Détecter une aggravation :</strong> Une victime qui respirait peut soudainement faire un arrêt respiratoire. Sans surveillance, vous ne le verrez pas.</li>
+                    <li><strong>Adapter les gestes :</strong> Si la respiration devient superficielle ou s'arrête, il faut passer de la PLS à la RCP.</li>
+                    <li><strong>Rassurer :</strong> Parler à la victime (même inconsciente) réduit son stress et peut stabiliser ses constantes.</li>
+                    <li><strong>Informer les secours :</strong> À leur arrivée, vous pourrez leur donner des informations précises sur l'évolution (ex: « elle respirait normalement il y a 2 minutes, puis s'est cyanosée »).</li>
+                </ul>
+
+                <!-- Sous-titre : Que surveiller ? (check‑list) -->
+                <div class="step-subtitle">🔍 Que surveiller ? (check‑list)</div>
+                <table class="table table-dangers table-bordered">
+                    <thead class="table-info">
+                        <tr><th>Paramètre</th><th>Fréquence</th><th>Signes normaux</th><th>Signes d'alerte</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Respiration</strong></td>
+                            <td>Toutes les 30 secondes</td>
+                            <td>Régulière, ample, silencieuse, 12‑20/min (adulte)</td>
+                            <td>Absence, gasps, ralentissement (<10/min), accélération (>30/min), bruits anormaux (ronflements, sifflements)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pouls (carotidien)</strong></td>
+                            <td>Toutes les minutes (si possible)</td>
+                            <td>Présent, régulier, 60‑100/min</td>
+                            <td>Absent, irrégulier, <50 ou >120</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Couleur de la peau</strong></td>
+                            <td>Continue</td>
+                            <td>Normale (selon carnation)</td>
+                            <td>Pâleur extrême, cyanose (bleu autour des lèvres, extrémités), rougeur anormale</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Température / transpiration</strong></td>
+                            <td>Continue</td>
+                            <td>Peau sèche, température normale</td>
+                            <td>Sueurs froides, fièvre, frissons</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conscience</strong></td>
+                            <td>Toutes les minutes</td>
+                            <td>Si consciente : répond aux questions, calme</td>
+                            <td>Agitation, somnolence, confusion, perte de connaissance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saignement / pansement</strong></td>
+                            <td>Toutes les minutes</td>
+                            <td>Pansement sec, pas de sang qui coule</td>
+                            <td>Pansement imbibé, sang qui s'écoule en dehors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Position (PLS)</strong></td>
+                            <td>Continue</td>
+                            <td>Tête inclinée, bouche vers le bas, respiration libre</td>
+                            <td>Tête mal positionnée (obstruction), corps qui glisse</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Sous-titre : Surveillance en fonction de l'état -->
+                <div class="step-subtitle">🔄 Surveillance spécifique selon la situation</div>
+                <ul>
+                    <li><strong>Victime en PLS :</strong> Vérifiez la respiration toutes les 30 secondes. Assurez‑vous que la bouche reste orientée vers le bas. Si la victime vomit, laissez couler, ne tournez pas la tête brutalement.</li>
+                    <li><strong>Victime en RCP :</strong> Si vous n'êtes pas seul, alternez toutes les 2 minutes pour éviter la fatigue. Surveillez la reprise éventuelle de la respiration ou des mouvements. Si un DAE est utilisé, suivez ses instructions.</li>
+                    <li><strong>Victime consciente :</strong> Parlez‑lui, posez des questions simples (nom, âge, ce qui s'est passé). Notez toute confusion, somnolence ou aggravation de la douleur.</li>
+                    <li><strong>Hémorragie contrôlée :</strong> Vérifiez que le pansement ne s'imbibe pas. Si le saignement reprend, recomprimez.</li>
+                </ul>
+
+                <!-- Sous-titre : La communication, un outil de surveillance -->
+                <div class="step-subtitle">💬 Communiquer avec la victime</div>
+                <p>
+                    Même inconsciente, une victime peut percevoir la voix. Parlez‑lui calmement, dites‑lui que les secours arrivent, qu'elle est en sécurité. Si elle reprend conscience, rassurez‑la, empêchez‑la de se lever brutalement. Expliquez ce qui s'est passé simplement.
+                </p>
+                <ul class="list-check">
+                    <li>« Bonjour, je suis Amadou, je reste avec vous. Les pompiers sont en route. »</li>
+                    <li>« Vous êtes en sécurité, ne bougez pas. »</li>
+                    <li>« Respirez calmement, tout va bien. »</li>
+                </ul>
+                <p>
+                    Si la victime est consciente et anxieuse, demandez‑lui de respirer lentement avec vous. Cela peut stabiliser son rythme cardiaque.
+                </p>
+
+                <!-- Sous-titre : Détection des signes de détérioration -->
+                <div class="step-subtitle">⚠️ Signes de détérioration à ne pas manquer</div>
+                <ul class="list-cross">
+                    <li><strong>Cyanose :</strong> coloration bleutée des lèvres, du visage, des doigts → manque d'oxygène grave. Vérifiez la respiration immédiatement.</li>
+                    <li><strong>Bruits respiratoires anormaux :</strong> ronflements (langue), sifflements (asthme), gargouillements (présence de liquide).</li>
+                    <li><strong>Agitation ou confusion soudaine :</strong> peut précéder un malaise ou un arrêt cardiaque.</li>
+                    <li><strong>Pâleur extrême + sueurs :</strong> signe de choc (hémorragie interne, malaise vagal).</li>
+                    <li><strong>Arrêt de la respiration :</strong> silence, absence de mouvement thoracique → débuter RCP immédiatement.</li>
+                </ul>
+                <div class="rex-box small">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX :</strong> À Bouaké, un témoin a surveillé une victime en PLS toutes les 30 secondes. À un moment, la respiration a cessé. Il a immédiatement retourné la victime sur le dos et commencé la RCP. La victime a survécu grâce à cette surveillance.
+                </div>
+
+                <!-- Sous-titre : Préparer l'arrivée des secours -->
+                <div class="step-subtitle">🚑 Préparer l'arrivée des secours</div>
+                <ul>
+                    <li><strong>Dégager l'accès :</strong> Ouvrez la porte, écartez les meubles, demandez aux curieux de s'éloigner.</li>
+                    <li><strong>Guider les secours :</strong> Envoyez quelqu'un à l'entrée de la rue ou du quartier pour faire signe aux ambulances.</li>
+                    <li><strong>Rassembler les informations :</strong> Ce qui s'est passé, les gestes effectués, l'heure de début, les changements observés. Vous les transmettrez à l'équipe.</li>
+                    <li><strong>Préparer les documents :</strong> Si possible, carte d'identité, carnet de santé, traitements en cours.</li>
+                </ul>
+
+                <!-- Sous-titre : Erreurs fréquentes de surveillance -->
+                <div class="step-subtitle">🚫 Erreurs à éviter</div>
+                <ul class="list-cross">
+                    <li>Relâcher la surveillance (partir, s'asseoir au loin, discuter avec des voisins).</li>
+                    <li>Ne pas vérifier la respiration régulièrement.</li>
+                    <li>Oublier de surveiller un pansement qui s'imbibe.</li>
+                    <li>Ne pas noter mentalement l'heure des changements.</li>
+                    <li>Ne pas parler à la victime (inconsciente ou non).</li>
+                    <li>Mobiliser la victime inutilement (ex: la relever pour lui donner à boire).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Colonne de droite : récapitulatif et outils -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-eye"></i></span>
+                    <span class="fs-3 fw-bold">Surveiller</span>
+                </div>
+                <p class="text-muted small">Les points clés</p>
+                <ul class="list-check">
+                    <li><strong>Respiration</strong> toutes les 30 secondes</li>
+                    <li><strong>Pouls</strong> toutes les minutes</li>
+                    <li><strong>Couleur / température</strong> en continu</li>
+                    <li><strong>Pansement / saignement</strong></li>
+                    <li><strong>Rassurer, communiquer</strong></li>
+                </ul>
+
+                <!-- Encart : fréquence idéale -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-primary"><i class="fas fa-clock me-2"></i>Fréquence de surveillance</h5>
+                    <ul class="small mb-0">
+                        <li><strong>Respiration :</strong> toutes les 30 secondes.</li>
+                        <li><strong>Pouls :</strong> toutes les minutes (si accessible).</li>
+                        <li><strong>État de conscience :</strong> toutes les minutes.</li>
+                        <li><strong>Pansement :</strong> toutes les minutes.</li>
+                        <li><strong>Position :</strong> vérifier en continu.</li>
+                    </ul>
+                </div>
+
+                <!-- Encart : que faire en cas d'arrêt respiratoire -->
+                <div class="bg-light p-3 rounded-3 mt-3">
+                    <h5 class="text-danger"><i class="fas fa-heartbeat me-2"></i>Si la respiration s'arrête</h5>
+                    <ol class="small mb-0">
+                        <li>Retourner la victime sur le dos (si en PLS).</li>
+                        <li>Dégager les voies aériennes (bascule de la tête).</li>
+                        <li>Commencer la RCP (30 compressions / 2 insufflations).</li>
+                        <li>Si DAE disponible, l'utiliser sans délai.</li>
+                        <li>Continuer jusqu'à l'arrivée des secours.</li>
+                    </ol>
+                </div>
+
+                <!-- FAQ Surveillance -->
+                <div class="mt-4">
+                    <h5 class="mb-2"><i class="fas fa-question-circle text-warning"></i> Questions fréquentes</h5>
+                    <div class="accordion" id="faqSurv">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSurv1">
+                                    Que faire si la victime vomit en PLS ?
+                                </button>
+                            </h2>
+                            <div id="faqSurv1" class="accordion-collapse collapse" data-bs-parent="#faqSurv">
+                                <div class="accordion-body small">
+                                    Rien de spécial : la PLS est conçue pour que les vomissements s'écoulent. Laissez couler, ne tournez pas la tête brutalement. Surveillez que les voies restent libres.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSurv2">
+                                    Puis-je laisser la victime seule pour aller chercher de l'aide ?
+                                </button>
+                            </h2>
+                            <div id="faqSurv2" class="accordion-collapse collapse" data-bs-parent="#faqSurv">
+                                <div class="accordion-body small">
+                                    Non, sauf danger immédiat pour vous. Si vous devez absolument vous absenter, placez la victime en PLS et revenez vite. Dans l'idéal, envoyez quelqu'un d'autre.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSurv3">
+                                    Comment prendre le pouls ?
+                                </button>
+                            </h2>
+                            <div id="faqSurv3" class="accordion-collapse collapse" data-bs-parent="#faqSurv">
+                                <div class="accordion-body small">
+                                    Pour le pouls carotidien, placez deux doigts à côté de la trachée (pomme d'Adam). Appuyez doucement. Comptez pendant 10 secondes puis multipliez par 6. Ne perdez pas trop de temps.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lien utile -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> La surveillance est le dernier maillon, mais pas le moindre.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deuxième rangée : Fil rouge Amadou & cas concret -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-user-check text-primary me-2"></i>Fil rouge – Amadou</h5>
+                <p>Amadou a placé Fatou en PLS dans le couloir. Il s'installe à côté d'elle et commence la surveillance :</p>
+                <ul>
+                    <li>Toutes les 30 secondes, il regarde si la poitrine se soulève et écoute le souffle.</li>
+                    <li>Il remarque que la respiration est régulière, environ 16 fois par minute.</li>
+                    <li>Il vérifie la couleur de ses lèvres : normales, pas de cyanose.</li>
+                    <li>Il lui parle doucement : « Fatou, les pompiers arrivent, tout va bien. »</li>
+                    <li>Au bout de 5 minutes, il constate que la respiration devient plus superficielle. Il ajuste légèrement la tête pour mieux dégager les voies aériennes. La respiration redevient normale.</li>
+                </ul>
+                <p>À l'arrivée des pompiers, Amadou leur dit : « Inconsciente depuis 7 minutes, respiration normale au début, un petit ralentissement il y a 2 minutes, puis stabilisée. » Les pompiers le remercient pour ces informations précieuses.</p>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> Grâce à cette surveillance, Amadou a détecté un début de détérioration et a corrigé la position.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-ambulance text-danger me-2"></i>Cas concret : Surveillance après malaise</h5>
+                <p>Dans un bus à Abidjan, une femme fait un malaise. Le chauffeur s'arrête, un passager l'allonge (jambes surélevées). Elle reprend conscience rapidement. Le passager reste avec elle, surveille sa respiration (normale), sa couleur (bonne), et lui parle calmement. Quand le SAMU arrive, il peut dire qu'elle était inconsciente 2 minutes, puis consciente mais un peu confuse. L'équipe médicale prend le relais.</p>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> <strong>Leçon :</strong> La surveillance continue a permis de noter la durée exacte de l'inconscience, utile pour le diagnostic.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troisième rangée : tableau récapitulatif des actions selon évolution -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card-step p-4">
+                <h5 class="mb-3"><i class="fas fa-table me-2"></i>Conduite à tenir selon les changements observés</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-warning">
+                            <tr><th>Changement observé</th><th>Action immédiate</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>La victime ne respire plus (ou gasps)</td><td>Retourner sur le dos, débuter RCP, appeler si pas déjà fait, utiliser DAE.</td></tr>
+                            <tr><td>Respiration devient très lente (<8/min) ou très rapide (>30/min)</td><td>Surveiller intensément, préparer RCP, prévenir les secours si ligne ouverte.</td></tr>
+                            <tr><td>Cyanose (lèvres bleues)</td><td>Vérifier respiration, oxygéner (ouvrir voies), RCP si nécessaire.</td></tr>
+                            <tr><td>Saignement qui reprend ou imbibe le pansement</td><td>Recomprimer, ajouter un tissu, surélever, garrot si hémorragie massive.</td></tr>
+                            <tr><td>Victime qui reprend conscience</td><td>La rassurer, l'empêcher de se lever, continuer à surveiller respiration et pouls.</td></tr>
+                            <tr><td>Victime qui s'agite, devient confuse</td><td>La rassurer, chercher une cause (manque d'oxygène?), surveiller, prévenir secours.</td></tr>
+                            <tr><td>Position PLS instable (tête mal orientée)</td><td>Réajuster délicatement en maintenant l'axe tête-cou.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quatrième rangée : importance psychologique -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-heart text-danger me-2"></i>L'importance du contact humain</h5>
+                <p>
+                    Parler à une victime, même inconsciente, a un effet bénéfique prouvé : diminution du stress, stabilisation du rythme cardiaque, sentiment de sécurité. N'hésitez pas à lui tenir la main (si pas de blessure), à lui dire votre prénom, à lui expliquer ce qui se passe.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-clock text-info me-2"></i>Noter les heures clés</h5>
+                <ul>
+                    <li>Heure de l'accident / malaise.</li>
+                    <li>Heure de début de la RCP.</li>
+                    <li>Heure de pose d'un garrot.</li>
+                    <li>Heure de tout changement significatif (reprise de conscience, arrêt respiratoire).</li>
+                </ul>
+                <p>Ces informations sont précieuses pour les secours.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cinquième rangée : citation finale -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-info">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-info me-2"></i>
+                    Surveiller, c'est rester actif jusqu'au bout. L'urgence ne s'arrête pas à l'arrivée des secours, elle se partage.
+                </p>
+                <p class="text-end text-muted small mt-2">— Guide du secouriste, Croix‑Rouge</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ========== BONNES PRATIQUES ========== -->
+<section id="bonnespratiques">
+    <h2 class="section-title"><i class="fas fa-check-circle me-2"></i>Bonnes pratiques – Les 30 règles d’or du secouriste</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    Au‑delà des gestes techniques, le secouriste efficace est celui qui respecte un ensemble de <strong>bonnes pratiques</strong> qui garantissent sa sécurité, celle de la victime et l’efficacité de l’intervention. Ces règles sont le fruit de décennies d’expérience terrain et de retours d’incidents. Les respecter, c’est maximiser les chances de survie et éviter les erreurs fatales.
+                </p>
+
+                <!-- Sous-titre : Pourquoi des bonnes pratiques ? -->
+                <div class="step-subtitle">🧠 Pourquoi sont‑elles essentielles ?</div>
+                <ul>
+                    <li><strong>Protéger le sauveteur :</strong> Un secouriste blessé ou contaminé ne peut plus aider.</li>
+                    <li><strong>Éviter les sur‑accidents :</strong> Une intervention non maîtrisée peut aggraver la situation.</li>
+                    <li><strong>Gagner du temps :</strong> En suivant une méthode, on ne perd pas de temps à réfléchir.</li>
+                    <li><strong>Rassurer la victime :</strong> Une attitude calme et professionnelle diminue le stress.</li>
+                    <li><strong>Faciliter le travail des secours :</strong> Des informations claires et une victime stabilisée permettent une prise en charge rapide.</li>
+                </ul>
+
+                <!-- Sous-titre : Les 30 bonnes pratiques (catégorisées) -->
+                <div class="step-subtitle">📋 Les 30 bonnes pratiques du secouriste</div>
+
+                <!-- Catégorie : Avant l'intervention -->
+                <h5 class="mt-3 text-primary">🛡️ Avant l’intervention</h5>
+                <ul class="list-check">
+                    <li><strong>1. Analyser les dangers avant d’agir :</strong> Prenez 5 à 10 secondes pour observer l’environnement (feu, électricité, circulation). Ne vous précipitez jamais.</li>
+                    <li><strong>2. Se protéger soi‑même en priorité :</strong> Si vous êtes en danger, vous ne pourrez pas secourir. Utilisez des gants si disponibles, un gilet, un triangle.</li>
+                    <li><strong>3. Couper les sources d’énergie :</strong> Électricité, gaz, moteur – avant tout contact avec la victime.</li>
+                    <li><strong>4. Baliser la zone :</strong> Triangle, warnings, barrière humaine – signalez l’accident pour éviter un sur‑accident.</li>
+                    <li><strong>5. Ne déplacer la victime qu’en cas de danger immédiat :</strong> Incendie, explosion, asphyxie. Sinon, attendez les secours.</li>
+                </ul>
+
+                <!-- Catégorie : Pendant l'examen -->
+                <h5 class="mt-3 text-primary">🔍 Pendant l’examen</h5>
+                <ul class="list-check">
+                    <li><strong>6. Évaluer conscience puis respiration :</strong> Toujours dans cet ordre (AVPU puis regarder‑écouter‑sentir).</li>
+                    <li><strong>7. Prendre 10 secondes pour la respiration :</strong> Pas plus, pas moins. Si doute, considérez qu’elle ne respire pas.</li>
+                    <li><strong>8. Repérer immédiatement les saignements abondants :</strong> Une hémorragie externe se comprime sans attendre.</li>
+                    <li><strong>9. Ouvrir les voies aériennes si inconscient :</strong> Bascule de la tête (sauf traumatisme) avant de vérifier la respiration.</li>
+                    <li><strong>10. Rechercher les signes d’étouffement :</strong> Mains au cou, incapacité de parler, cyanose.</li>
+                </ul>
+
+                <!-- Catégorie : Pendant l'alerte -->
+                <h5 class="mt-3 text-primary">📞 Pendant l’alerte</h5>
+                <ul class="list-check">
+                    <li><strong>11. Donner l’adresse exacte en premier :</strong> Quartier, rue, numéro, point de repère.</li>
+                    <li><strong>12. Suivre le plan L.N.E.N. :</strong> Lieu, Nature, État, Nombre.</li>
+                    <li><strong>13. Ne pas raccrocher le premier :</strong> L’opérateur peut guider ou demander des précisions.</li>
+                    <li><strong>14. Utiliser le haut‑parleur si seul :</strong> Pour continuer les gestes tout en suivant les instructions.</li>
+                    <li><strong>15. Mentionner les risques associés :</strong> Gaz, incendie, circulation dangereuse.</li>
+                </ul>
+
+                <!-- Catégorie : Pendant les gestes de secours -->
+                <h5 class="mt-3 text-primary">🫀 Pendant les gestes de secours</h5>
+                <ul class="list-check">
+                    <li><strong>16. PLS : tête inclinée, bouche vers le bas :</strong> Vérifiez que la respiration reste libre après installation.</li>
+                    <li><strong>17. RCP : compressions fortes et rapides (100‑120/min) :</strong> Laissez la poitrine se réexpandre entre chaque compression.</li>
+                    <li><strong>18. Alterner les sauveteurs toutes les 2 minutes :</strong> Pour éviter la fatigue et maintenir l’efficacité.</li>
+                    <li><strong>19. Compression directe sur un saignement :</strong> Ne retirez jamais le premier pansement, ajoutez‑en un autre.</li>
+                    <li><strong>20. Garrot en dernier recours :</strong> Notez l’heure de pose et ne le desserrez jamais.</li>
+                    <li><strong>21. Pour l’étouffement : alterner 5 claques et 5 Heimlich :</strong> Chez la femme enceinte, compressions thoraciques.</li>
+                    <li><strong>22. Brûlure : arroser 15‑20 minutes à l’eau tiède :</strong> Pas de glace, pas de beurre.</li>
+                    <li><strong>23. Position d’attente adaptée :</strong> Jambes surélevées pour malaise vagal, demi‑assise pour dyspnée.</li>
+                </ul>
+
+                <!-- Catégorie : Pendant la surveillance -->
+                <h5 class="mt-3 text-primary">👁️ Pendant la surveillance</h5>
+                <ul class="list-check">
+                    <li><strong>24. Vérifier la respiration toutes les 30 secondes :</strong> Même si la victime semble stable.</li>
+                    <li><strong>25. Observer la couleur des lèvres et des extrémités :</strong> La cyanose est un signe d’urgence.</li>
+                    <li><strong>26. Rassurer en parlant calmement :</strong> Même inconsciente, la victime peut percevoir la voix.</li>
+                    <li><strong>27. Noter mentalement les changements d’état :</strong> Heure de début de RCP, reprise de conscience, etc.</li>
+                </ul>
+
+                <!-- Catégorie : Après l'intervention -->
+                <h5 class="mt-3 text-primary">🔄 Après l’intervention</h5>
+                <ul class="list-check">
+                    <li><strong>28. Transmettre un rapport clair aux secours :</strong> Ce qui s’est passé, ce que vous avez fait, les changements observés.</li>
+                    <li><strong>29. Se laver les mains ou utiliser une solution hydroalcoolique :</strong> Même si vous avez porté des gants.</li>
+                    <li><strong>30. Débriefing et formation continue :</strong> Participez à des formations régulières (PSC1, SST) pour maintenir vos compétences.</li>
+                </ul>
+
+                <!-- REX sur les bonnes pratiques -->
+                <div class="rex-box">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Bouaké 2023 :</strong> Un secouriste formé a appliqué scrupuleusement les 30 bonnes pratiques lors d’un accident de moto : protection, examen, alerte, compression d’une hémorragie, surveillance. La victime a survécu sans séquelles. Les pompiers ont salué la qualité de l’intervention.
+                </div>
+                <div class="rex-box mt-3">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Abidjan 2024 :</strong> Un témoin non formé a voulu aider une victime d’électrocution sans couper le courant. Heureusement, un voisin formé est intervenu et a rappelé la règle n°3. Le premier témoin a failli être électrocuté. <strong>La formation sauve des vies.</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Colonne de droite : résumé et check‑list -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-check-circle"></i></span>
+                    <span class="fs-3 fw-bold">Bonnes pratiques</span>
+                </div>
+                <p class="text-muted small">Les essentiels en bref</p>
+                <ul class="list-check">
+                    <li>Sécuriser avant d’agir</li>
+                    <li>Évaluer conscience puis respiration</li>
+                    <li>Alerter avec L.N.E.N.</li>
+                    <li>PLS si inconscient qui respire</li>
+                    <li>RCP immédiate si pas de respiration</li>
+                    <li>Compression sur hémorragie</li>
+                    <li>Surveiller toutes les 30 secondes</li>
+                    <li>Rassurer la victime</li>
+                    <li>Se former régulièrement</li>
+                </ul>
+
+                <!-- Encart : check‑list rapide -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-primary"><i class="fas fa-clipboard-list me-2"></i>Check‑list avant de partir</h5>
+                    <ul class="small mb-0">
+                        <li>✓ Gants, triangle, gilet ?</li>
+                        <li>✓ Numéros d’urgence en mémoire ?</li>
+                        <li>✓ Formation PSC1 à jour ?</li>
+                        <li>✓ Trousse de secours dans le véhicule ?</li>
+                    </ul>
+                </div>
+
+                <!-- Encart : les 5 erreurs les plus graves -->
+                <div class="bg-light p-3 rounded-3 mt-3">
+                    <h5 class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i>Top 5 des erreurs fatales</h5>
+                    <ul class="list-cross small mb-0">
+                        <li>Se précipiter sans protéger</li>
+                        <li>Déplacer une victime sans danger</li>
+                        <li>Oublier de vérifier la respiration</li>
+                        <li>Ne pas appeler ou mal localiser</li>
+                        <li>Arrêter la RCP trop tôt</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ Bonnes pratiques -->
+                <div class="mt-4">
+                    <h5 class="mb-2"><i class="fas fa-question-circle text-warning"></i> Questions fréquentes</h5>
+                    <div class="accordion" id="faqBP">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqBP1">
+                                    Faut‑il vraiment se former tous les ans ?
+                                </button>
+                            </h2>
+                            <div id="faqBP1" class="accordion-collapse collapse" data-bs-parent="#faqBP">
+                                <div class="accordion-body small">
+                                    Les gestes s’oublient. Un recyclage tous les 2 ans est recommandé pour rester efficace. La Croix‑Rouge propose des formations continues.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqBP2">
+                                    Puis‑je utiliser mon téléphone pour filmer au lieu d’aider ?
+                                </button>
+                            </h2>
+                            <div id="faqBP2" class="accordion-collapse collapse" data-bs-parent="#faqBP">
+                                <div class="accordion-body small">
+                                    Non, c’est contraire à l’éthique et à la loi. La priorité est de porter secours. Filmer peut même vous exposer à des poursuites.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqBP3">
+                                    Que faire si je ne me souviens plus de la fréquence des compressions ?
+                                </button>
+                            </h2>
+                            <div id="faqBP3" class="accordion-collapse collapse" data-bs-parent="#faqBP">
+                                <div class="accordion-body small">
+                                    Compressez au rythme de la chanson « Stayin’ Alive » des Bee Gees (environ 100 bpm). Sinon, 2 compressions par seconde.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lien utile -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> Formation PSC1 : inscrivez‑vous à la Croix‑Rouge de Côte d’Ivoire.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deuxième rangée : tableau synthétique des 30 pratiques -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card-step p-4">
+                <h5 class="mb-3"><i class="fas fa-table me-2"></i>Les 30 bonnes pratiques en un coup d’œil</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead class="table-success">
+                            <tr><th>#</th><th>Pratique</th><th>Catégorie</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Analyser les dangers avant d’agir</td><td>Avant intervention</td></tr>
+                            <tr><td>2</td><td>Se protéger soi‑même en priorité</td><td>Avant intervention</td></tr>
+                            <tr><td>3</td><td>Couper les sources d’énergie</td><td>Avant intervention</td></tr>
+                            <tr><td>4</td><td>Baliser la zone</td><td>Avant intervention</td></tr>
+                            <tr><td>5</td><td>Ne déplacer qu’en danger immédiat</td><td>Avant intervention</td></tr>
+                            <tr><td>6</td><td>Évaluer conscience puis respiration</td><td>Examen</td></tr>
+                            <tr><td>7</td><td>Prendre 10 secondes pour la respiration</td><td>Examen</td></tr>
+                            <tr><td>8</td><td>Repérer immédiatement les saignements</td><td>Examen</td></tr>
+                            <tr><td>9</td><td>Ouvrir les voies aériennes</td><td>Examen</td></tr>
+                            <tr><td>10</td><td>Rechercher les signes d’étouffement</td><td>Examen</td></tr>
+                            <tr><td>11</td><td>Donner l’adresse exacte en premier</td><td>Alerte</td></tr>
+                            <tr><td>12</td><td>Suivre le plan L.N.E.N.</td><td>Alerte</td></tr>
+                            <tr><td>13</td><td>Ne pas raccrocher le premier</td><td>Alerte</td></tr>
+                            <tr><td>14</td><td>Utiliser le haut‑parleur si seul</td><td>Alerte</td></tr>
+                            <tr><td>15</td><td>Mentionner les risques associés</td><td>Alerte</td></tr>
+                            <tr><td>16</td><td>PLS : tête inclinée, bouche vers le bas</td><td>Secourir</td></tr>
+                            <tr><td>17</td><td>RCP : compressions fortes et rapides</td><td>Secourir</td></tr>
+                            <tr><td>18</td><td>Alterner les sauveteurs toutes les 2 minutes</td><td>Secourir</td></tr>
+                            <tr><td>19</td><td>Compression directe sur saignement</td><td>Secourir</td></tr>
+                            <tr><td>20</td><td>Garrot en dernier recours, noter l’heure</td><td>Secourir</td></tr>
+                            <tr><td>21</td><td>Alterner 5 claques et 5 Heimlich pour étouffement</td><td>Secourir</td></tr>
+                            <tr><td>22</td><td>Brûlure : arroser 15‑20 min eau tiède</td><td>Secourir</td></tr>
+                            <tr><td>23</td><td>Position adaptée (jambes surélevées, demi‑assise)</td><td>Secourir</td></tr>
+                            <tr><td>24</td><td>Vérifier respiration toutes les 30 secondes</td><td>Surveillance</td></tr>
+                            <tr><td>25</td><td>Observer la couleur des lèvres</td><td>Surveillance</td></tr>
+                            <tr><td>26</td><td>Rassurer en parlant calmement</td><td>Surveillance</td></tr>
+                            <tr><td>27</td><td>Noter mentalement les changements</td><td>Surveillance</td></tr>
+                            <tr><td>28</td><td>Transmettre un rapport clair aux secours</td><td>Après</td></tr>
+                            <tr><td>29</td><td>Se laver les mains</td><td>Après</td></tr>
+                            <tr><td>30</td><td>Se former régulièrement</td><td>Après</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troisième rangée : citations et encouragements -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-quote-right text-primary me-2"></i>Parole d’expert</h5>
+                <p class="fst-italic">« Les bonnes pratiques ne sont pas des contraintes, ce sont des habitudes qui sauvent. Un secouriste qui les respecte devient un maillon fiable de la chaîne de secours. » — Dr Kouassi, SAMU Abidjan</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-graduation-cap text-success me-2"></i>Engagez‑vous</h5>
+                <p>Devenez acteur de la sécurité civile. Les formations PSC1 sont ouvertes à tous dès 10 ans. Contactez la Croix‑Rouge de Côte d’Ivoire ou la protection civile.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quatrième rangée : citation finale -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-success">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-success me-2"></i>
+                    Une bonne pratique répétée devient un réflexe. Un réflexe peut sauver une vie.
+                </p>
+                <p class="text-end text-muted small mt-2">— Proverbe des formateurs de la Croix‑Rouge</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ========== RISQUES & MAUVAISES PRATIQUES ========== -->
+<section id="risques">
+    <h2 class="section-title"><i class="fas fa-exclamation-triangle me-2"></i>Risques élevés & erreurs à éviter</h2>
+
+    <!-- Première rangée : deux colonnes principales -->
+    <div class="row g-4">
+        <!-- Colonne principale gauche (contenu détaillé) -->
+        <div class="col-lg-8">
+            <div class="card-step p-4">
+                <p class="fs-5">
+                    Connaître les gestes qui sauvent est essentiel, mais il est tout aussi crucial de savoir <strong>identifier les risques</strong> qui peuvent transformer une intervention en drame, et d'éviter les <strong>mauvaises pratiques</strong> qui aggravent l'état de la victime ou mettent le sauveteur en danger. Cette section recense les situations à haut risque et les erreurs les plus fréquentes, avec les retours d'expérience qui les illustrent.
+                </p>
+
+                <!-- Sous-titre : Risques élevés (situations critiques) -->
+                <div class="step-subtitle">🔥 Risques élevés (situations à haut danger)</div>
+                <p>Ces situations nécessitent une <strong>prudence extrême</strong> et souvent une approche spécifique. Les reconnaître permet d'adapter sa protection et son intervention.</p>
+                <table class="table table-dangers table-bordered">
+                    <thead class="table-danger">
+                        <tr><th>Type de risque</th><th>Exemples concrets</th><th>Conséquences possibles</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Électrique</strong></td><td>Fils tombés après tempête, appareils sous tension, eau + électricité, foudre</td><td>Électrocution du sauveteur et de la victime, arrêt cardiaque, brûlures graves</td></tr>
+                        <tr><td><strong>Incendie / explosion</strong></td><td>Feu de cuisine, fuite de gaz, bonbonne de gaz, essence renversée</td><td>Brûlures mortelles, asphyxie, explosion, effondrement</td></tr>
+                        <tr><td><strong>Chimique / toxique</strong></td><td>Produits ménagers, pesticides, gaz d'échappement (CO), chlore de piscine</td><td>Intoxication, brûlures chimiques, œdème pulmonaire, coma</td></tr>
+                        <tr><td><strong>Circulation</strong></td><td>Route à grande vitesse, virage sans visibilité, autoroute, voie ferrée</td><td>Sur‑accident mortel, piéton percuté</td></tr>
+                        <tr><td><strong>Effondrement / structurel</strong></td><td>Bâtiment endommagé (séisme, explosion), éboulement, arbre menaçant</td><td>Ensevelissement, traumatismes écrasement</td></tr>
+                        <tr><td><strong>Humain / animal</strong></td><td>Agresseur, foule paniquée, chien errant agressif, insectes venimeux</td><td>Violence, morsure, piqûre allergique, mouvement de foule</td></tr>
+                        <tr><td><strong>Médical spécifique</strong></td><td>Arrêt cardiaque sans RCP, hémorragie massive, obstruction totale des voies aériennes</td><td>Décès en quelques minutes</td></tr>
+                    </tbody>
+                </table>
+                <div class="rex-box small">
+                    <i class="fas fa-quote-left me-1"></i> <strong>REX Yopougon 2022 :</strong> Une fuite de gaz dans un immeuble a provoqué une explosion. Les secours ont retrouvé deux victimes décédées, dont un témoin qui avait voulu appeler depuis sa cuisine (étincelle). <strong>Ne jamais utiliser de téléphone ou d'interrupteur en cas de fuite de gaz.</strong>
+                </div>
+
+                <!-- Sous-titre : Mauvaises pratiques (erreurs fréquentes) -->
+                <div class="step-subtitle">🚫 Mauvaises pratiques (à proscrire absolument)</div>
+                <p>Ces erreurs sont souvent commises par des sauveteurs non formés ou sous le coup du stress. Les connaître permet de les éviter.</p>
+                <table class="table table-dangers table-bordered">
+                    <thead class="table-warning">
+                        <tr><th>Erreur</th><th>Pourquoi c'est dangereux</th><th>À la place</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Se précipiter sans sécuriser la zone</td><td>Risque de sur‑accident (électrocution, percuté par une voiture)</td><td>Observer 5‑10 secondes, couper les sources de danger</td></tr>
+                        <tr><td>Déplacer une victime sans danger immédiat</td><td>Peut aggraver une fracture cervicale ou interne</td><td>Laisser en place, protéger sur place</td></tr>
+                        <tr><td>Négliger de vérifier la respiration avant RCP</td><td>Risque de commencer la RCP sur une victime qui respire</td><td>Toujours regarder‑écouter‑sentir 10 secondes</td></tr>
+                        <tr><td>Commencer la RCP sur une victime qui respire</td><td>Peut causer des fractures de côtes et gêner la respiration</td><td>Si elle respire, mettre en PLS</td></tr>
+                        <tr><td>Ne pas appeler les secours ou appeler trop tard</td><td>Perte de temps crucial, chances de survie diminuent</td><td>Alerter immédiatement après examen</td></tr>
+                        <tr><td>Donner une adresse vague ou incomplète</td><td>Les secours se perdent, retard de 10‑15 minutes</td><td>Toujours préciser quartier, rue, point de repère</td></tr>
+                        <tr><td>Laisser la victime seule après l'avoir placée</td><td>Arrêt respiratoire non détecté, aggravation</td><td>Surveiller en continu toutes les 30 secondes</td></tr>
+                        <tr><td>Retirer un objet planté (couteau, tige)</td><td>Provoque une hémorragie massive et incontrôlable</td><td>Stabiliser l'objet, comprimer autour</td></tr>
+                        <tr><td>Appliquer de la glace directement sur une brûlure</td><td>Brûlure par le froid, aggrave la lésion</td><td>Arroser à l'eau tiède 15‑20 min</td></tr>
+                        <tr><td>Pencher la tête en arrière lors d'un saignement de nez</td><td>Le sang coule dans la gorge, risque d'étouffement</td><td>Tête penchée en avant, pincer les narines</td></tr>
+                        <tr><td>Retirer un casque de moto sans maintenir la tête</td><td>Risque de lésion cervicale irréversible</td><td>Attendre les secours, sauf si arrêt respiratoire</td></tr>
+                        <tr><td>Arrêter la RCP trop tôt (avant épuisement ou relève)</td><td>Perfusion cérébrale interrompue, décès</td><td>Continuer jusqu'à arrivée des secours ou reprise de respiration</td></tr>
+                        <tr><td>Poser un garrot sans nécessité absolue</td><td>Ischémie du membre, risque d'amputation</td><td>Réservé aux hémorragies vitales non contrôlées par compression</td></tr>
+                        <tr><td>Donner à boire ou à manger à un inconscient</td><td>Fausse route, étouffement</td><td>Ne rien donner par la bouche</td></tr>
+                        <tr><td>Oublier de surveiller la respiration en PLS</td><td>Arrêt respiratoire non détecté</td><td>Vérifier toutes les 30 secondes</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- REX sur les mauvaises pratiques -->
+                <div class="rex-box">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX San‑Pedro 2023 :</strong> Un ouvrier a reçu une tige métallique dans la cuisse. Un collègue a voulu la retirer, croyant bien faire. La victime a saigné abondamment et est décédée avant l'arrivée des secours. <strong>Ne jamais retirer un objet planté.</strong>
+                </div>
+                <div class="rex-box mt-3">
+                    <i class="fas fa-quote-left me-2"></i> <strong>REX Bouaké 2024 :</strong> Un conducteur de taxi a fait un malaise. Un passager l'a sorti du véhicule et l'a assis contre un arbre. La victime a fait un arrêt respiratoire, mais personne n'a vérifié sa respiration. Elle est décédée. <strong>Toujours vérifier respiration et mettre en PLS si inconscient.</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Colonne de droite : récapitulatif et outils -->
+        <div class="col-lg-4">
+            <div class="card-step p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="icon-circle"><i class="fas fa-exclamation-triangle"></i></span>
+                    <span class="fs-3 fw-bold">Risques & erreurs</span>
+                </div>
+                <p class="text-muted small">À retenir absolument</p>
+                <ul class="list-cross">
+                    <li><strong>Ne pas sécuriser</strong> – sur‑accident</li>
+                    <li><strong>Déplacer sans danger</strong> – aggravation</li>
+                    <li><strong>Oublier respiration</strong> – RCP inutile ou absente</li>
+                    <li><strong>Adresse vague</strong> – retard</li>
+                    <li><strong>Laisser seul</strong> – détérioration non vue</li>
+                    <li><strong>Retirer objet planté</strong> – hémorragie</li>
+                    <li><strong>Glace sur brûlure</strong> – aggravation</li>
+                </ul>
+
+                <!-- Encart : risques mortels -->
+                <div class="bg-light p-3 rounded-3 mt-4">
+                    <h5 class="text-danger"><i class="fas fa-skull-crossbones me-2"></i>Top 5 des risques mortels</h5>
+                    <ol class="small mb-0">
+                        <li>Électrocution (sauveteur et victime)</li>
+                        <li>Hémorragie massive non contrôlée</li>
+                        <li>Arrêt cardiaque sans RCP</li>
+                        <li>Obstruction totale des voies aériennes</li>
+                        <li>Explosion / incendie</li>
+                    </ol>
+                </div>
+
+                <!-- Encart : Top 5 des erreurs fatales -->
+                <div class="bg-light p-3 rounded-3 mt-3">
+                    <h5 class="text-warning"><i class="fas fa-times-circle me-2"></i>Top 5 des erreurs fatales</h5>
+                    <ol class="small mb-0">
+                        <li>Se précipiter sans sécuriser</li>
+                        <li>Déplacer une victime sans danger</li>
+                        <li>Ne pas vérifier la respiration</li>
+                        <li>Ne pas appeler ou mal localiser</li>
+                        <li>Arrêter la RCP trop tôt</li>
+                    </ol>
+                </div>
+
+                <!-- FAQ Risques -->
+                <div class="mt-4">
+                    <h5 class="mb-2"><i class="fas fa-question-circle text-warning"></i> Questions fréquentes</h5>
+                    <div class="accordion" id="faqRisques">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqR1">
+                                    Que faire en cas de fuite de gaz ?
+                                </button>
+                            </h2>
+                            <div id="faqR1" class="accordion-collapse collapse" data-bs-parent="#faqRisques">
+                                <div class="accordion-body small">
+                                    N'actionnez aucun interrupteur, ne téléphonez pas sur place. Ouvrez portes et fenêtres, coupez le gaz au compteur (généralement à l'extérieur). Évacuez les personnes et appelez les pompiers d'un lieu sûr.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqR2">
+                                    Puis‑je donner à boire à une victime consciente ?
+                                </button>
+                            </h2>
+                            <div id="faqR2" class="accordion-collapse collapse" data-bs-parent="#faqRisques">
+                                <div class="accordion-body small">
+                                    Uniquement si elle est consciente et capable d'avaler, et en l'absence de suspicion de chirurgie (accident, traumatisme). De petites gorgées d'eau peuvent être données en cas de soif intense, mais attention aux nausées.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqR3">
+                                    Comment savoir si une victime a une fracture du cou ?
+                                </button>
+                            </h2>
+                            <div id="faqR3" class="accordion-collapse collapse" data-bs-parent="#faqRisques">
+                                <div class="accordion-body small">
+                                    En présence d'un mécanisme violent (chute, accident de voiture, plongeon), suspectez toujours un traumatisme cervical. Ne mobilisez pas la tête. Si elle ne respire pas, il faut basculer la tête quand même pour dégager les voies aériennes (protection de la vie prime).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lien utile -->
+                <div class="mt-4 small text-center">
+                    <i class="fas fa-external-link-alt me-1"></i> Formation PSC1 : apprenez à éviter ces pièges.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deuxième rangée : Fil rouge – ce qu'il ne faut PAS faire -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-user-slash text-danger me-2"></i>Fil rouge – Ce qu'Amadou a évité</h5>
+                <p>Amadou a bien réagi, mais voici ce qu'il aurait pu faire de travers et qui aurait pu être catastrophique :</p>
+                <ul class="list-cross">
+                    <li><strong>Ne pas couper le gaz :</strong> L'incendie aurait pu s'aggraver ou exploser.</li>
+                    <li><strong>Toucher Fatou sans couper le courant :</strong> Risque d'électrocution.</li>
+                    <li><strong>La déplacer sans danger immédiat :</strong> Il l'a fait (feu) donc c'était justifié, mais s'il n'y avait pas eu de feu, il aurait pu aggraver une fracture cervicale.</li>
+                    <li><strong>Commencer la RCP sans vérifier la respiration :</strong> Il a vérifié et a vu qu'elle respirait → PLS, bonne action.</li>
+                    <li><strong>Ne pas surveiller :</strong> Il est resté et a ajusté la position.</li>
+                </ul>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> Amadou a évité les erreurs grâce à sa connaissance des bonnes pratiques.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-step p-3">
+                <h5><i class="fas fa-skull text-secondary me-2"></i>Cas concret : Ce qu'il ne fallait PAS faire</h5>
+                <p>Un homme trouve son voisin inconscient dans sa chambre. Il panique, le prend dans ses bras, le porte jusqu'à la rue et l'assoit contre un mur. Puis il appelle les secours. Quand ils arrivent, le voisin ne respire plus. Analyse des erreurs :</p>
+                <ul class="list-cross">
+                    <li>Déplacement inutile (pas de danger immédiat) → risque de lésion cervicale.</li>
+                    <li>Position assise pour un inconscient → obstruction des voies aériennes.</li>
+                    <li>Pas de vérification de la respiration avant déplacement.</li>
+                    <li>Alerte trop tardive.</li>
+                </ul>
+                <div class="rex-box small mt-2">
+                    <i class="fas fa-quote-left me-1"></i> <strong>Leçon :</strong> La précipitation et l'ignorance des bases ont causé la mort.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Troisième rangée : tableau des risques par environnement -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card-step p-4">
+                <h5 class="mb-3"><i class="fas fa-map-marked-alt me-2"></i>Risques spécifiques par environnement</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-secondary">
+                            <tr><th>Environnement</th><th>Risques principaux</th><th>Précautions</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Route / autoroute</strong></td><td>Sur‑accident, véhicules rapides, nuit, pluie</td><td>Triangle 30‑50 m, gilet fluorescent, warnings, guetteur</td></tr>
+                            <tr><td><strong>Domicile / cuisine</strong></td><td>Incendie, électrocution, gaz, brûlures</td><td>Couper courant/gaz avant d'entrer, ne pas utiliser d'eau sur feu électrique</td></tr>
+                            <tr><td><strong>Atelier / industrie</strong></td><td>Machines en marche, produits chimiques, chutes d'objets</td><td>Couper machine, port d'EPI, connaître les consignes</td></tr>
+                            <tr><td><strong>Eau (plage, rivière)</strong></td><td>Noyade, hydrocution, courant, animaux aquatiques</td><td>Sortir l'eau en protégeant la tête, alerter rapidement</td></tr>
+                            <tr><td><strong>Foule (marché, stade)</strong></td><td>Mouvement de foule, étouffement, agression</td><td>Créer un espace, demander l'aide de vigiles, police</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quatrième rangée : citation finale -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4 border-danger">
+                <p class="fs-5 fst-italic text-center mb-0">
+                    <i class="fas fa-quote-left text-danger me-2"></i>
+                    Mieux vaut prévenir que guérir. Connaître les risques et les erreurs, c'est déjà les éviter.
+                </p>
+                <p class="text-end text-muted small mt-2">— Adage des sapeurs‑pompiers</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Conclusion / rappel -->
+    <section class="mt-5 p-4 bg-white rounded-4 shadow-sm border-start border-5 border-primary">
+        <h3 class="text-primary"><i class="fas fa-book-reader me-2"></i>En résumé</h3>
+        <p class="fs-5">La méthode PSEAS est votre alliée. Face à une urgence, respirez, observez, et suivez les étapes dans l'ordre. N'ayez pas peur d'agir : même imparfaits, vos gestes peuvent sauver une vie. Formez-vous régulièrement (PSC1, SST) et partagez ces connaissances autour de vous.</p>
+        <p class="fw-bold">Numéros à retenir : 18 · 15 · 17 · 112</p>
     </section>
 </div>
 
 <!-- Footer -->
-<footer class="footer text-center">
-    <div class="container">
-        <p><i class="fas fa-heart text-danger me-2"></i> Guide PSEAS – Secourisme Côte d'Ivoire · Inspiré des formations PSC1 et des REX terrain</p>
-        <p class="small">Numéros d'urgence : 18 (Pompiers) · 15 (SAMU) · 17 (Police) · 112 (européen)</p>
-        <p class="small"><a href="#" class="text-white">Haut de page</a></p>
+<footer class="footer bg-dark text-white py-5 mt-5">
+    <div class="container text-center">
+        <p><i class="fas fa-heart text-danger me-2"></i> Guide PSEAS – Secourisme Côte d'Ivoire · Inspiré des formations Croix-Rouge, de la protection civile et des retours d'expérience ivoiriens</p>
+        <p class="small">Ce guide est fourni à titre informatif et pédagogique. Pour une formation complète, adressez-vous à la Croix-Rouge de Côte d'Ivoire ou à la protection civile.</p>
+        <p class="small">Mise à jour : mars 2026</p>
+        <p><a href="#" class="text-white text-decoration-none" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;"><i class="fas fa-arrow-up me-1"></i>Retour haut</a></p>
     </div>
 </footer>
 
@@ -486,8 +2442,6 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Script pour le bouton retour haut -->
 <script>
     window.onscroll = function() {
         const btn = document.getElementById('btnTop');
@@ -498,6 +2452,5 @@
         }
     };
 </script>
-
 </body>
 </html>
