@@ -368,4 +368,345 @@ Amadou surveille Fatou, rassure sa voisine et informe les pompiers de tout chang
 ---
 
 
+## Étape 2 : Examiner – Évaluer la victime
+
+### Objectif principal
+
+* Identifier rapidement l’état de la victime pour déterminer les gestes de secours appropriés.
+* Détecter les signes vitaux essentiels : conscience, respiration, saignement.
+* Évaluer la gravité de la situation sans perdre de temps.
+
+---
+
+### Actions concrètes (pas à pas)
+
+1. **Vérifier la réponse de la victime**
+
+   * Parlez à la victime : “Bonjour, ça va ? Vous m’entendez ?”
+   * Tapotez doucement ses épaules si elle ne répond pas.
+   * Objectif : savoir si la personne est consciente ou inconsciente.
+
+2. **Évaluer la respiration**
+
+   * Ouvrez légèrement la tête et le menton pour dégager les voies respiratoires.
+   * Écoutez et sentez le souffle sur votre joue pendant 10 secondes.
+   * Vérifiez si la respiration est normale (rythme, profondeur).
+
+3. **Identifier les saignements abondants**
+
+   * Inspectez rapidement le corps pour repérer des hémorragies majeures.
+   * Si présence de saignement massif, préparez un pansement compressif ou appliquez une pression directe.
+
+4. **Repérer les signes d’étouffement ou d’obstruction**
+
+   * Observez si la victime tousse, a des difficultés à parler ou des bruits respiratoires anormaux.
+   * Préparez la technique de Heimlich si elle est consciente et qu’une obstruction est détectée.
+
+5. **Décider de l’urgence et de l’action**
+
+   * Victime inconsciente qui respire → Placer en **PLS**.
+   * Victime inconsciente qui ne respire pas → Commencer **RCP immédiatement**.
+   * Victime consciente avec saignement → Arrêter le saignement.
+
+---
+
+### Conseils pratiques
+
+* Agissez **rapidement mais méthodiquement** : 30 secondes suffisent pour un examen efficace.
+* Toujours suivre le même ordre : conscience → respiration → saignement → obstruction.
+* Ne tentez pas de gestes complexes si vous n’êtes pas formé : **PLS et RCP de base suffisent pour sauver une vie.**
+
+---
+
+### Erreurs fréquentes
+
+* Confondre inconscience et sommeil → risque de retard dans la RCP.
+* Négliger un saignement important ou une obstruction → aggravation de l’état.
+* Perdre du temps à déplacer la victime pour examiner → danger supplémentaire.
+
+---
+
+### REX (Retour d’expérience)
+
+* Dans un centre commercial, une victime semblait inconsciente mais respirait faiblement. Une vérification rapide a permis de détecter la respiration et de la mettre en **PLS** immédiatement.
+* Lors d’un accident domestique, un secouriste a commencé une RCP inutile sur une victime qui respirait. Résultat : perte de temps et stress inutile. **Conclusion : vérifier soigneusement avant d’agir.**
+
+---
+
+### Fil rouge (Amadou)
+
+* Après avoir sécurisé la zone, Amadou s’approche de Fatou.
+* Il parle doucement et tapote ses épaules : pas de réponse → inconsciente.
+* Il observe sa respiration : normale → pas de RCP nécessaire.
+* Aucun saignement apparent, pas de signes d’étouffement.
+* Il décide donc de la placer en **PLS** et de continuer la surveillance.
+
+---
+
+
+
+## Étape 3 : Alerter – Appeler les secours (Côte d’Ivoire)
+
+### Objectif principal
+
+* Informer rapidement les services d’urgence pour déclencher une intervention professionnelle efficace.
+* Fournir toutes les informations essentielles pour que les secours arrivent rapidement et préparés.
+* Permettre au secouriste de recevoir des instructions si nécessaire avant l’arrivée des secours.
+
+---
+
+### Actions concrètes (pas à pas)
+
+1. **Identifier le bon numéro d’urgence (Côte d’Ivoire)**
+
+   * **Police** : 17
+   * **Pompiers / Secours d’urgence** : 18
+   * **SAMU / Ambulance médicale** : 15
+
+> ⚠️ Selon la situation, si vous n’êtes pas sûr, le **18** (Pompiers) peut coordonner l’intervention avec le SAMU ou d’autres services.
+
+2. **Préparer les informations clés**
+   Avant de composer, ayez en tête :
+
+   * **Localisation précise** : adresse, quartier, étage, repères visibles.
+   * **Nature de l’urgence** : accident domestique, feu, malaise, circulation, etc.
+   * **Nombre de victimes** et état de chacune : consciente/inconsciente, respire/non, saignement.
+   * **Risques sur place** : feu, gaz, danger électrique.
+
+3. **Communiquer clairement et calmement**
+
+   * Parler lentement, donner les informations dans l’ordre.
+   * Écouter les instructions de l’opérateur et les suivre exactement.
+   * Ne raccrochez pas tant que l’opérateur ne confirme pas que toutes les informations ont été reçues.
+
+4. **Suivre les consignes de l’opérateur**
+
+   * L’opérateur peut guider pour effectuer les gestes de premiers secours (RCP, PLS, contrôle des saignements).
+   * Respecter ses instructions jusqu’à l’arrivée des secours.
+
+---
+
+### Conseils pratiques
+
+* Si possible, **demander à quelqu’un d’autre d’appeler** pendant que vous commencez les premiers gestes de secours.
+* Notez le temps exact de l’appel et l’heure de l’intervention.
+* **Rester calme** et respirer profondément aide à transmettre les informations clairement.
+
+---
+
+### Erreurs fréquentes
+
+* Oublier de préciser la localisation exacte → retarde l’arrivée des secours.
+* Parler trop vite ou paniquer → information mal transmise.
+* Raccrocher avant la confirmation de l’opérateur → risque de retard critique.
+* Ne pas signaler les dangers présents sur place → met les secours en risque.
+
+---
+
+### REX (Retour d’expérience)
+
+* Lors d’un accident domestique à Abidjan, un témoin a appelé sans préciser le quartier exact : les secours ont mis 10 minutes de plus pour arriver.
+* Dans un incendie industriel, un secouriste a suivi les instructions de l’opérateur du 18 pour placer correctement la victime et surveiller sa respiration. La victime a été stabilisée avant l’arrivée des pompiers.
+
+---
+
+### Fil rouge (Amadou)
+
+* Après avoir sécurisé la zone et évalué Fatou, Amadou compose le **18** (Pompiers) à Abidjan.
+* Il indique : “Incendie dans une cuisine, voisine inconsciente mais respire, pas de saignement, adresse exacte : 12 Rue des Acacias, Marcory.”
+* L’opérateur lui demande de **placer la victime en PLS** et de surveiller sa respiration jusqu’à l’arrivée des secours.
+* Amadou suit les instructions et garde Fatou sous observation constante.
+
+---
+
+
+## Étape 4 : Secourir – Appliquer les gestes adaptés
+
+### Objectif principal
+
+* Stabiliser la victime et éviter l’aggravation de son état jusqu’à l’arrivée des secours.
+* Effectuer les gestes de premiers secours adaptés à chaque situation.
+* Sauver des vies grâce à des interventions simples mais efficaces.
+
+---
+
+### Actions concrètes (pas à pas)
+
+#### 1. **Victime inconsciente qui respire**
+
+* **Action :** Placer en **Position Latérale de Sécurité (PLS)** pour maintenir les voies respiratoires dégagées.
+* **Comment faire :**
+
+  1. Placer le bras le plus proche de vous à angle droit par rapport au corps.
+  2. Placer l’autre main sous la joue de la victime.
+  3. Plier la jambe la plus éloignée et rouler doucement la victime sur le côté.
+  4. Vérifier que la tête est légèrement penchée en arrière pour faciliter la respiration.
+
+#### 2. **Victime inconsciente qui ne respire pas**
+
+* **Action :** Commencer la **Réanimation Cardio-Pulmonaire (RCP)**.
+* **Comment faire :**
+
+  1. Placer la victime sur le dos sur une surface dure.
+  2. Mettre vos mains au centre de la poitrine.
+  3. Comprimer fortement et rapidement (5-6 cm, rythme 100 à 120 compressions/min).
+  4. Alterner 30 compressions avec 2 insufflations si formé, sinon continuer uniquement les compressions jusqu’à l’arrivée des secours.
+
+#### 3. **Victime qui saigne abondamment**
+
+* **Action :** Appliquer une pression directe sur la plaie avec un tissu propre ou un pansement compressif.
+* **Astuce :** Si possible, surélever le membre blessé pour ralentir le saignement.
+* **Si le saignement persiste**, préparer un deuxième tissu et maintenir la pression.
+
+#### 4. **Victime qui s’étouffe (consciente)**
+
+* **Action :** Technique de Heimlich (compressions abdominales).
+* **Comment faire :**
+
+  1. Se placer derrière la victime.
+  2. Entourer la taille avec vos bras.
+  3. Placer un poing fermé juste au-dessus du nombril.
+  4. Donner des pressions rapides vers l’intérieur et le haut pour expulser l’objet.
+
+---
+
+### Conseils pratiques
+
+* Chaque geste doit être **rapide mais sûr**, sans brusquer la victime.
+* **Priorité absolue : respiration et circulation**.
+* Si vous n’êtes pas formé, **PLS et compressions thoraciques simples** suffisent pour stabiliser la victime.
+* Évitez de retirer un objet coincé dans une plaie si ce n’est pas dangereux.
+
+---
+
+### Erreurs fréquentes
+
+* Placer en PLS une victime qui ne respire pas → perte de temps critique.
+* Commencer la RCP sur une victime qui respire → peut causer des blessures inutiles.
+* Ne pas maintenir la pression sur un saignement → aggravation du saignement.
+* Tenter des gestes complexes sans formation → risque d’aggraver la situation.
+
+---
+
+### REX (Retour d’expérience)
+
+* Dans un accident domestique à Abidjan, une victime inconsciente mais respirante a été placée en PLS par un témoin avant l’arrivée des secours, évitant l’étouffement.
+* Lors d’un arrêt cardiaque dans un quartier résidentiel, la RCP commencée immédiatement par des voisins a permis à la victime de survivre jusqu’à l’arrivée de l’ambulance.
+* Une mauvaise gestion d’un saignement dans un atelier a conduit à une perte de sang plus importante qu’attendue, soulignant l’importance de **pression continue et vigilante**.
+
+---
+
+### Fil rouge (Amadou)
+
+* Après avoir appelé les secours, Amadou place Fatou en **PLS** dans le couloir sécurisé.
+* Il s’assure que la tête est inclinée pour faciliter la respiration et que le bras protège le visage.
+* Il vérifie qu’il n’y a pas de saignement, et que Fatou respire régulièrement.
+* Amadou reste à côté d’elle, prêt à intervenir si sa respiration change ou si un saignement apparaît.
+
+---
+
+
+## Étape 5 : Surveiller – Rester attentif à l’évolution
+
+### Objectif principal
+
+* Maintenir une vigilance constante jusqu’à l’arrivée des secours.
+* Détecter toute détérioration de l’état de la victime.
+* Ajuster la position et les gestes de secours en fonction des changements observés.
+
+---
+
+### Actions concrètes (pas à pas)
+
+1. **Vérifier régulièrement la respiration et le pouls**
+
+   * Observer le mouvement de la poitrine et écouter le souffle.
+   * Palper le pouls si possible (poignet ou cou).
+   * Fréquence recommandée : toutes les **30 secondes**.
+
+2. **Surveiller l’état de conscience**
+
+   * Parlez calmement à la victime : “Vous m’entendez ?”
+   * Notez tout changement : agitation, somnolence, perte de connaissance.
+
+3. **Observer les signes vitaux et les symptômes**
+
+   * Couleur de la peau (pâleur, cyanose, rougeur).
+   * Transpiration excessive, respiration irrégulière.
+   * Saignements ou écoulements soudains.
+
+4. **Maintenir la position de sécurité**
+
+   * Si la victime était en **PLS**, vérifier qu’elle est toujours stable.
+   * Ajuster la position si nécessaire pour maintenir les voies respiratoires dégagées.
+
+5. **Rassurer la victime et l’entourage**
+
+   * Parler calmement et doucement.
+   * Expliquer que les secours arrivent et qu’elle est surveillée.
+   * Si la victime est consciente, l’encourager à respirer lentement et profondément.
+
+6. **Préparer l’arrivée des secours**
+
+   * Garder l’accès dégagé pour l’ambulance ou les pompiers.
+   * Transmettre toute évolution à l’équipe d’intervention à leur arrivée.
+
+---
+
+### Conseils pratiques
+
+* Ne jamais relâcher la surveillance : même une victime respirant normalement peut se détériorer rapidement.
+* Rester calme et concentré permet de détecter des changements subtils.
+* Utiliser des repères simples : respirations par minute, pouls, couleur de la peau.
+* Avoir une lampe ou un téléphone à portée pour vérifier la respiration dans l’obscurité.
+
+---
+
+### Erreurs fréquentes
+
+* S’éloigner ou se distraire → retard dans la détection de détérioration.
+* Négliger un changement de respiration ou de couleur de la peau → aggravation du pronostic.
+* Déplacer la victime inutilement → risque de blessure supplémentaire.
+
+---
+
+### REX (Retour d’expérience)
+
+* Dans un accident domestique, une victime inconsciente a commencé à vomir ; le secouriste vigilant a immédiatement tourné sa tête sur le côté pour éviter l’étouffement, sauvant ainsi sa vie.
+* Dans un incident à Abidjan, un témoin qui a cessé de surveiller une victime respirante a manqué l’arrêt respiratoire survenu 2 minutes plus tard. **Résultat : perte de temps critique.**
+
+---
+
+### Fil rouge (Amadou)
+
+* Amadou reste auprès de Fatou, observe sa respiration toutes les 30 secondes et rassure les voisins.
+* La tête de Fatou est inclinée, le corps stabilisé en **PLS**.
+* Dès qu’il remarque un petit changement dans sa respiration, il ajuste légèrement sa position et informe les pompiers à leur arrivée.
+* Grâce à cette surveillance constante, Fatou arrive aux secours en sécurité et son état reste stable jusqu’à l’intervention professionnelle.
+
+---
+
+### Points clés à retenir pour la surveillance
+
+1. **Ne jamais quitter la victime des yeux**.
+2. **Vérifier régulièrement** respiration, pouls et état de conscience.
+3. **Maintenir la position de sécurité** adaptée.
+4. **Rassurer et communiquer** avec la victime et l’entourage.
+5. **Préparer l’arrivée des secours** et transmettre les informations précises.
+
+---
+
+✅ Avec cette étape, le guide **PSEAS complet** est désormais détaillé **de A à Z**, fil rouge inclus :
+
+1. **Protéger** – Sécuriser la zone
+2. **Examiner** – Évaluer la victime
+3. **Alerter** – Appeler les secours
+4. **Secourir** – Appliquer les gestes adaptés
+5. **Surveiller** – Rester attentif à l’évolution
+
+---
+
+
+
+
 
